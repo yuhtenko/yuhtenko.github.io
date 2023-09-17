@@ -178,8 +178,8 @@ export default function IndexPage() {
                 <Grid
                     container
                     spacing={{
-                        md: theme.sizes.spacing.section2[0],
-                        xs: theme.sizes.spacing.section2[1],
+                        md: theme.sizes.spacing.heading1[0],
+                        xs: theme.sizes.spacing.heading1[1],
                     }}
                     direction={'column'}
                 >
