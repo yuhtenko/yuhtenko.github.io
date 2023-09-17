@@ -29,6 +29,20 @@ const ResumeButton = styled(Button)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
         maxWidth: '250px',
     },
+    '& .normal': {
+        display: 'block',
+    },
+    '& .hover': {
+        display: 'none',
+    },
+    '&:hover': {
+        '& .normal': {
+            display: 'none',
+        },
+        '& .hover': {
+            display: 'block',
+        },
+    },
 }));
 
 const ElevatedGrid = styled(Grid)(({ theme }) => ({
@@ -132,7 +146,8 @@ export default function IndexPage() {
                     />
                 </Stack>
                 <ResumeButton onClick={handleDownload}>
-                    Download Resume
+                    <span className="normal">{data.title}</span>
+                    <span className={'hover'}>Download Resume</span>
                 </ResumeButton>
             </HeroPageSection>
             {/*<PageSection*/}
