@@ -5,7 +5,7 @@ import { ScrollAnchor } from '../scroll-to-anchor';
 import { Rectangle, Triangle } from '../shape';
 import { styled, useTheme } from '../theme';
 
-const Container = styled(Stack)(({ theme }) => {
+const FooterRoot = styled(Stack)(({ theme }) => {
     const [lg, md] = theme.sizes.spacing.section1;
 
     return {
@@ -17,40 +17,43 @@ const Container = styled(Stack)(({ theme }) => {
     };
 });
 
+const Copyright = styled('span')(({ theme }) => ({
+    height: '40px',
+}));
+
 export function Footer(): ReactElement {
     const theme = useTheme();
 
     return (
-        <Container direction={'column'}>
-            <Stack direction={'row'} alignItems={'flex-end'} spacing={4}>
-                <Rectangle
-                    className="footer-shape"
-                    position="relative"
-                    direction="right"
-                    color="red"
-                />
-
-                <Triangle
-                    className="footer-shape"
-                    position="relative"
-                    direction="up"
-                    color="black"
-                />
-            </Stack>
+        <FooterRoot direction={'column'} spacing={3}>
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
-                alignItems={'center'}
-                sx={{ height: '80px' }}
+                spacing={4}
+                alignItems={'flex-end'}
             >
-                <span id="footer-copyright" className="copyright">
-                    {new Date().getFullYear()} All rights reserved
-                </span>
+                <Stack direction={'row'} alignItems={'flex-end'} spacing={4}>
+                    <Rectangle
+                        className="footer-shape"
+                        position="relative"
+                        direction="right"
+                        color="red"
+                    />
 
+                    <Triangle
+                        className="footer-shape"
+                        position="relative"
+                        direction="up"
+                        color="black"
+                    />
+                </Stack>
                 <ScrollAnchor to="page-root">
                     <ArrowUpIcon />
                 </ScrollAnchor>
             </Stack>
-        </Container>
+            <Copyright id="footer-copyright">
+                {new Date().getFullYear()} All rights reserved
+            </Copyright>
+        </FooterRoot>
     );
 }
