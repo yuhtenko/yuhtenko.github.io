@@ -1,0 +1,64 @@
+{
+    "title": "Yulia Yukhtenko",
+    "description": "UX/UI Designer",
+    "url": "https://www.yuliayukhtenko.com/",
+    "contact": {
+        "url": "http://localhost:8080"
+    },
+    "sections": [
+        {
+            "id": "work",
+            "title": "Work",
+            "path": "#section-work"
+        },
+        {
+            "id": "about",
+            "title": "About",
+            "path": "#section-about"
+        },
+        {
+            "id": "contact",
+            "title": "Contact",
+            "path": "#section-contact"
+        }
+    ],
+    "projects": [
+        {
+            "id": "ferret",
+            "title": "Ferret",
+            "description": "Redesign UX/UI",
+            "shape": "rectangle",
+            "color": "blue",
+            "path": "/projects/ferret"
+        },
+        {
+            "id": "led-screen",
+            "title": "LedScreen",
+            "description": "Case study",
+            "shape": "triangle",
+            "color": "red",
+            "path": "/projects/led"
+        },
+        {
+            "id": "cat-shelter",
+            "title": "Cat Angels",
+            "description": "Redesign UX/UI",
+            "shape": "half-circle",
+            "color": "yellow",
+            "path": "/projects/cat-shelter"
+        }
+    ],
+    "languages": [
+        "English (Upper Intermediate)",
+        "Polish (Intermediate)",
+        "Russian (Mother tongue)"
+    ],
+    "interests": [
+        "Photography",
+        "Interior design",
+        "Architecture",
+        "Art",
+        "Psychology",
+        "Table Tennis"
+    ]
+}
