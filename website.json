@@ -9,17 +9,17 @@
         {
             "id": "work",
             "title": "Work",
-            "path": "#section-work"
+            "path": "#work"
         },
         {
             "id": "about",
             "title": "About",
-            "path": "#section-about"
+            "path": "#about"
         },
         {
             "id": "contact",
             "title": "Contact",
-            "path": "#section-contact"
+            "path": "#contact"
         }
     ],
     "projects": [

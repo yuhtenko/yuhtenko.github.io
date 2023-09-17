@@ -151,7 +151,7 @@ export default function IndexPage() {
                 </ResumeButton>
             </HeroPageSection>
             {/*<PageSection*/}
-            {/*    id="section-quote"*/}
+            {/*    id="quote"*/}
             {/*    paddingBottom={{ xs: '78px', md: '128px' }}*/}
             {/*>*/}
             {/*    <Stack justifyContent={'center'} alignItems={'center'}>*/}
@@ -163,17 +163,13 @@ export default function IndexPage() {
             {/*    </Stack>*/}
             {/*</PageSection>*/}
             <PageSection
-                id="section-work"
+                id="work"
                 heading={['My', 'Work']}
                 variant={['normal', 'outline']}
             >
                 <WorkList content={(data?.projects as WorkItemData[]) ?? []} />
             </PageSection>
-            <PageSection
-                id="section-about"
-                heading={['About', 'Me']}
-                variant="outline"
-            >
+            <PageSection id="about" heading={['About', 'Me']} variant="outline">
                 <Relative>
                     <SuperTriangleWrapper>
                         <SuperTriangle transform="translateY(-28%)" />
@@ -250,7 +246,7 @@ export default function IndexPage() {
                 </Grid>
             </PageSection>
             <PageSection
-                id="section-contact"
+                id="contact"
                 heading={['Contact', 'Me']}
                 variant={'outline'}
             >
