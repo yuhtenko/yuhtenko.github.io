@@ -9,10 +9,10 @@ const FooterRoot = styled(Stack)(({ theme }) => {
     const [lg, md] = theme.sizes.spacing.section1;
 
     return {
-        marginTop: theme.spacing(lg),
+        marginTop: '128px',
         [theme.breakpoints.down('md')]: {
             padding: `0 ${theme.spacing(2)}`,
-            marginTop: theme.spacing(md),
+            marginTop: '84px',
         },
     };
 });
