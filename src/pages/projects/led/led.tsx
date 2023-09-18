@@ -121,8 +121,14 @@ export default function LedScreenProjectPage() {
                 <DesignProcess>
                     <DesignProcess.Step
                         key={'discover'}
-                        shape={<Rectangle color={'blue'} direction={'left'} />}
-                        icon={<LensIcon />}
+                        shape={
+                            <Rectangle
+                                key={'shape'}
+                                color={'blue'}
+                                direction={'left'}
+                            />
+                        }
+                        icon={<LensIcon key={'icon'} />}
                         title={'Discover'}
                         actions={[
                             'User research',
@@ -134,9 +140,13 @@ export default function LedScreenProjectPage() {
                     <DesignProcess.Step
                         key={'define'}
                         shape={
-                            <HalfCircle color={'yellow'} direction={'right'} />
+                            <HalfCircle
+                                key={'shape'}
+                                color={'yellow'}
+                                direction={'right'}
+                            />
                         }
-                        icon={<AimIcon />}
+                        icon={<AimIcon key={'icon'} />}
                         title={'Define'}
                         actions={[
                             'User personas',
@@ -147,8 +157,8 @@ export default function LedScreenProjectPage() {
                     />
                     <DesignProcess.Step
                         key={'ideate'}
-                        shape={<Triangle direction={'left'} />}
-                        icon={<BulbIcon />}
+                        shape={<Triangle key={'shape'} direction={'left'} />}
+                        icon={<BulbIcon key={'icon'} />}
                         title={'Ideate'}
                         actions={[
                             'User flow',
@@ -159,8 +169,14 @@ export default function LedScreenProjectPage() {
                     />
                     <DesignProcess.Step
                         key={'design'}
-                        shape={<Rectangle color={'red'} direction={'left'} />}
-                        icon={<BrowserIcon />}
+                        shape={
+                            <Rectangle
+                                key={'shape'}
+                                color={'red'}
+                                direction={'left'}
+                            />
+                        }
+                        icon={<BrowserIcon key={'icon'} />}
                         title={'Design'}
                         actions={['Wireframes', 'Hi-Fi designs', 'Prototype']}
                         position={'right'}

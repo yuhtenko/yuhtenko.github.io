@@ -78,14 +78,12 @@ interface SuperCircleWrapperProps {
     position?: 'background' | 'foreground';
 }
 
-function toAlignment(
-    size: Breakpoint,
-    align?: 'left' | 'right' | 'center'
-): CSSObject {
+function toAlignment(align?: 'left' | 'right' | 'center'): CSSObject {
     switch (align) {
         case 'left':
             return {
                 left: '0',
+                transform: 'translate(0%, -25%)',
             };
         case 'right':
             return {
@@ -94,8 +92,8 @@ function toAlignment(
         case 'center':
             return {
                 top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, 0%)',
+                right: '50%',
+                transform: 'translate(50%, 0%)',
             };
         default:
             return {};
@@ -108,10 +106,14 @@ const SuperCircleWrapper = styled('div')<SuperCircleWrapperProps>(
         top: '100%',
         transform: 'translateY(-25%)',
         transition: `all 0.5s ease-in-out`,
-        ...toAlignment('lg', align),
+        ...toAlignment(align),
+        [theme.breakpoints.down('md')]: {
+            transform: 'translateY(-15%)',
+            ...toAlignment(align),
+        },
         [theme.breakpoints.down('sm')]: {
             transform: 'translateY(0)',
-            ...toAlignment('sm', align),
+            ...toAlignment(align),
         },
     })
 );
@@ -278,6 +280,7 @@ export default function IndexPage() {
                         sx={{
                             display: 'block !important',
                             width: '100%',
+                            height: '100%',
                         }}
                     >
                         <SuperCircleWrapper
