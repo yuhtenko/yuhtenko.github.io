@@ -20,6 +20,8 @@ import { Heading, Paragraph, Text } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkItemData, WorkList } from '../components/work-list';
 import resumePdf from './assets/resume.pdf';
+import { Breakpoint } from '@mui/system/createTheme/createBreakpoints';
+import { CSSObject } from '@mui/styled-engine';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -75,28 +77,41 @@ interface SuperCircleWrapperProps {
     position?: 'background' | 'foreground';
 }
 
-function toAlignment(align?: 'left' | 'right' | 'center') {
+function toAlignment(
+    size: Breakpoint,
+    align?: 'left' | 'right' | 'center'
+): CSSObject {
     switch (align) {
         case 'left':
-            return '25%';
+            return {
+                left: '0',
+            };
         case 'right':
-            return '75%';
+            return {
+                right: 0,
+            };
         case 'center':
-            return '35%';
+            return {
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, 0%)',
+            };
         default:
-            return '75%';
+            return {};
     }
 }
 
 const SuperCircleWrapper = styled('div')<SuperCircleWrapperProps>(
-    ({ align, position }) => ({
+    ({ theme, align, position }) => ({
         position: 'absolute',
-        left: toAlignment(align),
         top: '100%',
         transform: 'translateY(-25%)',
-        transition: `
-            left 0.5s ease-in-out
-        `,
+        transition: `all 0.5s ease-in-out`,
+        ...toAlignment('lg', align),
+        [theme.breakpoints.down('sm')]: {
+            transform: 'translateY(0)',
+            ...toAlignment('sm', align),
+        },
     })
 );
 
@@ -254,7 +269,12 @@ export default function IndexPage() {
                     disable={message == null}
                     onClickAway={handleClickAway}
                 >
-                    <Relative>
+                    <Relative
+                        sx={{
+                            display: 'block !important',
+                            width: '100%',
+                        }}
+                    >
                         <SuperCircleWrapper
                             align={message ? 'center' : 'right'}
                             position={message ? 'foreground' : 'background'}
