@@ -16,11 +16,10 @@ import { HeroPageSection, PageSection } from '../components/sections';
 import { Square } from '../components/shape';
 import { SuperCircle, SuperTriangle } from '../components/super-shapes';
 import { styled, useTheme } from '../components/theme';
-import { Heading, Paragraph, Text } from '../components/typography';
+import { Heading, Paragraph } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkItemData, WorkList } from '../components/work-list';
-import resumePdf from './assets/resume.pdf';
-import { Breakpoint } from '@mui/system/createTheme/createBreakpoints';
+import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
 import { CSSObject } from '@mui/styled-engine';
 import { SEO } from '../components/layout/seo';
 
