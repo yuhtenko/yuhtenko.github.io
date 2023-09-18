@@ -34,6 +34,14 @@ function buildHeaderLinks(loc: WindowLocation): [NavItem[], NavItem[]] {
     return [top, group];
 }
 
+export function wrapRootElement({ element }: WrapPageElementBrowserArgs) {
+    return (
+        <>
+            <ThemeProvider>{element}</ThemeProvider>
+        </>
+    );
+}
+
 export function wrapPageElement({
     element,
     props,
@@ -43,15 +51,13 @@ export function wrapPageElement({
     const isHome = arePathsEqual(location.pathname, '/');
 
     return (
-        <ThemeProvider>
-            <Layout
-                headerNav={nav}
-                headerWork={work}
-                withHomeButton={!isHome}
-                contentSpacing={isHome ? 'home' : 'projects'}
-            >
-                {element}
-            </Layout>
-        </ThemeProvider>
+        <Layout
+            headerNav={nav}
+            headerWork={work}
+            withHomeButton={!isHome}
+            contentSpacing={isHome ? 'home' : 'projects'}
+        >
+            {element}
+        </Layout>
     );
 }

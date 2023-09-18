@@ -22,6 +22,7 @@ import { WorkItemData, WorkList } from '../components/work-list';
 import resumePdf from './assets/resume.pdf';
 import { Breakpoint } from '@mui/system/createTheme/createBreakpoints';
 import { CSSObject } from '@mui/styled-engine';
+import { SEO } from '../components/layout/seo';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -119,6 +120,10 @@ interface Message {
     type: 'success' | 'error';
     text: string;
 }
+
+export const Head = () => (
+    <SEO title={'Home'} description={'Resume'} pathname={'/'} />
+);
 
 export default function IndexPage() {
     const theme = useTheme();

@@ -38,7 +38,7 @@ type CSSProperties = Array<CSSProperty | CSSPropertyWithDelay>;
 type TransitionGroups = [
     CSSProperties,
     CSSProperties,
-    CSSProperties | undefined
+    CSSProperties | undefined,
 ];
 
 const toTransitionString = (
