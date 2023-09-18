@@ -37,7 +37,7 @@ export function DesignProcessStep({
 }: DesignProcessStepProps): ReactElement {
     return (
         <Stack direction={'column'} spacing={2} alignItems={'center'}>
-            <Stack direction={'column'} spacing={1}>
+            <Stack direction={'column'} spacing={1} alignItems={'center'}>
                 <DesignProcessStepShapes {...shapes} />
                 <Subtitle>{title}</Subtitle>
             </Stack>
