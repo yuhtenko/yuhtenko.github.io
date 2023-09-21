@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { styled } from '../theme';
 
 export interface NavMenuButtonProps {
+    className?: string;
     variant: 'open' | 'close';
     onClick?: () => void;
 }
@@ -11,6 +12,7 @@ const Wrapper = styled('div')(({ theme }) => ({
 }));
 
 export function NavMenuButton({
+    className,
     variant,
     onClick,
 }: NavMenuButtonProps): ReactElement {
@@ -46,5 +48,9 @@ export function NavMenuButton({
         );
     }
 
-    return <Wrapper onClick={onClick}>{icon}</Wrapper>;
+    return (
+        <Wrapper className={className} onClick={onClick}>
+            {icon}
+        </Wrapper>
+    );
 }

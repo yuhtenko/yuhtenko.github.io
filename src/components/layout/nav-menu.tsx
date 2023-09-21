@@ -11,12 +11,13 @@ interface MenuProps {
 }
 
 const MENU_TOP_CLOSED = '-208px';
+const MENU_TOP_OPEN_SM = '-60vw';
 
 const MENU_SIZE_CLOSED = 232;
 const MENU_SIZE_OPEN = 632;
 
 const MENU_SIZE_CLOSED_SM = 160;
-const MENU_SIZE_OPEN_SM = '200vw';
+const MENU_SIZE_OPEN_SM = '100vw';
 
 const Container = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -59,19 +60,18 @@ const Menu = styled('div')<MenuProps>(({ theme, open }) => {
             left ${theme.transitions.duration.normal}s ease-in-out,
             margin ${theme.transitions.duration.normal}s ease-in-out
         `,
-        [theme.breakpoints.down('md')]: {
-            width: !open ? MENU_SIZE_CLOSED : '100vw',
-            height: !open ? MENU_SIZE_CLOSED : '100vw',
-            top: !open ? MENU_TOP_CLOSED : '-515px',
+        [theme.breakpoints.down(700)]: {
+            width: !open ? MENU_SIZE_CLOSED : MENU_SIZE_OPEN_SM,
+            height: !open ? MENU_SIZE_CLOSED : MENU_SIZE_OPEN_SM,
+            top: !open ? MENU_TOP_CLOSED : MENU_TOP_OPEN_SM,
         },
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down(425)]: {
+            borderTopLeftRadius: 0,
+            borderTopRightRadius: 0,
             width: !open ? MENU_SIZE_CLOSED_SM : MENU_SIZE_OPEN_SM,
             height: !open ? MENU_SIZE_CLOSED_SM : MENU_SIZE_OPEN_SM,
-            top: !open ? '-145px' : '-50vh',
+            top: !open ? '-145px' : MENU_TOP_OPEN_SM,
             right: 0,
-            ...(open && {
-                margin: 'auto -50vw',
-            }),
         },
     };
 });
@@ -86,8 +86,18 @@ const MenuList = styled(Stack)<MenuListProps>(({ theme, open }) => ({
     transition: open ? 'opacity 0.5s ease-in-out' : 'none',
     zIndex: 20,
     marginBottom: theme.spacing(10),
+    [theme.breakpoints.down('sm')]: {
+        marginBottom: theme.spacing(7),
+    },
     [theme.breakpoints.down(330)]: {
         marginBottom: theme.spacing(6),
+    },
+}));
+
+const MenuNavLink = styled(NavLink)(({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '22px',
+        lineHeight: '28px',
     },
 }));
 
@@ -95,9 +105,16 @@ interface ButtonWrapperProps {
     open: boolean;
 }
 
-const ButtonWrapper = styled('div')<ButtonWrapperProps>(({}) => ({
+const ButtonWrapper = styled('div')<ButtonWrapperProps>(({ theme }) => ({
     width: '30px',
     zIndex: 20,
+    [theme.breakpoints.down('sm')]: {
+        position: 'relative',
+        right: '35px',
+    },
+    [theme.breakpoints.down(425)]: {
+        right: '0',
+    },
 }));
 
 export interface NavGroupProps {
@@ -119,14 +136,14 @@ export function NavMenu({ items }: NavGroupProps) {
                 <Menu open={open}>
                     <MenuList
                         open={open}
-                        spacing={{ xs: 4, sm: 4, md: 3 }}
+                        spacing={{ xs: 3, sm: 4, md: 3 }}
                         alignItems={'center'}
                     >
                         {items.map((item) => (
                             <Box key={item.label} onClick={toggleOpen}>
-                                <NavLink color={'secondary'} to={item.to}>
+                                <MenuNavLink color={'secondary'} to={item.to}>
                                     {item.label}
-                                </NavLink>
+                                </MenuNavLink>
                             </Box>
                         ))}
                     </MenuList>
