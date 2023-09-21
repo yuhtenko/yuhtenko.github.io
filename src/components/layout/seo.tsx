@@ -22,6 +22,7 @@ export const SEO = ({
         url: siteUrl,
     } = data;
     const seo = {
+        name: data.name,
         title: area
             ? `${title} | ${area} | ${defaultTitle}`
             : `${title} | ${defaultTitle}`,
@@ -33,21 +34,28 @@ export const SEO = ({
     return (
         <>
             <title>{seo.title}</title>
-            <meta property="og:title" content={seo.title} />
-            <meta name="twitter:title" content={seo.title} />
-
-            <meta name="description" content={seo.description} />
-            <meta property="og:description" content={seo.description} />
-            <meta name="twitter:description" content={seo.description} />
-
             <meta name="image" content={seo.image} />
+            <meta name="description" content={seo.description} />
+
+            {/*Open Graph (OG) Tags for Facebook*/}
+            <meta property="og:title" content={seo.title} />
+            <meta property="og:type" content="website" />
             <meta property="og:image" content={seo.image} />
+            <meta property="og:url" content={seo.url} />
+            <meta property="og:description" content={seo.description} />
+            <meta property="og:site_name" content={seo.name} />
+            <meta property="og:locale" content="en_US" />
+
+            {/*Twitter Card Tags*/}
+            <meta name="twitter:card" content={seo.image} />
+            <meta name="twitter:title" content={seo.name} />
+            <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
 
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:url" content={seo.url} />
+            {/*Apple*/}
+            <meta name="mobile-web-app-capable" content="yes" />
 
-            {/*<meta name="twitter:creator" content={seo.twitterUsername} />*/}
+            {/*Favicon*/}
             <link
                 rel="icon"
                 href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>"
