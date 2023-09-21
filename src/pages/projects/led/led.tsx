@@ -204,10 +204,7 @@ export default function LedScreenProjectPage() {
                 <ImageList>
                     <LayeredImage src={image4} withBorder>
                         <ImageLayer top={'29%'} withBorder={['left', 'right']}>
-                            <ImageCycle
-                                className="led-home-cycle-mobile"
-                                interval={2000}
-                            >
+                            <ImageCycle className="led-home-cycle-mobile">
                                 <Image src={image4_1} />
                                 <Image src={image4_2} />
                                 <Image src={image4_3} />

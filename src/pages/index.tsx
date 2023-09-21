@@ -19,7 +19,7 @@ import { styled, useTheme } from '../components/theme';
 import { Heading, Paragraph } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkItemData, WorkList } from '../components/work-list';
-import resumePdf from './assets/yulia_yukhtenko_resume.docx';
+import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
 import { CSSObject } from '@mui/styled-engine';
 import { SEO } from '../components/layout/seo';
 

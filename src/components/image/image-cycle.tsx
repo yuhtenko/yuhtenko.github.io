@@ -6,10 +6,11 @@ import React, {
     useRef,
     useState,
 } from 'react';
+import { useTheme } from '../theme';
 
 export interface ImageCycleProps {
     className?: string;
-    interval: number;
+    interval?: number;
 }
 
 export function ImageCycle({
@@ -17,8 +18,10 @@ export function ImageCycle({
     children,
     interval,
 }: PropsWithChildren<ImageCycleProps>) {
+    const theme = useTheme();
     const [currentIndex, setCurrentIndex] = useState(0);
     const indexRef = useRef(currentIndex);
+    const animationInterval = interval || theme.animation.slides;
 
     useEffect(() => {
         const count = Children.count(children);
@@ -31,12 +34,12 @@ export function ImageCycle({
 
             indexRef.current = nextIndex;
             setCurrentIndex(nextIndex);
-        }, interval);
+        }, animationInterval);
 
         return () => {
             clearInterval(intervalCount);
         };
-    }, []);
+    }, [animationInterval]);
 
     const childrenWithProps = Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
@@ -46,7 +49,7 @@ export function ImageCycle({
                 style = { display: 'none' };
             }
 
-            return React.cloneElement(child, { style } as any);
+            return React.cloneElement(child, { style, className } as any);
         }
         return child;
     });

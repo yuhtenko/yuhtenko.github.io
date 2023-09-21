@@ -149,7 +149,7 @@ export default function FerretProjectPage() {
                         </TerminalImageMask>
                     </ImageLayer>
                     <ImageLayer bottom={'33.5%'} withBorder={['left', 'right']}>
-                        <ImageCycle className="ecosystem-cycle" interval={2000}>
+                        <ImageCycle className="ecosystem-cycle">
                             <Image src={image1EcosystemBase} />
                             <Image src={image1EcosystemCore} />
                             <Image src={image1EcosystemWorker} />
@@ -172,10 +172,7 @@ export default function FerretProjectPage() {
                         withBorder
                     >
                         <ImageLayer withBorder={['bottom', 'left', 'right']}>
-                            <ImageCycle
-                                className="ecosystem-cycle-mobile"
-                                interval={2000}
-                            >
+                            <ImageCycle className="ecosystem-cycle-mobile">
                                 <Image src={image4Declarative} />
                                 <Image src={image4Embeddable} />
                                 <Image src={image4Secure} />

@@ -51,6 +51,9 @@ export interface Theme
             main: string;
         };
     };
+    animation: {
+        slides: number;
+    };
     typography: {
         fontWeight: {
             [key in FontWeight]: number;
@@ -116,6 +119,9 @@ const theme = createTheme({
         easing: {
             main: 'linear',
         },
+    },
+    animation: {
+        slides: 1000,
     },
     palette: {
         primary: {

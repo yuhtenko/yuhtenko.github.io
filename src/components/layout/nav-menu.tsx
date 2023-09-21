@@ -128,9 +128,12 @@ export function NavMenu({ items }: NavGroupProps) {
     const toggleOpen = useCallback(() => {
         setOpen(!open);
     }, [open]);
+    const close = useCallback(() => {
+        setOpen(false);
+    }, []);
 
     return (
-        <ClickAwayListener onClickAway={() => setOpen(false)}>
+        <ClickAwayListener disable={!open} onClickAway={close}>
             <Container>
                 <ButtonWrapper open={open} onClick={toggleOpen}>
                     <NavMenuButton variant={open ? 'close' : 'open'} />
