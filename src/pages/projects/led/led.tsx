@@ -185,7 +185,7 @@ export default function LedScreenProjectPage() {
             </WorkSection>
             <WorkSection
                 id={'desktop'}
-                heading={['DESKTOP', 'PAGE']}
+                heading={['DESKTOP', 'PAGES']}
                 variant={['bold', 'normal']}
             >
                 <Stack direction={'column'} spacing={3}>
