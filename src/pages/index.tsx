@@ -270,6 +270,7 @@ export default function IndexPage() {
                 id="contact"
                 heading={['Contact', 'Me']}
                 variant={'outline'}
+                noOffset
             >
                 <ClickAwayListener
                     disable={message == null}
