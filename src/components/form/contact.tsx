@@ -69,7 +69,7 @@ export function ContactForm({
                 spacing={3}
                 alignItems={'center'}
                 justifyContent={'center'}
-                maxWidth={768}
+                maxWidth={900}
             >
                 <Grid xs={12} sm={6}>
                     <TextInput
