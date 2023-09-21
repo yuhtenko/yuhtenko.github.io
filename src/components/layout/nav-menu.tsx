@@ -5,6 +5,7 @@ import { NavItem } from '../link';
 import { styled } from '../theme';
 import { NavLink } from './nav-link';
 import { NavMenuButton } from './nav-menu-button';
+import { ClickAwayListener } from '../utils';
 
 interface MenuProps {
     open: boolean;
@@ -81,6 +82,7 @@ interface MenuListProps extends StackProps {
 }
 
 const MenuList = styled(Stack)<MenuListProps>(({ theme, open }) => ({
+    width: '100%',
     maxWidth: '200px',
     opacity: !open ? 0 : 1,
     transition: open ? 'opacity 0.5s ease-in-out' : 'none',
@@ -128,27 +130,32 @@ export function NavMenu({ items }: NavGroupProps) {
     }, [open]);
 
     return (
-        <Container>
-            <ButtonWrapper open={open} onClick={toggleOpen}>
-                <NavMenuButton variant={open ? 'close' : 'open'} />
-            </ButtonWrapper>
-            <MenuWrapper>
-                <Menu open={open}>
-                    <MenuList
-                        open={open}
-                        spacing={{ xs: 3, sm: 4, md: 3 }}
-                        alignItems={'center'}
-                    >
-                        {items.map((item) => (
-                            <Box key={item.label} onClick={toggleOpen}>
-                                <MenuNavLink color={'secondary'} to={item.to}>
-                                    {item.label}
-                                </MenuNavLink>
-                            </Box>
-                        ))}
-                    </MenuList>
-                </Menu>
-            </MenuWrapper>
-        </Container>
+        <ClickAwayListener onClickAway={() => setOpen(false)}>
+            <Container>
+                <ButtonWrapper open={open} onClick={toggleOpen}>
+                    <NavMenuButton variant={open ? 'close' : 'open'} />
+                </ButtonWrapper>
+                <MenuWrapper>
+                    <Menu open={open}>
+                        <MenuList
+                            open={open}
+                            spacing={{ xs: 3, sm: 4, md: 3 }}
+                            alignItems={'center'}
+                        >
+                            {items.map((item) => (
+                                <Box key={item.label} onClick={toggleOpen}>
+                                    <MenuNavLink
+                                        color={'secondary'}
+                                        to={item.to}
+                                    >
+                                        {item.label}
+                                    </MenuNavLink>
+                                </Box>
+                            ))}
+                        </MenuList>
+                    </Menu>
+                </MenuWrapper>
+            </Container>
+        </ClickAwayListener>
     );
 }
