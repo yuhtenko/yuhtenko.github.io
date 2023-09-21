@@ -27,7 +27,7 @@
         {
             "id": "ferret",
             "title": "Ferret",
-            "description": "Redesign UX/UI",
+            "description": "Ferret, Redesign UX/UI",
             "shape": "rectangle",
             "color": "blue",
             "path": "/projects/ferret"
@@ -35,7 +35,7 @@
         {
             "id": "led-screen",
             "title": "LedScreen",
-            "description": "Case study",
+            "description": "LedScreen, Case study",
             "shape": "triangle",
             "color": "red",
             "path": "/projects/led"
@@ -43,7 +43,7 @@
         {
             "id": "cat-shelter",
             "title": "Cat Angels",
-            "description": "Redesign UX/UI",
+            "description": "Cat Angels, Redesign UX/UI",
             "shape": "half-circle",
             "color": "yellow",
             "path": "/projects/cat-shelter"
