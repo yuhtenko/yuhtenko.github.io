@@ -293,7 +293,7 @@ export default function HomePage() {
                 <AnimatedContactForm
                     sx={{ right: message ? '150%' : '0' }}
                     zIndex={15}
-                    url={data.contact.url}
+                    url={data.contactFormUrl}
                     onSubmit={handleSuccessEmail}
                     onError={handleErrorEmail}
                 />

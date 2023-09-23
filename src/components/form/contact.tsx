@@ -15,7 +15,7 @@ export interface ContactFormProps {
     url: string;
     zIndex?: number;
     onSubmit: () => void;
-    onError: (err: Error) => void;
+    onError: (err: string) => void;
 }
 
 export function ContactForm({
@@ -34,26 +34,40 @@ export function ContactForm({
                 { value: firstName },
                 { value: lastName },
                 { value: email },
-                { value: phoneNumber },
-                { value: message },
+                { value: phone },
+                { value: text },
             ],
         } = event;
 
         setLoading(true);
         fetch(url, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
-                firstName,
-                lastName,
+                name: `${firstName} ${lastName}`,
                 email,
-                phoneNumber,
-                message,
+                phone,
+                text,
             }),
         })
-            .then(() => {
-                onSubmit();
+            .then((res) => {
+                if (res.status === 200) {
+                    onSubmit();
+                }
+
+                if (res.status === 400) {
+                    onError('Please fill out all fields.');
+                } else if (res.status === 409) {
+                    onError('You have already submitted a message.');
+                } else {
+                    onError('Oops! Something went wrong.\nPlease try again.');
+                }
             })
-            .catch(onError)
+            .catch(() =>
+                onError('Oops! Something went wrong.\nPlease try again.')
+            )
             .finally(() => setLoading(false));
     }, []);
 
@@ -108,6 +122,7 @@ export function ContactForm({
                         id="message-input"
                         name="message"
                         placeholder="Message*"
+                        maxLength={600}
                         required={true}
                     />
                 </Grid>

@@ -3,9 +3,7 @@
     "title": "Yulia Yukhtenko",
     "description": "UX/UI Designer",
     "url": "https://www.yuliayukhtenko.com",
-    "contact": {
-        "url": "http://localhost:8080"
-    },
+    "contactFormUrl": "https://app-capbgauota-uc.a.run.app/message",
     "sections": [
         {
             "id": "work",
