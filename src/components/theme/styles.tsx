@@ -21,6 +21,7 @@ const GlobalStyle = () => (
                 src: url(${latin300NormalWoff}) format('woff');
                 font-weight: 300;
                 font-style: normal;
+                font-display: swap;
             }
 
             @font-face {
@@ -28,6 +29,7 @@ const GlobalStyle = () => (
                 src: url(${latin300ItalicWoff}) format('woff');
                 font-weight: 300;
                 font-style: italic;
+                font-display: swap;
             }
 
             /* Montserrat - weight 400 */
@@ -36,6 +38,7 @@ const GlobalStyle = () => (
                 src: url(${latin400NormalWoff}) format('woff');
                 font-weight: 400;
                 font-style: normal;
+                font-display: swap;
             }
 
             @font-face {
@@ -43,6 +46,7 @@ const GlobalStyle = () => (
                 src: url(${latin400ItalicWoff}) format('woff');
                 font-weight: 400;
                 font-style: italic;
+                font-display: swap;
             }
 
             /* Montserrat - weight 500 */
@@ -51,6 +55,7 @@ const GlobalStyle = () => (
                 src: url(${latin500NormalWoff}) format('woff');
                 font-weight: 500;
                 font-style: normal;
+                font-display: swap;
             }
 
             @font-face {
@@ -58,6 +63,7 @@ const GlobalStyle = () => (
                 src: url(${latin500ItalicWoff}) format('woff');
                 font-weight: 500;
                 font-style: italic;
+                font-display: swap;
             }
 
             /* Montserrat - weight 600 */
@@ -66,6 +72,7 @@ const GlobalStyle = () => (
                 src: url(${latin600NormalWoff}) format('woff');
                 font-weight: 600;
                 font-style: normal;
+                font-display: swap;
             }
 
             @font-face {
@@ -73,6 +80,7 @@ const GlobalStyle = () => (
                 src: url(${latin600ItalicWoff}) format('woff');
                 font-weight: 600;
                 font-style: italic;
+                font-display: swap;
             }
 
             /* Montserrat - weight 700 */
@@ -81,6 +89,7 @@ const GlobalStyle = () => (
                 src: url(${latin700NormalWoff}) format('woff');
                 font-weight: 700;
                 font-style: normal;
+                font-display: swap;
             }
 
             @font-face {
@@ -88,6 +97,7 @@ const GlobalStyle = () => (
                 src: url(${latin700ItalicWoff}) format('woff');
                 font-weight: 700;
                 font-style: italic;
+                font-display: swap;
             }
         `}
     />
