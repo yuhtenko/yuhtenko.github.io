@@ -119,7 +119,7 @@ const SuperCircleWrapper = styled('div')<SuperCircleWrapperProps>(
 
 interface Message {
     type: 'success' | 'error';
-    text: string;
+    text: string | string[];
 }
 
 export default function HomePage() {
@@ -132,13 +132,16 @@ export default function HomePage() {
     const handleSuccessEmail = () => {
         setMessage({
             type: 'success',
-            text: 'Your message has been sent successfully!',
+            text: [
+                'Thank you for your message!',
+                'I will get back to you soon.',
+            ],
         });
     };
-    const handleErrorEmail = () =>
+    const handleErrorEmail = (err: string) =>
         setMessage({
             type: 'error',
-            text: 'Oops! Something went wrong, try again later.',
+            text: err ?? 'Oops! Something went wrong, try again later.',
         });
 
     const handleClickAway = React.useCallback(() => {

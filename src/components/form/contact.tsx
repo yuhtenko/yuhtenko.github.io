@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
 import { Button } from '../buttons';
@@ -15,7 +15,7 @@ export interface ContactFormProps {
     url: string;
     zIndex?: number;
     onSubmit: () => void;
-    onError: (err: string) => void;
+    onError: (err: string | string[]) => void;
 }
 
 export function ContactForm({
@@ -26,6 +26,7 @@ export function ContactForm({
     onError,
 }: ContactFormProps) {
     const [loading, setLoading] = React.useState(false);
+    const ref = useRef<HTMLFormElement | null>(null);
     const handleSubmit = useCallback((event: any) => {
         event.preventDefault();
 
@@ -53,20 +54,35 @@ export function ContactForm({
             }),
         })
             .then((res) => {
-                if (res.status === 200) {
-                    onSubmit();
+                let reset = false;
+
+                switch (res.status) {
+                    case 200:
+                        onSubmit();
+                        reset = true;
+                        break;
+                    case 400:
+                        onError(
+                            'Please make sure all fields are filled properly.'
+                        );
+                        break;
+                    case 409:
+                        onError('You have already submitted a message.');
+                        reset = true;
+                        break;
+                    default:
+                        onError([
+                            'Oops! Something went wrong.',
+                            'Please try again.',
+                        ]);
                 }
 
-                if (res.status === 400) {
-                    onError('Please fill out all fields.');
-                } else if (res.status === 409) {
-                    onError('You have already submitted a message.');
-                } else {
-                    onError('Oops! Something went wrong.\nPlease try again.');
+                if (reset) {
+                    ref?.current?.reset();
                 }
             })
             .catch(() =>
-                onError('Oops! Something went wrong.\nPlease try again.')
+                onError(['Oops! Something went wrong.', 'Please try again.'])
             )
             .finally(() => setLoading(false));
     }, []);
@@ -76,6 +92,7 @@ export function ContactForm({
             id="contact-form"
             sx={{ zIndex, position: zIndex ? 'relative' : undefined }}
             className={className}
+            ref={ref}
             onSubmit={handleSubmit}
         >
             <Grid
@@ -105,6 +122,7 @@ export function ContactForm({
                     <TextInput
                         id="email-input"
                         name="email"
+                        type="email"
                         placeholder="Email*"
                         required={true}
                     />
@@ -113,6 +131,7 @@ export function ContactForm({
                     <TextInput
                         id="phoneNumber-input"
                         name="phoneNumber"
+                        type="tel"
                         placeholder="Phone number*"
                         required={true}
                     />

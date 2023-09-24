@@ -26,10 +26,18 @@ const SecondaryCircle = styled(Circle)(({ theme }) => ({
     left: '3%',
 }));
 
+function toTextArray(input?: string | string[]): string[] | null {
+    if (!input) {
+        return null;
+    }
+
+    return Array.isArray(input) ? input : [input];
+}
+
 export interface SuperCircleProps {
     transform?: string;
     error?: boolean;
-    text?: string;
+    text?: string | string[];
 }
 
 export function SuperCircle({
@@ -39,14 +47,18 @@ export function SuperCircle({
 }: SuperCircleProps): ReactElement {
     const bgColor = error ? 'red' : 'yellow';
     const textColor = error ? 'secondary' : 'primary';
+    const textToDisplay = toTextArray(text);
+
     return (
         <Container {...props}>
             <PrimaryCircle position={'absolute'} color={bgColor} size={SIZE}>
-                {text ? (
-                    <Text align={'center'} color={textColor}>
-                        {text}
-                    </Text>
-                ) : null}
+                {textToDisplay
+                    ? textToDisplay.map((t) => (
+                          <Text align={'center'} color={textColor}>
+                              {t}
+                          </Text>
+                      ))
+                    : null}
             </PrimaryCircle>
             <SecondaryCircle
                 position={'absolute'}
