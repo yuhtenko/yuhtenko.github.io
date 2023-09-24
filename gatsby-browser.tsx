@@ -8,6 +8,7 @@ import { ThemeProvider } from './src/components/theme';
 import './src/styles/index.scss';
 import { arePathsEqual } from './src/utils';
 import website from './website.json';
+import GlobalStyle from './src/components/theme/styles';
 
 function buildHeaderLinks(loc: WindowLocation): [NavItem[], NavItem[]] {
     const top: NavItem[] = [];
@@ -37,6 +38,7 @@ function buildHeaderLinks(loc: WindowLocation): [NavItem[], NavItem[]] {
 export function wrapRootElement({ element }: WrapPageElementBrowserArgs) {
     return (
         <>
+            <GlobalStyle />
             <ThemeProvider>{element}</ThemeProvider>
         </>
     );
