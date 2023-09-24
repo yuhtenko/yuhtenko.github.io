@@ -1,8 +1,6 @@
 import type { GatsbyConfig } from 'gatsby';
 import data from './website.json';
 
-const url = new URL(data.url);
-
 const config: GatsbyConfig = {
     siteMetadata: {
         title: data.title,
@@ -71,7 +69,7 @@ const config: GatsbyConfig = {
                     // Avoids sending pageview hits from custom paths
                     exclude: [],
                     // Defaults to https://www.googletagmanager.com
-                    origin: url.hostname,
+                    // origin: url.hostname,
                     // Delays processing pageview events on route update (in milliseconds)
                     delayOnRouteUpdate: 0,
                 },
