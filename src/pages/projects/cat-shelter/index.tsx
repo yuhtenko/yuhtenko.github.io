@@ -9,7 +9,7 @@ export const Head = () => (
     <SEO
         title={info!.title}
         area={'Projects'}
-        description={info.description}
+        description={`${info.title} | ${info.description}`}
         pathname={info.path}
     />
 );

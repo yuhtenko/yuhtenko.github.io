@@ -3,14 +3,14 @@ import { SEO } from '../../../components/layout/seo';
 import React from 'react';
 import data from '../../../../website.json';
 
-const ferret = data.projects.find((project) => project.id === 'ferret')!;
+const info = data.projects.find((project) => project.id === 'ferret')!;
 
 export const Head = () => (
     <SEO
-        title={ferret!.title}
+        title={info!.title}
         area={'Projects'}
-        description={ferret.description}
-        pathname={ferret.path}
+        description={`${info.title} | ${info.description}`}
+        pathname={info.path}
     />
 );
 

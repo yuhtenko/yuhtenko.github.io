@@ -274,7 +274,7 @@ const Header = styled(Heading)<HeadingProps>(({ theme }) => ({
 const Title = styled(Heading)(({ theme }) => ({
     position: 'relative',
     cursor: 'pointer',
-    color: theme.palette.secondary.main,
+    color: `${theme.palette.secondary.main} !important`,
     textTransform: 'none',
     [theme.breakpoints.down('sm')]: {
         ...theme.typography.variant.h9,
@@ -296,7 +296,7 @@ const Title = styled(Heading)(({ theme }) => ({
 
 const Description = styled(Caption)(({ theme }) => ({
     position: 'relative',
-    color: theme.palette.secondary.main,
+    color: `${theme.palette.secondary.main} !important`,
     fontStyle: 'italic',
     zIndex: 16,
     '&:before': {
