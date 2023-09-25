@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from 'react';
-import Box from '@mui/system/Box';
 import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
 import { HalfCircle, Rectangle, Triangle } from '../shape';

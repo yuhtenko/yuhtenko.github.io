@@ -1,6 +1,5 @@
 import React from 'react';
 import Stack from '@mui/system/Stack';
-import Grid from '@mui/system/Unstable_Grid';
 import { styled, useTheme } from '../theme';
 import { Heading, Subtitle } from '../typography';
 

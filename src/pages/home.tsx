@@ -2,6 +2,8 @@ import toChunks from 'lodash.chunk';
 import * as React from 'react';
 import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
+import { CSSObject } from '@mui/styled-engine';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import data from '../../website.json';
 import { Button } from '../components/buttons';
 import { ContactForm } from '../components/form';
@@ -20,8 +22,6 @@ import { Heading, Paragraph } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkItemData, WorkList } from '../components/work-list';
 import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
-import { CSSObject } from '@mui/styled-engine';
-import { SEO } from '../components/layout/seo';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -138,7 +138,7 @@ export default function HomePage() {
             ],
         });
     };
-    const handleErrorEmail = (err: string) =>
+    const handleErrorEmail = (err: string | string[]) =>
         setMessage({
             type: 'error',
             text: err ?? 'Oops! Something went wrong, try again later.',
@@ -217,12 +217,15 @@ export default function HomePage() {
                             to improve people's lives in&nbsp;innovative ways.{' '}
                         </Paragraph>
                         <Paragraph>
-                            I attended dozens of classes to study art and
-                            photography, which helped me develop visual
-                            storytelling and&nbsp;creative thinking. An
-                            engineering background provides me with valuable
-                            skills and perspectives that can also help me become
-                            a successful UX/UI designer.
+                            I attended dozens of classes to study art and{' '}
+                            <OutboundLink href={data.photoPortfolioUrl}>
+                                photography
+                            </OutboundLink>
+                            , which helped me develop visual storytelling
+                            and&nbsp;creative thinking. An engineering
+                            background provides me with valuable skills and
+                            perspectives that can also help me become a
+                            successful UX/UI designer.
                         </Paragraph>
                     </ElevatedGrid>
                     <Grid xs={12}>
