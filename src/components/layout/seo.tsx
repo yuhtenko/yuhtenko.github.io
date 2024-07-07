@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import data from '../../../website.json';
 import image from '../../images/image.png';
+import { useAppData } from '../app/context';
 
 export interface SEOProps {
     title: string;
@@ -56,5 +57,28 @@ export const SEO = ({
             <meta name="mobile-web-app-capable" content="yes" />
             {children}
         </>
+    );
+};
+
+export interface ProjectSEOProps {
+    readonly projectId: string;
+}
+
+export const ProjectSEO = ({
+    projectId,
+    children,
+}: PropsWithChildren<ProjectSEOProps>) => {
+    const data = useAppData();
+    const project = data.findProject(projectId);
+
+    return (
+        <SEO
+            title={project!.title}
+            area={'Projects'}
+            description={`${project!.title} | ${project!.description}`}
+            pathname={project!.path}
+        >
+            {children}
+        </SEO>
     );
 };

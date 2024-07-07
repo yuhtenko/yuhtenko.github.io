@@ -4,7 +4,6 @@ import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
 import { CSSObject } from '@mui/styled-engine';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import data from '../../website.json';
 import { Button } from '../components/buttons';
 import { ContactForm } from '../components/form';
 import {
@@ -20,8 +19,9 @@ import { SuperCircle, SuperTriangle } from '../components/super-shapes';
 import { styled, useTheme } from '../components/theme';
 import { Heading, Paragraph } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
-import { WorkItemData, WorkList } from '../components/work-list';
+import { WorkList } from '../components/work-list';
 import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
+import { useAppData } from '../components/app/context';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -124,6 +124,7 @@ interface Message {
 
 export default function HomePage() {
     const theme = useTheme();
+    const data = useAppData();
     const interests = toChunks(data.interests, 3);
     const [message, setMessage] = React.useState<Message | null>(null);
     const handleDownload = () => {
@@ -187,7 +188,7 @@ export default function HomePage() {
                 heading={['My', 'Work']}
                 variant={['normal', 'outline']}
             >
-                <WorkList content={(data?.projects as WorkItemData[]) ?? []} />
+                <WorkList projects={data?.projects ?? []} />
             </PageSection>
             <PageSection id="about" heading={['About', 'Me']} variant="outline">
                 <Relative>

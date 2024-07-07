@@ -87,19 +87,23 @@ const MenuList = styled(Stack)<MenuListProps>(({ theme, open }) => ({
     opacity: !open ? 0 : 1,
     transition: open ? 'opacity 0.5s ease-in-out' : 'none',
     zIndex: 20,
-    marginBottom: theme.spacing(10),
+    marginBottom: theme.spacing(5),
     [theme.breakpoints.down('sm')]: {
-        marginBottom: theme.spacing(7),
+        marginBottom: theme.spacing(3),
     },
     [theme.breakpoints.down(330)]: {
-        marginBottom: theme.spacing(6),
+        marginBottom: theme.spacing(2),
     },
 }));
 
 const MenuNavLink = styled(NavLink)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
-        fontSize: '22px',
-        lineHeight: '28px',
+        fontSize: '18px',
+        lineHeight: '24px',
+    },
+    [theme.breakpoints.down(330)]: {
+        fontSize: '16px',
+        lineHeight: '22px',
     },
 }));
 

@@ -17,6 +17,7 @@ import { DesignProcess } from '../../../components/process';
 import {
     HeroWorkSection,
     PageSection,
+    ProjectHeroWorkSection,
     WorkSection,
 } from '../../../components/sections';
 import { HalfCircle, Rectangle, Triangle } from '../../../components/shape';
@@ -49,14 +50,13 @@ const LedScreenHeroSection = styled(HeroWorkSection)(({ theme }) => ({
     },
 }));
 
+export const PROJECT_ID = 'led-screen';
+
 export default function LedScreenProjectPage() {
     return (
         <>
-            <LedScreenHeroSection
-                id="hero-section"
-                number="02"
-                heading="LedScreen"
-                description="a service for speedy uploading of commercials onto city screens"
+            <ProjectHeroWorkSection
+                projectId={PROJECT_ID}
                 shapes={
                     <Stack
                         direction={'column'}

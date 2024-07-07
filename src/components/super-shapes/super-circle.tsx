@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Circle } from '../shape';
-import { Color, styled } from '../theme';
+import { styled } from '../theme';
 import { Text } from '../typography';
 
 const SIZE = 318;

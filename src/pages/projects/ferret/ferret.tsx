@@ -9,8 +9,8 @@ import {
     LayeredImage,
 } from '../../../components/image';
 import {
-    HeroWorkSection,
     PageSection,
+    ProjectHeroWorkSection,
     WorkSection,
 } from '../../../components/sections';
 import { SubSection } from '../../../components/sections/sub-section';
@@ -41,15 +41,14 @@ const TerminalImageMask = styled(ImageMask)(({ theme }) => ({
     },
 }));
 
+export const PROJECT_ID = 'ferret';
+
 export default function FerretProjectPage() {
     const theme = useTheme();
     return (
         <>
-            <HeroWorkSection
-                id="hero-section"
-                number={'01'}
-                heading={'Ferret'}
-                description="a software tool for data scientists"
+            <ProjectHeroWorkSection
+                projectId={PROJECT_ID}
                 shapes={
                     <Stack
                         direction={'row'}

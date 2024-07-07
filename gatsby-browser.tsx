@@ -9,13 +9,18 @@ import './src/styles/index.scss';
 import { arePathsEqual } from './src/utils';
 import website from './website.json';
 import GlobalStyle from './src/components/theme/styles';
+import { AppDataProvider } from './src/components/app/context';
+import { AppData } from './src/common/app';
 
-function buildHeaderLinks(loc: WindowLocation): [NavItem[], NavItem[]] {
+function buildHeaderLinks(
+    loc: WindowLocation,
+    data: AppData
+): [NavItem[], NavItem[]] {
     const top: NavItem[] = [];
     const group: NavItem[] = [];
 
     if (arePathsEqual(loc.pathname, '/')) {
-        website.sections?.forEach((i) => {
+        data.sections?.forEach((i) => {
             top.push({
                 label: i.title,
                 to: `/${i.path}`,
@@ -24,7 +29,7 @@ function buildHeaderLinks(loc: WindowLocation): [NavItem[], NavItem[]] {
         });
     }
 
-    website.projects?.forEach((i) => {
+    data.projects?.forEach((i) => {
         group.push({
             label: i.title,
             to: i.path,
@@ -37,10 +42,10 @@ function buildHeaderLinks(loc: WindowLocation): [NavItem[], NavItem[]] {
 
 export function wrapRootElement({ element }: WrapPageElementBrowserArgs) {
     return (
-        <>
+        <AppDataProvider value={website}>
             <GlobalStyle />
             <ThemeProvider>{element}</ThemeProvider>
-        </>
+        </AppDataProvider>
     );
 }
 
@@ -49,7 +54,7 @@ export function wrapPageElement({
     props,
 }: WrapPageElementBrowserArgs) {
     const { location } = props;
-    const [nav, work] = buildHeaderLinks(location);
+    const [nav, work] = buildHeaderLinks(location, AppData.create(website));
     const isHome = arePathsEqual(location.pathname, '/');
 
     return (

@@ -4,6 +4,7 @@ import { Image, ImageList } from '../../../components/image';
 import {
     HeroWorkSection,
     PageSection,
+    ProjectHeroWorkSection,
     WorkSection,
 } from '../../../components/sections';
 import { SubSection } from '../../../components/sections/sub-section';
@@ -46,15 +47,15 @@ const CatShelterHeroSection = styled(HeroWorkSection)(({ theme }) => ({
     },
 }));
 
+export const PROJECT_ID = 'cat-shelter';
+
 // &nbps; as a space code in HTML - https://www.w3schools.com/html/html_entities.asp
 export default function CatShelterProjectPage() {
     return (
         <>
-            <CatShelterHeroSection
-                id="hero-section"
+            <ProjectHeroWorkSection
+                projectId={PROJECT_ID}
                 heading={'Cat\u00A0Angels Pet\u00A0Adoptions'}
-                number="03"
-                description="a place where every cat's meow matters"
                 shapes={
                     <Stack
                         direction={'column'}

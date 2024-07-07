@@ -1,7 +1,8 @@
 import React from 'react';
 import Stack from '@mui/system/Stack';
-import { styled, useTheme } from '../theme';
+import { styled } from '../theme';
 import { Heading, Subtitle } from '../typography';
+import { useAppData } from '../app/context';
 
 const Container = styled(Stack)(({ theme }) => ({
     minHeight: '88vh',
@@ -50,7 +51,6 @@ export function HeroWorkSection({
     shapes,
     className,
 }: WorkMainSectionProps) {
-    const theme = useTheme();
     return (
         <Container
             id={id}
@@ -91,5 +91,34 @@ export function HeroWorkSection({
             </HeroContent>
             <HeroShapes direction={'row'}>{shapes}</HeroShapes>
         </Container>
+    );
+}
+
+export interface ProjectHeroWorkSectionProps
+    extends Pick<WorkMainSectionProps, 'shapes' | 'className'> {
+    readonly projectId: string;
+    readonly heading?: string;
+}
+
+export function ProjectHeroWorkSection({
+    projectId,
+    heading,
+    ...rest
+}: ProjectHeroWorkSectionProps) {
+    const data = useAppData();
+    const project = data.findProject(projectId);
+
+    if (!project) {
+        throw new Error(`Project with id ${projectId} not found`);
+    }
+
+    return (
+        <HeroWorkSection
+            {...rest}
+            id="hero-section"
+            number={project.number}
+            description={project.description}
+            heading={heading ?? project.title}
+        />
     );
 }
