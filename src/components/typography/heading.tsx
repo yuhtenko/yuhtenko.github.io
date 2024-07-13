@@ -254,6 +254,7 @@ export function Heading({
                 color={color}
                 aria-valuetext={fist?.toString()}
                 onClick={onClick}
+                key="heading-primary"
             >
                 {fist}
             </HeadingBase>

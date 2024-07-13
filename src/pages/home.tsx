@@ -12,7 +12,7 @@ import {
     LightroomIcon,
     PhotoshopIcon,
 } from '../components/icons';
-import { List } from '../components/list';
+import { StackList } from '../components/list';
 import { HeroPageSection, PageSection } from '../components/sections';
 import { Square } from '../components/shape';
 import { SuperCircle, SuperTriangle } from '../components/super-shapes';
@@ -235,7 +235,7 @@ export default function HomePage() {
                                 <Heading size={'subheading1'} variant={'bold'}>
                                     Languages
                                 </Heading>
-                                <List items={data?.languages ?? []} />
+                                <StackList items={data?.languages ?? []} />
                             </Grid>
 
                             <Grid xs={12} sm={6}>
@@ -244,7 +244,7 @@ export default function HomePage() {
                                 </Heading>
                                 <Stack direction="row" spacing={6}>
                                     {interests.map((items, idx) => (
-                                        <List
+                                        <StackList
                                             key={idx.toString()}
                                             items={items}
                                         />

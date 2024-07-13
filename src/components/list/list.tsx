@@ -1,41 +1,44 @@
-import React, { ReactElement } from 'react';
-import { CSSObject } from '@mui/styled-engine';
-import Stack, { StackProps } from '@mui/system/Stack';
+import { styled, Theme } from '../theme';
 import { Text } from '../typography';
+import React from 'react';
 
-function toTextAlignment(
-    align?: StackProps['justifyContent']
-): CSSObject['textAlign'] | undefined {
-    switch (align) {
-        case 'flex-start':
-            return 'left';
-        case 'center':
-            return 'center';
-        case 'flex-end':
-            return 'right';
-        default:
-            return undefined;
-    }
-}
+type ListStyler = (props: { theme: Theme } & Omit<ListProps, 'items'>) => any;
+
+const listStyler: ListStyler = ({ theme, variant }) => ({
+    fontSize: '14px',
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    paddingLeft: variant === 'none' ? 0 : theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+        paddingLeft: variant === 'none' ? 0 : theme.spacing(2),
+    },
+});
+
+const UnorderedList = styled('ul')<Omit<ListProps, 'items'>>((input) => ({
+    ...listStyler(input),
+    listStyle: input.variant === 'none' ? 'none' : 'disc',
+}));
+
+const OrderedList = styled('ol')<Omit<ListProps, 'items'>>((input) => ({
+    ...listStyler(input),
+    listStyle: input.variant === 'none' ? 'none' : 'decimal',
+}));
 
 export interface ListProps {
-    align?: StackProps['justifyContent'];
+    variant?: 'ordered' | 'unordered' | 'none';
     items: string[];
 }
 
-export function List({ items, align }: ListProps): ReactElement {
+export function List({ items, ...other }: ListProps) {
+    const Component = other.variant === 'ordered' ? OrderedList : UnorderedList;
+
     return (
-        <>
-            <Stack
-                spacing={1}
-                direction="column"
-                alignItems={align}
-                textAlign={toTextAlignment(align)}
-            >
-                {items.map((item) => (
-                    <Text key={item}>{item}</Text>
-                ))}
-            </Stack>
-        </>
+        <Component {...other}>
+            {items.map((item) => (
+                <li key={item}>
+                    <Text>{item}</Text>
+                </li>
+            ))}
+        </Component>
     );
 }

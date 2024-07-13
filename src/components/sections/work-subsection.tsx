@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 import { Color, styled } from '../theme';
-import { Subtitle } from '../typography';
+import { Heading, Subtitle } from '../typography';
 import Stack from '@mui/system/Stack';
 
-const SectionSubtitleBackgroundWrapper = styled('div')<{
+const SectionTitleBackgroundWrapper = styled('div')<{
     readonly position: 'left' | 'right';
 }>(({ theme, position }) => ({
     position: 'absolute',
@@ -25,7 +25,7 @@ const SectionSubtitleBackgroundWrapper = styled('div')<{
     },
 }));
 
-const SectionSubtitleBackground = styled('div')<{
+const SectionTitleBackground = styled('div')<{
     color: Color;
 }>(({ theme, color }) => ({
     position: 'relative',
@@ -33,11 +33,12 @@ const SectionSubtitleBackground = styled('div')<{
     width: '100%',
     height: '100%',
 }));
-const SectionSubtitle = styled(Subtitle)(({ theme }) => ({
+const SectionTitle = styled(Heading)({
     position: 'relative',
     zIndex: 10,
     margin: '0px !important',
-}));
+    textTransform: 'none !important',
+});
 
 export interface WorkSubsectionProps {
     readonly title: string;
@@ -59,10 +60,16 @@ export function WorkSubsection({
                 justifyContent={justifyContent}
                 alignItems="center"
             >
-                <SectionSubtitle color="secondary">{title}</SectionSubtitle>
-                <SectionSubtitleBackgroundWrapper position={position}>
-                    <SectionSubtitleBackground color={color} />
-                </SectionSubtitleBackgroundWrapper>
+                <SectionTitle
+                    color="secondary"
+                    size="heading2"
+                    variant="normal"
+                >
+                    {title}
+                </SectionTitle>
+                <SectionTitleBackgroundWrapper position={position}>
+                    <SectionTitleBackground color={color} />
+                </SectionTitleBackgroundWrapper>
             </Stack>
 
             {children}

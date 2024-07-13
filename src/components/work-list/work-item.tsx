@@ -266,6 +266,7 @@ const Title = styled(Heading)(({ theme }) => ({
     cursor: 'pointer',
     color: `${theme.palette.secondary.main} !important`,
     textTransform: 'none',
+    textWrap: 'nowrap',
     [theme.breakpoints.down('sm')]: {
         ...theme.typography.variant.h9,
         textTransform: 'none',

@@ -40,7 +40,7 @@ const Blockquote = styled('blockquote')(() => ({
 }));
 
 export interface QuoteProps {
-    author: string;
+    author?: string;
     children: ReactNode;
 }
 
@@ -48,7 +48,7 @@ export function Quote({ author, children }: QuoteProps): ReactElement {
     return (
         <Blockquote>
             <QuoteParagraph>{children}</QuoteParagraph>
-            <QuoteCite>—{author}</QuoteCite>
+            {author && <QuoteCite>—{author}</QuoteCite>}
         </Blockquote>
     );
 }
