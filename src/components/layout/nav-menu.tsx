@@ -61,6 +61,9 @@ const Menu = styled('div')<MenuProps>(({ theme, open }) => {
             left ${theme.transitions.duration.normal}s ease-in-out,
             margin ${theme.transitions.duration.normal}s ease-in-out
         `,
+        '& a': {
+            pointerEvents: open ? 'auto' : 'none', // fixes a bug when another link gets clicked when the menu is closed and the menu opens
+        },
         [theme.breakpoints.down(700)]: {
             width: !open ? MENU_SIZE_CLOSED : MENU_SIZE_OPEN_SM,
             height: !open ? MENU_SIZE_CLOSED : MENU_SIZE_OPEN_SM,

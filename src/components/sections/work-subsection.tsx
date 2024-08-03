@@ -2,31 +2,22 @@ import React, { PropsWithChildren } from 'react';
 import { Color, styled } from '../theme';
 import { Heading } from '../typography';
 import Stack from '@mui/system/Stack';
-import Box from '@mui/system/Box';
 
-const SectionTitleBackgroundWrapper = styled('div')<{
+export type Position = 'left' | 'right';
+
+const BackgroundExtenderWrapper = styled('div')<{
     readonly position: 'left' | 'right';
 }>(({ theme, position }) => ({
     position: 'absolute',
-    height: '40px',
+    height: '42px',
     width: position === 'left' ? '30%' : '25%',
     ...(position === 'left' ? { left: 0 } : { right: 0 }),
-
-    [theme.breakpoints.up(1999)]: {
-        width: position === 'left' ? '36%' : '31%',
-    },
-    [theme.breakpoints.down(1024)]: {
-        width: '40%',
-    },
-    [theme.breakpoints.down('sm')]: {
-        width: '40%',
-    },
-    [theme.breakpoints.down(424.9)]: {
-        width: '50%',
+    [theme.breakpoints.down('md')]: {
+        height: '36px',
     },
 }));
 
-const SectionTitleBackground = styled('div')<{
+const BackgroundExtender = styled('div')<{
     color: Color;
 }>(({ theme, color }) => ({
     position: 'relative',
@@ -34,6 +25,24 @@ const SectionTitleBackground = styled('div')<{
     width: '100%',
     height: '100%',
 }));
+
+const Background = styled('div')<{
+    color: Color;
+    position: Position;
+}>(({ theme, color, position }) => {
+    const property = position === 'left' ? 'paddingRight' : 'paddingLeft';
+
+    return {
+        position: 'relative',
+        backgroundColor: theme.palette[color].main,
+        height: '100%',
+        [property]: theme.spacing(8),
+        [theme.breakpoints.down('sm')]: {
+            [property]: theme.spacing(4),
+        },
+    };
+});
+
 const SectionTitle = styled(Heading)({
     position: 'relative',
     zIndex: 10,
@@ -44,7 +53,7 @@ const SectionTitle = styled(Heading)({
 export interface WorkSubsectionProps {
     readonly title: string;
     readonly color: Color;
-    readonly position: 'left' | 'right';
+    readonly position: Position;
 }
 
 export function WorkSubsection({
@@ -61,16 +70,18 @@ export function WorkSubsection({
                 justifyContent={justifyContent}
                 alignItems="center"
             >
-                <SectionTitle
-                    color="secondary"
-                    size="heading2"
-                    variant="normal"
-                >
-                    {title}
-                </SectionTitle>
-                <SectionTitleBackgroundWrapper position={position}>
-                    <SectionTitleBackground color={color} />
-                </SectionTitleBackgroundWrapper>
+                <Background color={color} position={position}>
+                    <SectionTitle
+                        color="secondary"
+                        size="heading2"
+                        variant="normal"
+                    >
+                        {title}
+                    </SectionTitle>
+                </Background>
+                <BackgroundExtenderWrapper position={position}>
+                    <BackgroundExtender color={color} />
+                </BackgroundExtenderWrapper>
             </Stack>
 
             {children}
