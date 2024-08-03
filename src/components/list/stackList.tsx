@@ -42,7 +42,7 @@ export function StackList({ items, align }: StackListProps): ReactElement {
                     return React.isValidElement(item) ? (
                         item
                     ) : (
-                        <Text>{item}</Text>
+                        <Text key={key}>{item}</Text>
                     );
                 })}
             </Stack>

@@ -60,8 +60,16 @@ export function DesignProcessStep({
     }
 
     return (
-        <Stack direction={'column'} spacing={2} alignItems={alignItems}>
-            <Stack direction={'column'} spacing={1} alignItems={alignItems}>
+        <Stack
+            direction={'column'}
+            spacing={{ xs: 1, sm: 2 }}
+            alignItems={alignItems}
+        >
+            <Stack
+                direction={'column'}
+                spacing={{ xs: 0, sm: 1 }}
+                alignItems={alignItems}
+            >
                 <DesignProcessStepShapes {...shapes} />
                 {typeof title === 'string' ? (
                     <Subtitle>{title}</Subtitle>

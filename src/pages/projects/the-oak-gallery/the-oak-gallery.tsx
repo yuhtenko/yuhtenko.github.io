@@ -207,14 +207,14 @@ export default function TheOakGalleryPage() {
                 heading={['DESIGN', 'PROCESS']}
                 variant={['bold', 'normal']}
                 withSubSections
-                subSectionsSpacing={5}
+                subSectionsSpacing={6}
             >
                 <WorkSubsection
                     position="left"
                     color="yellow"
                     title="Empathize"
                 >
-                    <Text>
+                    <Paragraph>
                         I conducted user interviews, which I then turned into
                         empathy maps to better understand the target user and
                         their needs. Art auction apps tend to be visually dense
@@ -223,61 +223,67 @@ export default function TheOakGalleryPage() {
                         objective was to understand common challenges and
                         frustrations people face while navigating such a complex
                         app.
-                    </Text>
-                    <Subtitle>Pain Points</Subtitle>
-                    <Grid container spacing={8}>
-                        <Grid xs={12} sm={4} md={4}>
-                            <DesignProcess.Step
-                                key={'Time & Convenience'}
-                                icon={
-                                    <Heading size="heading1" color="blue">
-                                        1
-                                    </Heading>
-                                }
-                                title={
-                                    <Text weight="medium">
-                                        Time & Convenience
-                                    </Text>
-                                }
-                                actions={[
-                                    'Busy art enthusiasts may struggle to set aside time for auctions and may find it difficult to travel to the auction venue.',
-                                ]}
-                                align={'left'}
-                            />
+                    </Paragraph>
+                    <Stack>
+                        <Subtitle>Pain Points</Subtitle>
+                        <Grid container spacing={{ lg: 3, sm: 2, xs: 1 }}>
+                            <Grid xs={12} sm={4} md={4}>
+                                <DesignProcess.Step
+                                    key={'Time & Convenience'}
+                                    icon={
+                                        <Heading size="heading1" color="blue">
+                                            1
+                                        </Heading>
+                                    }
+                                    title={
+                                        <Text weight="medium">
+                                            Time & Convenience
+                                        </Text>
+                                    }
+                                    actions={[
+                                        'Busy art enthusiasts may struggle to set aside time for auctions and may find it difficult to travel to the auction venue.',
+                                    ]}
+                                    align={'left'}
+                                />
+                            </Grid>
+                            <Grid xs={12} sm={4} md={4}>
+                                <DesignProcess.Step
+                                    key={'complexity'}
+                                    icon={
+                                        <Heading size="heading1" color="yellow">
+                                            2
+                                        </Heading>
+                                    }
+                                    title={
+                                        <Text weight="medium">Complexity</Text>
+                                    }
+                                    actions={[
+                                        "People who love art but aren't familiar with auctions might feel lost or intimidated.",
+                                    ]}
+                                    align={'left'}
+                                />
+                            </Grid>
+                            <Grid xs={12} sm={4} md={4}>
+                                <DesignProcess.Step
+                                    key={'Accessibility'}
+                                    icon={
+                                        <Heading size="heading1" color="red">
+                                            3
+                                        </Heading>
+                                    }
+                                    title={
+                                        <Text weight="medium">
+                                            Accessibility
+                                        </Text>
+                                    }
+                                    actions={[
+                                        'Auction apps’ designs are often busy, which results in confusing navigation.',
+                                    ]}
+                                    align={'left'}
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid xs={12} sm={4} md={4}>
-                            <DesignProcess.Step
-                                key={'complexity'}
-                                icon={
-                                    <Heading size="heading1" color="yellow">
-                                        2
-                                    </Heading>
-                                }
-                                title={<Text weight="medium">Complexity</Text>}
-                                actions={[
-                                    "People who love art but aren't familiar with auctions might feel lost or intimidated.",
-                                ]}
-                                align={'left'}
-                            />
-                        </Grid>
-                        <Grid xs={12} sm={4} md={4}>
-                            <DesignProcess.Step
-                                key={'Accessibility'}
-                                icon={
-                                    <Heading size="heading1" color="red">
-                                        3
-                                    </Heading>
-                                }
-                                title={
-                                    <Text weight="medium">Accessibility</Text>
-                                }
-                                actions={[
-                                    'Auction apps’ designs are often busy, which results in confusing navigation.',
-                                ]}
-                                align={'left'}
-                            />
-                        </Grid>
-                    </Grid>
+                    </Stack>
                 </WorkSubsection>
                 <WorkSubsection position="right" color="blue" title="Define">
                     <Paragraph>
@@ -327,7 +333,7 @@ export default function TheOakGalleryPage() {
                             .
                         </Paragraph>
                         <List
-                            gap={2}
+                            spacing={2}
                             items={[
                                 'A busy marketing director, art enthusiast and collector, Laura, needs a user-friendly and efficient platform to access local art gallery auctions, because she wants to expand her art collection while accommodating her tight schedule.',
                                 'A retired engineer and aspiring art collector, Eric, needs guidance and support on how to navigate art auctions effectively, because he wants to initiate his art collection and participate in auctions with confidence.',
@@ -428,23 +434,8 @@ export default function TheOakGalleryPage() {
                                 withBorder
                             />
                             <Image
-                                src={loginPage1Image}
-                                alt="Login page 1"
-                                withBorder
-                            />
-                            <Image
-                                src={loginPage2Image}
-                                alt="Login page 2"
-                                withBorder
-                            />
-                            <Image
                                 src={homepageImage}
                                 alt="Homepage"
-                                withBorder
-                            />
-                            <Image
-                                src={auctionPageImage}
-                                alt="Auction page"
                                 withBorder
                             />
                             <Image
@@ -453,77 +444,95 @@ export default function TheOakGalleryPage() {
                                 withBorder
                             />
                             <Image
-                                src={placingBid1Image}
-                                alt="Placing bid 1"
-                                withBorder
-                            />
-                            <Image
                                 src={placingBid2Image}
                                 alt="Placing bid 2"
                                 withBorder
                             />
+
+                            <Image
+                                src={loginPage1Image}
+                                alt="Login page 1"
+                                withBorder
+                            />
+
+                            <Image
+                                src={auctionPageImage}
+                                alt="Auction page"
+                                withBorder
+                            />
+
+                            <Image
+                                src={placingBid1Image}
+                                alt="Placing bid 1"
+                                withBorder
+                            />
+
                             <Image
                                 src={placingBid3Image}
                                 alt="Placing bid 3"
                                 withBorder
                             />
+
+                            <Image
+                                src={loginPage2Image}
+                                alt="Login page 2"
+                                withBorder
+                            />
                         </ImageList>
                     </SubSection>
                     <SubSection heading="High Fidelity wireframes">
-                        <Paragraph>
-                            <ImageList>
-                                <Image
-                                    src={hfSplashScreenImage}
-                                    alt="High Fidelity Splash Screen"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfOnboardingImage}
-                                    alt="High Fidelity Onboarding"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfLoginImage}
-                                    alt="High Fidelity Login"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfWelcomePageImage}
-                                    alt="High Fidelity Welcome Page"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfLotPageImage}
-                                    alt="High Fidelity Lot Page"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfPlacingBid1Image}
-                                    alt="High Fidelity Placing Bid 1"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfPlacingBid2Image}
-                                    alt="High Fidelity Placing Bid 2"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfHomepageImage}
-                                    alt="High Fidelity Homepage"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfAuctionPageImage}
-                                    alt="High Fidelity Auction Page"
-                                    withBorder
-                                />
-                                <Image
-                                    src={hfBidsBeforeImage}
-                                    alt="High Fidelity Bids Page"
-                                    withBorder
-                                />
-                            </ImageList>
-                        </Paragraph>
+                        <ImageList>
+                            <Image
+                                src={hfSplashScreenImage}
+                                alt="High Fidelity Splash Screen"
+                                withBorder
+                            />
+                            <Image
+                                src={hfOnboardingImage}
+                                alt="High Fidelity Onboarding"
+                                withBorder
+                            />
+                            <Image
+                                src={hfLoginImage}
+                                alt="High Fidelity Login"
+                                withBorder
+                            />
+                            <Image
+                                src={hfWelcomePageImage}
+                                alt="High Fidelity Welcome Page"
+                                withBorder
+                            />
+                            <Image
+                                src={hfLotPageImage}
+                                alt="High Fidelity Lot Page"
+                                withBorder
+                            />
+                            <Image
+                                src={hfPlacingBid1Image}
+                                alt="High Fidelity Placing Bid 1"
+                                withBorder
+                            />
+                            <Image
+                                src={hfPlacingBid2Image}
+                                alt="High Fidelity Placing Bid 2"
+                                withBorder
+                            />
+                            <Image
+                                src={hfHomepageImage}
+                                alt="High Fidelity Homepage"
+                                withBorder
+                            />
+                            <Image
+                                src={hfAuctionPageImage}
+                                alt="High Fidelity Auction Page"
+                                withBorder
+                            />
+                            <Image
+                                src={hfBidsBeforeImage}
+                                alt="High Fidelity Bids Page"
+                                withBorder
+                            />
+                        </ImageList>
                     </SubSection>
                 </WorkSubsection>
                 <WorkSubsection position="left" color="red" title="Test">
@@ -536,6 +545,7 @@ export default function TheOakGalleryPage() {
                     </Paragraph>
                     <SubSection heading="User-Driven Insights">
                         <List
+                            spacing={6}
                             items={[
                                 <>
                                     <Paragraph>

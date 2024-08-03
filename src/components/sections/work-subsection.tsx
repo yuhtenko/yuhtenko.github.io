@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Color, styled } from '../theme';
-import { Heading } from '../typography';
+import { Heading, HeadingProps, Subtitle, SubtitleProps } from '../typography';
 import Stack from '@mui/system/Stack';
 
 export type Position = 'left' | 'right';
@@ -9,11 +9,11 @@ const BackgroundExtenderWrapper = styled('div')<{
     readonly position: 'left' | 'right';
 }>(({ theme, position }) => ({
     position: 'absolute',
-    height: '42px',
+    height: '36px',
     width: position === 'left' ? '30%' : '25%',
     ...(position === 'left' ? { left: 0 } : { right: 0 }),
-    [theme.breakpoints.down('md')]: {
-        height: '36px',
+    [theme.breakpoints.down('sm')]: {
+        height: '33px',
     },
 }));
 
@@ -26,28 +26,25 @@ const BackgroundExtender = styled('div')<{
     height: '100%',
 }));
 
-const Background = styled('div')<{
-    color: Color;
-    position: Position;
-}>(({ theme, color, position }) => {
+interface TitleProps extends PropsWithChildren<SubtitleProps> {
+    readonly backgroundColor: Color;
+    readonly position: Position;
+}
+
+const Title = styled(Subtitle)<TitleProps>(({
+    theme,
+    backgroundColor,
+    position,
+}) => {
     const property = position === 'left' ? 'paddingRight' : 'paddingLeft';
 
     return {
         position: 'relative',
-        backgroundColor: theme.palette[color].main,
-        height: '100%',
+        zIndex: 10,
+        margin: '0px !important',
+        backgroundColor: theme.palette[backgroundColor].main,
         [property]: theme.spacing(8),
-        [theme.breakpoints.down('sm')]: {
-            [property]: theme.spacing(4),
-        },
     };
-});
-
-const SectionTitle = styled(Heading)({
-    position: 'relative',
-    zIndex: 10,
-    margin: '0px !important',
-    textTransform: 'none !important',
 });
 
 export interface WorkSubsectionProps {
@@ -70,15 +67,13 @@ export function WorkSubsection({
                 justifyContent={justifyContent}
                 alignItems="center"
             >
-                <Background color={color} position={position}>
-                    <SectionTitle
-                        color="secondary"
-                        size="heading2"
-                        variant="normal"
-                    >
-                        {title}
-                    </SectionTitle>
-                </Background>
+                <Title
+                    color="secondary"
+                    position={position}
+                    backgroundColor={color}
+                >
+                    {title}
+                </Title>
                 <BackgroundExtenderWrapper position={position}>
                     <BackgroundExtender color={color} />
                 </BackgroundExtenderWrapper>

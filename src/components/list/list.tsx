@@ -4,7 +4,7 @@ import React, { ReactElement, ReactNode } from 'react';
 
 type ListStyler = (props: { theme: Theme } & Omit<ListProps, 'items'>) => any;
 
-const listStyler: ListStyler = ({ theme, variant, gap }) => ({
+const listStyler: ListStyler = ({ theme, variant, spacing }) => ({
     fontSize: '14px',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
@@ -14,7 +14,7 @@ const listStyler: ListStyler = ({ theme, variant, gap }) => ({
     },
 
     '& li:not(:last-child)': {
-        marginBottom: theme.spacing(gap ?? 1),
+        marginBottom: theme.spacing(spacing ?? 1),
     },
 });
 
@@ -30,7 +30,7 @@ const OrderedList = styled('ol')<Omit<ListProps, 'items'>>((input) => ({
 
 export interface ListProps {
     variant?: 'ordered' | 'unordered' | 'none';
-    gap?: number;
+    spacing?: number;
     items: Array<string | ReactElement>;
 }
 
