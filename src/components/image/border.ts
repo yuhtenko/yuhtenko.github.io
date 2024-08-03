@@ -11,20 +11,18 @@ export function toBorder(
         return null;
     }
 
+    const color = theme.palette.black.light ?? theme.palette.black.main;
+
     if (withBorder === true) {
         return {
-            border: `2px solid ${
-                theme.palette.grey.light ?? theme.palette.grey.main
-            }`,
+            border: `1px solid ${color}`,
             borderRadius: theme.shape.borderRadius,
         };
     }
 
     const set = new Set(withBorder);
     const obj: CSSObject = {};
-    const borderStyle = `2px solid ${
-        theme.palette.grey.light ?? theme.palette.grey.main
-    }`;
+    const borderStyle = `1px solid ${color}`;
 
     if (set.has('top')) {
         obj.borderTop = borderStyle;
