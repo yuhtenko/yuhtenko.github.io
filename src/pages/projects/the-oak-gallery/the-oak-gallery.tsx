@@ -11,6 +11,7 @@ import {
     Subtitle,
     Text,
 } from '../../../components/typography';
+import { Image, ImageList } from '../../../components/image';
 import React from 'react';
 import { styled } from '../../../components/theme';
 import { WorkSubsection } from '../../../components/sections/work-subsection';
@@ -18,7 +19,31 @@ import { DesignProcess } from '../../../components/process';
 import { Persona, PersonaCard } from '../../../components/persona/persona';
 import lauraPicture from './assets/laura.jpeg';
 import ericPicture from './assets/eric.jpeg';
+import userFlowImage from './assets/user_flow.jpg';
+import wire1Image from './assets/wire_1.jpg';
+import wire2Image from './assets/wire_2.jpg';
+import splashScreenImage from './assets/low_fidelity/splash_screen.jpg';
+import loginPage1Image from './assets/low_fidelity/login_1.jpg';
+import loginPage2Image from './assets/low_fidelity/login_2.jpg';
+import homepageImage from './assets/low_fidelity/homepage_2.jpg';
+import auctionPageImage from './assets/low_fidelity/auction_page.jpg';
+import lotPage1Image from './assets/low_fidelity/lot_page_1.jpg';
+import placingBid1Image from './assets/low_fidelity/placing_bid_1.jpg';
+import placingBid2Image from './assets/low_fidelity/placing_bid_2.jpg';
+import placingBid3Image from './assets/low_fidelity/placing_bid_3.jpg';
+import hfSplashScreenImage from './assets/high_fidelity/splash_screen.jpg';
+import hfOnboardingImage from './assets/high_fidelity/onboarding.jpg';
+import hfLoginImage from './assets/high_fidelity/login.jpg';
+import hfMenuBeforeImage from './assets/high_fidelity/menu_before.jpg';
+import hfMenuAfter1Image from './assets/high_fidelity/menu_after_1.jpg';
+import hfMenuAfter2Image from './assets/high_fidelity/menu_after_2.jpg';
+import hfBidsBeforeImage from './assets/high_fidelity/bids_before.jpg';
+import hfBidsAfterImage from './assets/high_fidelity/bids_after.jpg';
+import hfLotPageBefore from './assets/high_fidelity/lot_page_before.jpg';
+import hfLotPageAfter from './assets/high_fidelity/lot_page_after.jpg';
 import Grid from '@mui/system/Unstable_Grid';
+import { List } from '../../../components/list/list';
+import { SubSection } from '../../../components/sections/sub-section';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({
@@ -295,6 +320,291 @@ export default function TheOakGalleryPage() {
                         We" questions, that initiate the process of generating
                         ideas and solutions.
                     </Text>
+                    <List
+                        items={[
+                            <Text>
+                                <Text weight="medium">HMW</Text> simplify the
+                                process of art auction dynamics for users to
+                                feel confident in navigating auctions?
+                            </Text>,
+                            <Text>
+                                <Text weight="medium">HMW</Text> provide users
+                                with educational resources and guidance tailored
+                                to their level of expertise as they begin their
+                                art collection journey?
+                            </Text>,
+                            <Text>
+                                <Text weight="medium">HMW</Text> design a
+                                user-friendly digital platform that streamlines
+                                access to local art gallery auctions for users’
+                                convenience?
+                            </Text>,
+                            <Text>
+                                <Text weight="medium">HMW</Text> enhance the
+                                platform with features such as curated
+                                recommendations and artist insights to assist
+                                users in making informed decisions and expanding
+                                their art collection efficiently?
+                            </Text>,
+                        ]}
+                    />
+                    <Paragraph>
+                        The next thing I did was outline the basic flow of the
+                        app, mapping out each step users would take as they go
+                        through the process. Difficulty with auction app’s
+                        navigation was a primary pain point for users, so I used
+                        that knowledge to create a sitemap. My goal here was to
+                        make strategic information architecture decisions that
+                        would improve overall app navigation. The structure I
+                        chose was designed to make things simple and easy.
+                    </Paragraph>
+                    <Image src={userFlowImage} />
+                </WorkSubsection>
+                <WorkSubsection
+                    position="right"
+                    color="yellow"
+                    title="Prototype"
+                >
+                    <Paragraph>
+                        The aim of prototyping stage was to turn my ideas into
+                        something tangible which can be tested on real users.
+                    </Paragraph>
+                    <Subtitle>Wireframing</Subtitle>
+                    <Paragraph>
+                        I began sketching out potential solutions, keeping the
+                        user pain points about navigation, browsing, and
+                        checkout flow in mind.
+                    </Paragraph>
+                    <SubSection heading="Paper sketches">
+                        <ImageList>
+                            <Image src={wire1Image} />
+                            <Image src={wire2Image} />
+                        </ImageList>
+                    </SubSection>
+                    <SubSection heading={'Low Fidelity wireframes'}>
+                        <Paragraph>
+                            Switching from paper to digital wireframes helped me
+                            better see how the design could fix problems users
+                            have and make their experience better. A big part of
+                            my plan was deciding where to put important buttons
+                            and visuals on the main page.
+                        </Paragraph>
+                        <ImageList>
+                            <Image
+                                src={splashScreenImage}
+                                alt="Splash screen"
+                                withBorder
+                            />
+                            <Image
+                                src={loginPage1Image}
+                                alt="Login page 1"
+                                withBorder
+                            />
+                            <Image
+                                src={loginPage2Image}
+                                alt="Login page 2"
+                                withBorder
+                            />
+                            <Image
+                                src={homepageImage}
+                                alt="Homepage"
+                                withBorder
+                            />
+                            <Image
+                                src={auctionPageImage}
+                                alt="Auction page"
+                                withBorder
+                            />
+                            <Image
+                                src={lotPage1Image}
+                                alt="Lot page"
+                                withBorder
+                            />
+                            <Image
+                                src={placingBid1Image}
+                                alt="Placing bid 1"
+                                withBorder
+                            />
+                            <Image
+                                src={placingBid2Image}
+                                alt="Placing bid 2"
+                                withBorder
+                            />
+                            <Image
+                                src={placingBid3Image}
+                                alt="Placing bid 3"
+                                withBorder
+                            />
+                        </ImageList>
+                    </SubSection>
+                    <SubSection heading="High Fidelity wireframes">
+                        <Paragraph>
+                            <ImageList>
+                                <Image
+                                    src={hfSplashScreenImage}
+                                    alt="High Fidelity Splash Screen"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfOnboardingImage}
+                                    alt="High Fidelity Onboarding"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfLoginImage}
+                                    alt="High Fidelity Login"
+                                    withBorder
+                                />
+                            </ImageList>
+                        </Paragraph>
+                    </SubSection>
+                </WorkSubsection>
+                <WorkSubsection position="left" color="red" title="Test">
+                    <Paragraph>
+                        I conducted user testing by sharing my clickable
+                        prototype with a group of potential users and asking for
+                        their feedback. The valuable insights I received
+                        prompted me to revisit and refine the design based on
+                        their input.
+                    </Paragraph>
+                    <SubSection heading="User-Driven Insights">
+                        <List
+                            items={[
+                                <>
+                                    <Paragraph>
+                                        I highlighted the section of the app
+                                        where the user is currently located.
+                                    </Paragraph>
+                                    <Stack
+                                        direction={'row'}
+                                        alignItems={'flex-start'}
+                                        justifyContent={'space-around'}
+                                        marginTop={3}
+                                        marginBottom={3}
+                                    >
+                                        <Stack
+                                            direction={'column'}
+                                            gap={2}
+                                            alignItems={'center'}
+                                        >
+                                            <Text>Before</Text>
+                                            <Image
+                                                src={hfMenuBeforeImage}
+                                                alt="Menu Before"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                        <Stack
+                                            direction={'column'}
+                                            gap={2}
+                                            alignItems={'center'}
+                                        >
+                                            <Text>After</Text>
+                                            <Image
+                                                src={hfMenuAfter1Image}
+                                                alt="Menu After 1"
+                                                withBorder
+                                            />
+                                            <Image
+                                                src={hfMenuAfter2Image}
+                                                alt="Menu After 2"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                    </Stack>
+                                </>,
+                                <>
+                                    <Paragraph>
+                                        I implemented a new color scheme to
+                                        indicate different statuses: users can
+                                        now easily recognize their own bids and
+                                        when their bids have been outbid.
+                                    </Paragraph>
+                                    <Stack
+                                        direction={'row'}
+                                        alignItems={'flex-start'}
+                                        justifyContent={'space-around'}
+                                        marginTop={3}
+                                        marginBottom={3}
+                                        gap={3}
+                                    >
+                                        <Stack
+                                            direction={'column'}
+                                            gap={2}
+                                            alignItems={'center'}
+                                        >
+                                            <Text>Before</Text>
+                                            <Image
+                                                src={hfBidsBeforeImage}
+                                                alt="Bids Before"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                        <Stack
+                                            direction={'column'}
+                                            gap={2}
+                                            alignItems={'center'}
+                                        >
+                                            <Text>After</Text>
+                                            <Image
+                                                src={hfBidsAfterImage}
+                                                alt="Bid After"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                    </Stack>
+                                </>,
+                                <>
+                                    <Paragraph>
+                                        I added the Help button under every lot
+                                        in case users get questions.
+                                    </Paragraph>
+                                    <Stack
+                                        direction={'row'}
+                                        alignItems={'flex-start'}
+                                        justifyContent={'space-around'}
+                                        marginTop={3}
+                                        marginBottom={3}
+                                        gap={3}
+                                    >
+                                        <Stack
+                                            direction={'column'}
+                                            gap={2}
+                                            alignItems={'center'}
+                                        >
+                                            <Text>Before</Text>
+                                            <Image
+                                                src={hfLotPageBefore}
+                                                alt="Lot Page Before"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                        <Stack
+                                            direction={'column'}
+                                            gap={2}
+                                            alignItems={'center'}
+                                        >
+                                            <Text>After</Text>
+                                            <Image
+                                                src={hfLotPageAfter}
+                                                alt="Lot Page After"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                    </Stack>
+                                </>,
+                            ]}
+                        />
+                    </SubSection>
+                    <SubSection heading="Next Steps">
+                        <Paragraph>
+                            In the future, I aim to continue testing to validate
+                            the effectiveness of the solutions implemented for
+                            user pain points. Additionally, I plan to conduct
+                            further user research to identify and address
+                            additional areas requiring updates.
+                        </Paragraph>
+                    </SubSection>
                 </WorkSubsection>
             </WorkSection>
         </>

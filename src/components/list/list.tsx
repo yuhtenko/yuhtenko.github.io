@@ -1,6 +1,6 @@
 import { styled, Theme } from '../theme';
 import { Text } from '../typography';
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 type ListStyler = (props: { theme: Theme } & Omit<ListProps, 'items'>) => any;
 
@@ -26,7 +26,7 @@ const OrderedList = styled('ol')<Omit<ListProps, 'items'>>((input) => ({
 
 export interface ListProps {
     variant?: 'ordered' | 'unordered' | 'none';
-    items: string[];
+    items: Array<string | ReactElement>;
 }
 
 export function List({ items, ...other }: ListProps) {
@@ -34,11 +34,23 @@ export function List({ items, ...other }: ListProps) {
 
     return (
         <Component {...other}>
-            {items.map((item) => (
-                <li key={item}>
-                    <Text>{item}</Text>
-                </li>
-            ))}
+            {items.map((item, idx) => {
+                const key = React.isValidElement(item)
+                    ? item.key || idx.toString()
+                    : typeof item === 'string'
+                      ? item
+                      : idx.toString();
+
+                return (
+                    <li key={key}>
+                        {React.isValidElement(item) ? (
+                            item
+                        ) : (
+                            <Text>{item}</Text>
+                        )}
+                    </li>
+                );
+            })}
         </Component>
     );
 }
