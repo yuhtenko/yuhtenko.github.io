@@ -50,7 +50,6 @@ import hfAuctionPageImage from './assets/high_fidelity/auction_page.jpg';
 import Grid from '@mui/system/Unstable_Grid';
 import { List } from '../../../components/list/list';
 import { SubSection } from '../../../components/sections/sub-section';
-import Box from '@mui/system/Box';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({

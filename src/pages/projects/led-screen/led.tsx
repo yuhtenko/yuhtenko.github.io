@@ -33,7 +33,7 @@ import image4 from './assets/image-4.jpg';
 import image5 from './assets/image-5.jpg';
 import image6 from './assets/image-6.jpg';
 
-const LedScreenHeroSection = styled(HeroWorkSection)(({ theme }) => ({
+const LedScreenHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
     [theme.breakpoints.down(476)]: {
         '& .hero-number, .hero-heading': {
             ...theme.typography.variant.h3,
@@ -55,7 +55,7 @@ export const PROJECT_ID = 'led-screen';
 export default function LedScreenProjectPage() {
     return (
         <>
-            <ProjectHeroWorkSection
+            <LedScreenHeroSection
                 projectId={PROJECT_ID}
                 shapes={
                     <Stack

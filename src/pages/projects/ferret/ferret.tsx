@@ -44,7 +44,6 @@ const TerminalImageMask = styled(ImageMask)(({ theme }) => ({
 export const PROJECT_ID = 'ferret';
 
 export default function FerretProjectPage() {
-    const theme = useTheme();
     return (
         <>
             <ProjectHeroWorkSection

@@ -146,7 +146,7 @@ export function NavMenu({ items }: NavGroupProps) {
                     <Menu open={open}>
                         <MenuList
                             open={open}
-                            spacing={{ xs: 3, sm: 4, md: 3 }}
+                            spacing={{ xs: 3, sm: 3, md: 3 }}
                             alignItems={'center'}
                         >
                             {items.map((item) => (

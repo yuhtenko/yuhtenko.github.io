@@ -61,8 +61,8 @@ export function HeroWorkSection({
             <HeroContent
                 direction={'row'}
                 spacing={{ xs: 1, sm: 2, md: 3 }}
-                alignItems={'baseline'}
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
+                alignItems="baseline"
+                justifyContent="flex-start"
             >
                 <Heading
                     size={'title'}

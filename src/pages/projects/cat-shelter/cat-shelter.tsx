@@ -2,7 +2,6 @@ import React from 'react';
 import Stack from '@mui/system/Stack';
 import { Image, ImageList } from '../../../components/image';
 import {
-    HeroWorkSection,
     PageSection,
     ProjectHeroWorkSection,
     WorkSection,
@@ -16,7 +15,7 @@ import catMobileAdopt from './assets/cat-mobile-adopt.jpg';
 import catMobileLuna from './assets/cat-mobile-luna.jpg';
 import catMobileStore from './assets/cat-mobile-store.jpg';
 
-const CatShelterHeroSection = styled(HeroWorkSection)(({ theme }) => ({
+const CatShelterHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
         '& .hero-number, .hero-heading': {
             ...theme.typography.variant.h3,
@@ -53,7 +52,7 @@ export const PROJECT_ID = 'cat-shelter';
 export default function CatShelterProjectPage() {
     return (
         <>
-            <ProjectHeroWorkSection
+            <CatShelterHeroSection
                 projectId={PROJECT_ID}
                 heading={'Cat\u00A0Angels Pet\u00A0Adoptions'}
                 shapes={
