@@ -20,7 +20,7 @@ function toTextAlignment(
 
 export interface StackListProps {
     align?: StackProps['justifyContent'];
-    items: string[];
+    items: Array<string | ReactElement>;
 }
 
 export function StackList({ items, align }: StackListProps): ReactElement {
@@ -32,9 +32,19 @@ export function StackList({ items, align }: StackListProps): ReactElement {
                 alignItems={align}
                 textAlign={toTextAlignment(align)}
             >
-                {items.map((item) => (
-                    <Text key={item}>{item}</Text>
-                ))}
+                {items.map((item, idx) => {
+                    const key = React.isValidElement(item)
+                        ? item.key || idx.toString()
+                        : typeof item === 'string'
+                          ? item
+                          : idx.toString();
+
+                    return React.isValidElement(item) ? (
+                        item
+                    ) : (
+                        <Text>{item}</Text>
+                    );
+                })}
             </Stack>
         </>
     );

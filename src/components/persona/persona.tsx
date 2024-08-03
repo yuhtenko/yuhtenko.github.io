@@ -1,12 +1,12 @@
 import React, { PropsWithChildren } from 'react';
-import { Subtitle, Text } from '../typography';
+import { Paragraph, Subtitle, Text } from '../typography';
 import { styled, useTheme } from '../theme';
 import Grid from '@mui/system/Unstable_Grid';
 import { PersonaPicture } from './persona-picture';
 import { List } from '../list/list';
 import { PersonaQuote } from './persona-quote';
 
-const PersonaDescription = styled(Text)(({ theme }) => ({
+const PersonaDescription = styled(Paragraph)(({ theme }) => ({
     display: 'inline-block',
     [theme.breakpoints.up('lg')]: {
         paddingLeft: '26px',

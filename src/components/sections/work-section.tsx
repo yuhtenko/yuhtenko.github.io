@@ -14,6 +14,7 @@ export interface WorkSectionProps
     noMargin?: boolean;
     sx?: SxProps;
     withSubSections?: boolean;
+    subSectionsSpacing?: number;
 }
 
 export function WorkSection({
@@ -28,13 +29,14 @@ export function WorkSection({
     noMargin,
     sx,
     withSubSections,
+    subSectionsSpacing,
 }: PropsWithChildren<WorkSectionProps>) {
     const headingArray = Array.isArray(heading) ? heading : [heading];
 
     const content = !withSubSections ? (
         children
     ) : (
-        <Stack direction={'column'} spacing={3}>
+        <Stack direction={'column'} spacing={subSectionsSpacing ?? 3}>
             {children}
         </Stack>
     );

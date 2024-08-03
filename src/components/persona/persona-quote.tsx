@@ -3,7 +3,10 @@ import { Text } from '../typography';
 import React, { PropsWithChildren } from 'react';
 
 const StyledQuote = styled(Text)(({ theme }) => ({
-    // fontWeight: theme.typography.fontWeight.light,
+    display: 'inline-block',
+    maxWidth: '428px',
+    textWrap: 'wrap',
+    opacity: 0.65,
     fontStyle: 'italic',
     ['&::before']: {
         content: "'“'",

@@ -39,11 +39,18 @@ import hfMenuAfter1Image from './assets/high_fidelity/menu_after_1.jpg';
 import hfMenuAfter2Image from './assets/high_fidelity/menu_after_2.jpg';
 import hfBidsBeforeImage from './assets/high_fidelity/bids_before.jpg';
 import hfBidsAfterImage from './assets/high_fidelity/bids_after.jpg';
-import hfLotPageBefore from './assets/high_fidelity/lot_page_before.jpg';
-import hfLotPageAfter from './assets/high_fidelity/lot_page_after.jpg';
+import hfLotPageBeforeImage from './assets/high_fidelity/lot_page_before.jpg';
+import hfLotPageAfterImage from './assets/high_fidelity/lot_page_after.jpg';
+import hfWelcomePageImage from './assets/high_fidelity/welcome_page.jpg';
+import hfLotPageImage from './assets/high_fidelity/lot_page.jpg';
+import hfPlacingBid1Image from './assets/high_fidelity/placing_bid_1.jpg';
+import hfPlacingBid2Image from './assets/high_fidelity/placing_bid_2.jpg';
+import hfHomepageImage from './assets/high_fidelity/home_page.jpg';
+import hfAuctionPageImage from './assets/high_fidelity/auction_page.jpg';
 import Grid from '@mui/system/Unstable_Grid';
 import { List } from '../../../components/list/list';
 import { SubSection } from '../../../components/sections/sub-section';
+import Box from '@mui/system/Box';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({
@@ -63,20 +70,6 @@ const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
         },
     })
 );
-
-const TheOakGalleryDesignProcess = styled(Grid)(({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-        '& > .MuiGrid-root': {
-            paddingLeft: 0,
-            paddingRight: 0,
-        },
-    },
-    [theme.breakpoints.up('md')]: {
-        '& > .MuiGrid-root:first-of-type': {
-            paddingLeft: 0,
-        },
-    },
-}));
 
 const PERSONAS: { laura: Persona; eric: Persona } = {
     laura: {
@@ -166,44 +159,56 @@ export default function TheOakGalleryPage() {
                     aesthetics with functionality to reshape the digital
                     auctioning landscape.
                 </Paragraph>
-                <Paragraph>
-                    <Text weight="semi-bold">Project Duration: </Text>
-                    <Text>October - December 2023.</Text>
-                    <br />
-                    <Text weight="semi-bold">My Role: </Text>
-                    <Text>My Role: UX/UI Designer</Text>
-                    <br />
-                    <Text weight="semi-bold">My Responsibilities: </Text>
-                    <Text>
-                        Conducting interviews, paper and digital wire-framing,
-                        low and high-fidelity prototyping, conducting usability
-                        studies, accounting for accessibility, iterating on
-                        designs and responsive design.
-                    </Text>
-                </Paragraph>
-
-                <Paragraph>
-                    <Text weight="semi-bold">The Problem: </Text>
-                    <Text>
-                        The members of the gallery lack convenient access to the
-                        auctions organized by The Oaks Gallery.
-                    </Text>
-                </Paragraph>
-                <Paragraph>
-                    <Text weight="semi-bold">The Goal: </Text>
-                    <Text>
-                        Design a simple app, that can offer gallery’s members
-                        more flexibility with auction attendance and to enrich
-                        the relationship between the gallery and its members
-                        while promoting a vibrant and interactive art community.
-                    </Text>
-                </Paragraph>
+                <List
+                    variant="none"
+                    items={[
+                        <>
+                            <Text weight="semi-bold">Project Duration: </Text>
+                            <Text>October - December 2023.</Text>
+                        </>,
+                        <>
+                            <Text weight="semi-bold">My Role: </Text>
+                            <Text>My Role: UX/UI Designer</Text>
+                        </>,
+                        <>
+                            <Text weight="semi-bold">
+                                My Responsibilities:{' '}
+                            </Text>
+                            <Text>
+                                Conducting interviews, paper and digital
+                                wire-framing, low and high-fidelity prototyping,
+                                conducting usability studies, accounting for
+                                accessibility, iterating on designs and
+                                responsive design.
+                            </Text>
+                        </>,
+                        <>
+                            <Text weight="semi-bold">The Problem: </Text>
+                            <Text>
+                                The members of the gallery lack convenient
+                                access to the auctions organized by The Oaks
+                                Gallery.
+                            </Text>
+                        </>,
+                        <>
+                            <Text weight="semi-bold">The Goal: </Text>
+                            <Text>
+                                Design a simple app, that can offer gallery’s
+                                members more flexibility with auction attendance
+                                and to enrich the relationship between the
+                                gallery and its members while promoting a
+                                vibrant and interactive art community.
+                            </Text>
+                        </>,
+                    ]}
+                />
             </PageSection>
             <WorkSection
                 id={'process'}
                 heading={['DESIGN', 'PROCESS']}
                 variant={['bold', 'normal']}
                 withSubSections
+                subSectionsSpacing={5}
             >
                 <WorkSubsection
                     position="left"
@@ -221,7 +226,7 @@ export default function TheOakGalleryPage() {
                         app.
                     </Text>
                     <Subtitle>Pain Points</Subtitle>
-                    <TheOakGalleryDesignProcess container spacing={4}>
+                    <Grid container spacing={8}>
                         <Grid xs={12} sm={4} md={4}>
                             <DesignProcess.Step
                                 key={'Time & Convenience'}
@@ -273,14 +278,14 @@ export default function TheOakGalleryPage() {
                                 align={'left'}
                             />
                         </Grid>
-                    </TheOakGalleryDesignProcess>
+                    </Grid>
                 </WorkSubsection>
                 <WorkSubsection position="right" color="blue" title="Define">
-                    <Text>
+                    <Paragraph>
                         Analyzing the different insights and recurring themes
                         from users' responses allowed me to create two personas,
                         which represent that information in character form.
-                    </Text>
+                    </Paragraph>
                     <Stack spacing={3}>
                         <PersonaCard
                             key={PERSONAS.laura.name}
@@ -313,51 +318,75 @@ export default function TheOakGalleryPage() {
                             collection and auction apps.
                         </PersonaCard>
                     </Stack>
+                    <Stack>
+                        <Paragraph>
+                            After that I created a user journey map of my
+                            persona’s experience to help identify possible
+                            problems and improvement opportunities. Following
+                            all the frustrations I defined{' '}
+                            <Text weight="semi-bold">2 problem statements</Text>
+                            .
+                        </Paragraph>
+                        <List
+                            gap={2}
+                            items={[
+                                'A busy marketing director, art enthusiast and collector, Laura, needs a user-friendly and efficient platform to access local art gallery auctions, because she wants to expand her art collection while accommodating her tight schedule.',
+                                'A retired engineer and aspiring art collector, Eric, needs guidance and support on how to navigate art auctions effectively, because he wants to initiate his art collection and participate in auctions with confidence.',
+                            ]}
+                        />
+                    </Stack>
                 </WorkSubsection>
                 <WorkSubsection position="left" color="red" title="Ideate">
-                    <Text>
-                        To address the stated problems, I employed "How Might
-                        We" questions, that initiate the process of generating
-                        ideas and solutions.
-                    </Text>
-                    <List
-                        items={[
-                            <Text>
-                                <Text weight="medium">HMW</Text> simplify the
-                                process of art auction dynamics for users to
-                                feel confident in navigating auctions?
-                            </Text>,
-                            <Text>
-                                <Text weight="medium">HMW</Text> provide users
-                                with educational resources and guidance tailored
-                                to their level of expertise as they begin their
-                                art collection journey?
-                            </Text>,
-                            <Text>
-                                <Text weight="medium">HMW</Text> design a
-                                user-friendly digital platform that streamlines
-                                access to local art gallery auctions for users’
-                                convenience?
-                            </Text>,
-                            <Text>
-                                <Text weight="medium">HMW</Text> enhance the
-                                platform with features such as curated
-                                recommendations and artist insights to assist
-                                users in making informed decisions and expanding
-                                their art collection efficiently?
-                            </Text>,
-                        ]}
-                    />
-                    <Paragraph>
-                        The next thing I did was outline the basic flow of the
-                        app, mapping out each step users would take as they go
-                        through the process. Difficulty with auction app’s
-                        navigation was a primary pain point for users, so I used
-                        that knowledge to create a sitemap. My goal here was to
-                        make strategic information architecture decisions that
-                        would improve overall app navigation. The structure I
-                        chose was designed to make things simple and easy.
-                    </Paragraph>
+                    <Stack>
+                        <Text>
+                            To address the stated problems, I employed "How
+                            Might We" questions, that initiate the process of
+                            generating ideas and solutions.
+                        </Text>
+                        <List
+                            items={[
+                                <Text>
+                                    <Text weight="medium">HMW</Text> simplify
+                                    the process of art auction dynamics for
+                                    users to feel confident in navigating
+                                    auctions?
+                                </Text>,
+                                <Text>
+                                    <Text weight="medium">HMW</Text> provide
+                                    users with educational resources and
+                                    guidance tailored to their level of
+                                    expertise as they begin their art collection
+                                    journey?
+                                </Text>,
+                                <Text>
+                                    <Text weight="medium">HMW</Text> design a
+                                    user-friendly digital platform that
+                                    streamlines access to local art gallery
+                                    auctions for users’ convenience?
+                                </Text>,
+                                <Text>
+                                    <Text weight="medium">HMW</Text> enhance the
+                                    platform with features such as curated
+                                    recommendations and artist insights to
+                                    assist users in making informed decisions
+                                    and expanding their art collection
+                                    efficiently?
+                                </Text>,
+                            ]}
+                        />
+                        <Paragraph>
+                            The next thing I did was outline the basic flow of
+                            the app, mapping out each step users would take as
+                            they go through the process. Difficulty with auction
+                            app’s navigation was a primary pain point for users,
+                            so I used that knowledge to create a sitemap. My
+                            goal here was to make strategic information
+                            architecture decisions that would improve overall
+                            app navigation. The structure I chose was designed
+                            to make things simple and easy.
+                        </Paragraph>
+                    </Stack>
+
                     <Image src={userFlowImage} />
                 </WorkSubsection>
                 <WorkSubsection
@@ -369,12 +398,16 @@ export default function TheOakGalleryPage() {
                         The aim of prototyping stage was to turn my ideas into
                         something tangible which can be tested on real users.
                     </Paragraph>
-                    <Subtitle>Wireframing</Subtitle>
-                    <Paragraph>
-                        I began sketching out potential solutions, keeping the
-                        user pain points about navigation, browsing, and
-                        checkout flow in mind.
-                    </Paragraph>
+
+                    <Stack>
+                        <Subtitle spacing={[1, 1]}>Wireframing</Subtitle>
+                        <Paragraph>
+                            I began sketching out potential solutions, keeping
+                            the user pain points about navigation, browsing, and
+                            checkout flow in mind.
+                        </Paragraph>
+                    </Stack>
+
                     <SubSection heading="Paper sketches">
                         <ImageList>
                             <Image src={wire1Image} />
@@ -453,6 +486,41 @@ export default function TheOakGalleryPage() {
                                 <Image
                                     src={hfLoginImage}
                                     alt="High Fidelity Login"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfWelcomePageImage}
+                                    alt="High Fidelity Welcome Page"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfLotPageImage}
+                                    alt="High Fidelity Lot Page"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfPlacingBid1Image}
+                                    alt="High Fidelity Placing Bid 1"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfPlacingBid2Image}
+                                    alt="High Fidelity Placing Bid 2"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfHomepageImage}
+                                    alt="High Fidelity Homepage"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfAuctionPageImage}
+                                    alt="High Fidelity Auction Page"
+                                    withBorder
+                                />
+                                <Image
+                                    src={hfBidsBeforeImage}
+                                    alt="High Fidelity Bids Page"
                                     withBorder
                                 />
                             </ImageList>
@@ -574,7 +642,7 @@ export default function TheOakGalleryPage() {
                                         >
                                             <Text>Before</Text>
                                             <Image
-                                                src={hfLotPageBefore}
+                                                src={hfLotPageBeforeImage}
                                                 alt="Lot Page Before"
                                                 withBorder
                                             />
@@ -586,7 +654,7 @@ export default function TheOakGalleryPage() {
                                         >
                                             <Text>After</Text>
                                             <Image
-                                                src={hfLotPageAfter}
+                                                src={hfLotPageAfterImage}
                                                 alt="Lot Page After"
                                                 withBorder
                                             />

@@ -1,7 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import { Color, styled } from '../theme';
-import { Heading, Subtitle } from '../typography';
+import { Heading } from '../typography';
 import Stack from '@mui/system/Stack';
+import Box from '@mui/system/Box';
 
 const SectionTitleBackgroundWrapper = styled('div')<{
     readonly position: 'left' | 'right';
@@ -54,7 +55,7 @@ export function WorkSubsection({
 }: PropsWithChildren<WorkSubsectionProps>) {
     const justifyContent = position === 'left' ? 'flex-start' : 'flex-end';
     return (
-        <>
+        <Stack marginBottom={5} gap={3}>
             <Stack
                 direction="row"
                 justifyContent={justifyContent}
@@ -73,6 +74,6 @@ export function WorkSubsection({
             </Stack>
 
             {children}
-        </>
+        </Stack>
     );
 }
