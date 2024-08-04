@@ -35,10 +35,12 @@ import hfSplashScreenImage from './assets/high_fidelity/splash_screen.jpg';
 import hfOnboardingImage from './assets/high_fidelity/onboarding.jpg';
 import hfLoginImage from './assets/high_fidelity/login.jpg';
 import hfMenuBeforeImage from './assets/high_fidelity/menu_before.jpg';
+import hfMenuAfter1Image from './assets/high_fidelity/menu_after_1.jpg';
 import hfMenuAfter2Image from './assets/high_fidelity/menu_after_2.jpg';
 import hfBidsBeforeImage from './assets/high_fidelity/bids_before.jpg';
 import hfBidsAfterImage from './assets/high_fidelity/bids_after.jpg';
 import hfLotPageBeforeImage from './assets/high_fidelity/lot_page_before.jpg';
+import hfLotPageAfterImage from './assets/high_fidelity/lot_page_after.jpg';
 import hfWelcomePageImage from './assets/high_fidelity/welcome_page.jpg';
 import hfLotPageImage from './assets/high_fidelity/lot_page.jpg';
 import hfPlacingBid1Image from './assets/high_fidelity/placing_bid_1.jpg';
@@ -50,7 +52,7 @@ import { List } from '../../../components/list/list';
 import { SubSection } from '../../../components/sections/sub-section';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 import { TestResult } from '../../../components/sections/test-result';
-import { Link } from '../../../components/link';
+import { Link, StyledLink } from '../../../components/link';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({
@@ -148,13 +150,13 @@ export default function TheOakGalleryPage() {
                 <Paragraph>
                     This project is the outcome of my participation in the
                     Google UX Design Professional{' '}
-                    <Link
+                    <StyledLink
                         to={
                             'https://www.coursera.org/account/accomplishments/specialization/PVB29MDQAK8V'
                         }
                     >
                         Certificate
-                    </Link>{' '}
+                    </StyledLink>{' '}
                     program—a six-month online curriculum designed to provide
                     individuals with entry-level UX design skills. As part of
                     the program, I completed various assignments to build my
@@ -176,7 +178,7 @@ export default function TheOakGalleryPage() {
                         </>,
                         <>
                             <Text weight="semi-bold">My Role: </Text>
-                            <Text>My Role: UX/UI Designer</Text>
+                            <Text>UX/UI Designer</Text>
                         </>,
                         <>
                             <Text weight="semi-bold">
@@ -602,12 +604,20 @@ export default function TheOakGalleryPage() {
                                         />
                                     }
                                     after={
-                                        <Image
-                                            src={hfMenuAfter2Image}
-                                            alt="Menu After 2"
-                                            maxWidth="300px"
-                                            withBorder
-                                        />
+                                        <Stack gap={2}>
+                                            <Image
+                                                src={hfMenuAfter1Image}
+                                                alt="Menu After 1"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <Image
+                                                src={hfMenuAfter2Image}
+                                                alt="Menu After 2"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                        </Stack>
                                     }
                                 />,
                                 <TestResult
@@ -645,7 +655,7 @@ export default function TheOakGalleryPage() {
                                     }
                                     after={
                                         <Image
-                                            src={hfLotPageBeforeImage}
+                                            src={hfLotPageAfterImage}
                                             alt="Lot Page Before"
                                             maxWidth="300px"
                                             withBorder

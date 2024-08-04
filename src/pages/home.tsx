@@ -3,7 +3,6 @@ import * as React from 'react';
 import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
 import { CSSObject } from '@mui/styled-engine';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { Button } from '../components/buttons';
 import { ContactForm } from '../components/form';
 import {
@@ -17,11 +16,13 @@ import { HeroPageSection, PageSection } from '../components/sections';
 import { Square } from '../components/shape';
 import { SuperCircle, SuperTriangle } from '../components/super-shapes';
 import { styled, useTheme } from '../components/theme';
-import { Heading, Paragraph } from '../components/typography';
+import { Heading, Paragraph, Quote } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkList } from '../components/work-list';
 import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
 import { useAppData } from '../components/app/context';
+import { StyledLink } from '../components/link';
+import Box from '@mui/system/Box';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -171,18 +172,10 @@ export default function HomePage() {
                     <span className={'hover'}>Download Resume</span>
                 </ResumeButton>
             </HeroPageSection>
-            {/*<PageSection*/}
-            {/*    id="quote"*/}
-            {/*    paddingBottom={{ xs: '78px', md: '128px' }}*/}
-            {/*>*/}
-            {/*    <Stack justifyContent={'center'} alignItems={'center'}>*/}
-            {/*        <Quote author="Paul Rand">*/}
-            {/*            «Design&nbsp;is&nbsp;so&nbsp;simple,&nbsp;that&apos;s&nbsp;why&nbsp;*/}
-            {/*            {'\u200b'}*/}
-            {/*            it&nbsp;is&nbsp;so&nbsp;complicated.»*/}
-            {/*        </Quote>*/}
-            {/*    </Stack>*/}
-            {/*</PageSection>*/}
+            <Quote author="Paul Rand">
+                «Design&nbsp;is&nbsp;so&nbsp;simple,&nbsp;that&apos;s&nbsp;why&nbsp;
+                it&nbsp;is&nbsp;so&nbsp;complicated»
+            </Quote>
             <PageSection
                 id="work"
                 heading={['My', 'Work']}
@@ -219,9 +212,9 @@ export default function HomePage() {
                         </Paragraph>
                         <Paragraph>
                             I attended dozens of classes to study art and{' '}
-                            <OutboundLink href={data.photoPortfolioUrl}>
+                            <StyledLink to={data.photoPortfolioUrl}>
                                 photography
-                            </OutboundLink>
+                            </StyledLink>
                             , which helped me develop visual storytelling
                             and&nbsp;creative thinking. An engineering
                             background provides me with valuable skills and
