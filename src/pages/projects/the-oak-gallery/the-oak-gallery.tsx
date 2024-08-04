@@ -50,6 +50,8 @@ import hfAuctionPageImage from './assets/high_fidelity/auction_page.jpg';
 import Grid from '@mui/system/Unstable_Grid';
 import { List } from '../../../components/list/list';
 import { SubSection } from '../../../components/sections/sub-section';
+import { ColumnarImageList } from '../../../components/image/columnar-image-list';
+import { TestResult } from '../../../components/sections/test-result';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({
@@ -415,8 +417,8 @@ export default function TheOakGalleryPage() {
 
                     <SubSection heading="Paper sketches">
                         <ImageList>
-                            <Image src={wire1Image} />
-                            <Image src={wire2Image} />
+                            <Image src={wire1Image} withBorder />
+                            <Image src={wire2Image} withBorder />
                         </ImageList>
                     </SubSection>
                     <SubSection heading={'Low Fidelity wireframes'}>
@@ -427,112 +429,146 @@ export default function TheOakGalleryPage() {
                             my plan was deciding where to put important buttons
                             and visuals on the main page.
                         </Paragraph>
-                        <ImageList>
-                            <Image
-                                src={splashScreenImage}
-                                alt="Splash screen"
-                                withBorder
-                            />
-                            <Image
-                                src={homepageImage}
-                                alt="Homepage"
-                                withBorder
-                            />
-                            <Image
-                                src={lotPage1Image}
-                                alt="Lot page"
-                                withBorder
-                            />
-                            <Image
-                                src={placingBid2Image}
-                                alt="Placing bid 2"
-                                withBorder
-                            />
-
-                            <Image
-                                src={loginPage1Image}
-                                alt="Login page 1"
-                                withBorder
-                            />
-
-                            <Image
-                                src={auctionPageImage}
-                                alt="Auction page"
-                                withBorder
-                            />
-
-                            <Image
-                                src={placingBid1Image}
-                                alt="Placing bid 1"
-                                withBorder
-                            />
-
-                            <Image
-                                src={placingBid3Image}
-                                alt="Placing bid 3"
-                                withBorder
-                            />
-
-                            <Image
-                                src={loginPage2Image}
-                                alt="Login page 2"
-                                withBorder
-                            />
-                        </ImageList>
+                        <ColumnarImageList
+                            images={[
+                                [
+                                    <Image
+                                        key="Splash Screen"
+                                        src={splashScreenImage}
+                                        alt="Splash screen"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Login Page 1"
+                                        src={loginPage1Image}
+                                        alt="Login page 1"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Login Page 2"
+                                        src={loginPage2Image}
+                                        alt="Login page 2"
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <Image
+                                        key="Homepage"
+                                        src={homepageImage}
+                                        alt="Homepage"
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <Image
+                                        key="Lot Page 1"
+                                        src={lotPage1Image}
+                                        alt="Lot page"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Auction Page"
+                                        src={auctionPageImage}
+                                        alt="Auction page"
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <Image
+                                        key="Placing Bid 1"
+                                        src={placingBid1Image}
+                                        alt="Placing bid 1"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Placing Bid 2"
+                                        src={placingBid2Image}
+                                        alt="Placing bid 2"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Placing Bid 3"
+                                        src={placingBid3Image}
+                                        alt="Placing bid 3"
+                                        withBorder
+                                    />,
+                                ],
+                            ]}
+                        />
                     </SubSection>
                     <SubSection heading="High Fidelity wireframes">
-                        <ImageList>
-                            <Image
-                                src={hfSplashScreenImage}
-                                alt="High Fidelity Splash Screen"
-                                withBorder
-                            />
-                            <Image
-                                src={hfOnboardingImage}
-                                alt="High Fidelity Onboarding"
-                                withBorder
-                            />
-                            <Image
-                                src={hfLoginImage}
-                                alt="High Fidelity Login"
-                                withBorder
-                            />
-                            <Image
-                                src={hfWelcomePageImage}
-                                alt="High Fidelity Welcome Page"
-                                withBorder
-                            />
-                            <Image
-                                src={hfLotPageImage}
-                                alt="High Fidelity Lot Page"
-                                withBorder
-                            />
-                            <Image
-                                src={hfPlacingBid1Image}
-                                alt="High Fidelity Placing Bid 1"
-                                withBorder
-                            />
-                            <Image
-                                src={hfPlacingBid2Image}
-                                alt="High Fidelity Placing Bid 2"
-                                withBorder
-                            />
-                            <Image
-                                src={hfHomepageImage}
-                                alt="High Fidelity Homepage"
-                                withBorder
-                            />
-                            <Image
-                                src={hfAuctionPageImage}
-                                alt="High Fidelity Auction Page"
-                                withBorder
-                            />
-                            <Image
-                                src={hfBidsBeforeImage}
-                                alt="High Fidelity Bids Page"
-                                withBorder
-                            />
-                        </ImageList>
+                        <ColumnarImageList
+                            images={[
+                                [
+                                    <Image
+                                        key="Splash Screen"
+                                        src={hfSplashScreenImage}
+                                        alt="High Fidelity Splash Screen"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Onboarding"
+                                        src={hfOnboardingImage}
+                                        alt="High Fidelity Onboarding"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Login"
+                                        src={hfLoginImage}
+                                        alt="High Fidelity Login"
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <Image
+                                        key="Welcome Page"
+                                        src={hfWelcomePageImage}
+                                        alt="High Fidelity Welcome Page"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Lot Page"
+                                        src={hfLotPageImage}
+                                        alt="High Fidelity Lot Page"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Placing Bid 1"
+                                        src={hfPlacingBid1Image}
+                                        alt="High Fidelity Placing Bid 1"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Placing Bid 2"
+                                        src={hfPlacingBid2Image}
+                                        alt="High Fidelity Placing Bid 2"
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <Image
+                                        key="Homepage"
+                                        src={hfHomepageImage}
+                                        alt="High Fidelity Homepage"
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <Image
+                                        key="Auction Page"
+                                        src={hfAuctionPageImage}
+                                        alt="High Fidelity Auction Page"
+                                        withBorder
+                                    />,
+                                    <Image
+                                        key="Bids Page"
+                                        src={hfBidsBeforeImage}
+                                        alt="High Fidelity Bids Page"
+                                        withBorder
+                                    />,
+                                ],
+                            ]}
+                        />
                     </SubSection>
                 </WorkSubsection>
                 <WorkSubsection position="left" color="red" title="Test">
@@ -547,129 +583,68 @@ export default function TheOakGalleryPage() {
                         <List
                             spacing={6}
                             items={[
-                                <>
-                                    <Paragraph>
-                                        I highlighted the section of the app
-                                        where the user is currently located.
-                                    </Paragraph>
-                                    <Stack
-                                        direction={'row'}
-                                        alignItems={'flex-start'}
-                                        justifyContent={'space-around'}
-                                        marginTop={3}
-                                        marginBottom={3}
-                                    >
-                                        <Stack
-                                            direction={'column'}
-                                            gap={2}
-                                            alignItems={'center'}
-                                        >
-                                            <Text>Before</Text>
-                                            <Image
-                                                src={hfMenuBeforeImage}
-                                                alt="Menu Before"
-                                                withBorder
-                                            />
-                                        </Stack>
-                                        <Stack
-                                            direction={'column'}
-                                            gap={2}
-                                            alignItems={'center'}
-                                        >
-                                            <Text>After</Text>
-                                            <Image
-                                                src={hfMenuAfter1Image}
-                                                alt="Menu After 1"
-                                                withBorder
-                                            />
-                                            <Image
-                                                src={hfMenuAfter2Image}
-                                                alt="Menu After 2"
-                                                withBorder
-                                            />
-                                        </Stack>
-                                    </Stack>
-                                </>,
-                                <>
-                                    <Paragraph>
-                                        I implemented a new color scheme to
+                                <TestResult
+                                    title="I highlighted the section of the app
+                                        where the user is currently located."
+                                    before={
+                                        <Image
+                                            src={hfMenuBeforeImage}
+                                            alt="Menu Before"
+                                            maxWidth="300px"
+                                            withBorder
+                                        />
+                                    }
+                                    after={
+                                        <Image
+                                            src={hfMenuAfter2Image}
+                                            alt="Menu After 2"
+                                            maxWidth="300px"
+                                            withBorder
+                                        />
+                                    }
+                                />,
+                                <TestResult
+                                    title="I implemented a new color scheme to
                                         indicate different statuses: users can
                                         now easily recognize their own bids and
-                                        when their bids have been outbid.
-                                    </Paragraph>
-                                    <Stack
-                                        direction={'row'}
-                                        alignItems={'flex-start'}
-                                        justifyContent={'space-around'}
-                                        marginTop={3}
-                                        marginBottom={3}
-                                        gap={3}
-                                    >
-                                        <Stack
-                                            direction={'column'}
-                                            gap={2}
-                                            alignItems={'center'}
-                                        >
-                                            <Text>Before</Text>
-                                            <Image
-                                                src={hfBidsBeforeImage}
-                                                alt="Bids Before"
-                                                withBorder
-                                            />
-                                        </Stack>
-                                        <Stack
-                                            direction={'column'}
-                                            gap={2}
-                                            alignItems={'center'}
-                                        >
-                                            <Text>After</Text>
-                                            <Image
-                                                src={hfBidsAfterImage}
-                                                alt="Bid After"
-                                                withBorder
-                                            />
-                                        </Stack>
-                                    </Stack>
-                                </>,
-                                <>
-                                    <Paragraph>
-                                        I added the Help button under every lot
-                                        in case users get questions.
-                                    </Paragraph>
-                                    <Stack
-                                        direction={'row'}
-                                        alignItems={'flex-start'}
-                                        justifyContent={'space-around'}
-                                        marginTop={3}
-                                        marginBottom={3}
-                                        gap={3}
-                                    >
-                                        <Stack
-                                            direction={'column'}
-                                            gap={2}
-                                            alignItems={'center'}
-                                        >
-                                            <Text>Before</Text>
-                                            <Image
-                                                src={hfLotPageBeforeImage}
-                                                alt="Lot Page Before"
-                                                withBorder
-                                            />
-                                        </Stack>
-                                        <Stack
-                                            direction={'column'}
-                                            gap={2}
-                                            alignItems={'center'}
-                                        >
-                                            <Text>After</Text>
-                                            <Image
-                                                src={hfLotPageAfterImage}
-                                                alt="Lot Page After"
-                                                withBorder
-                                            />
-                                        </Stack>
-                                    </Stack>
-                                </>,
+                                        when their bids have been outbid."
+                                    before={
+                                        <Image
+                                            src={hfBidsBeforeImage}
+                                            alt="Bids Before"
+                                            maxWidth="300px"
+                                            withBorder
+                                        />
+                                    }
+                                    after={
+                                        <Image
+                                            src={hfBidsAfterImage}
+                                            alt="Bid After"
+                                            maxWidth="300px"
+                                            withBorder
+                                        />
+                                    }
+                                />,
+
+                                <TestResult
+                                    title="I added the Help button under every lot in case users get questions."
+                                    before={
+                                        <Image
+                                            src={hfLotPageBeforeImage}
+                                            alt="Lot Page Before"
+                                            maxWidth="300px"
+                                            withBorder
+                                        />
+                                    }
+                                    after={
+                                        <Image
+                                            src={hfLotPageBeforeImage}
+                                            alt="Lot Page Before"
+                                            maxWidth="300px"
+                                            withBorder
+                                        />
+                                    }
+                                />,
                             ]}
                         />
                     </SubSection>
