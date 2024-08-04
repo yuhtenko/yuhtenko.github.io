@@ -20,11 +20,11 @@ export const TestResult = ({ title, before, after }: TestResultProps) => (
             marginBottom={3}
             gap={2}
         >
-            <Stack direction={'column'} gap={2} alignItems={'center'}>
+            <Stack direction={'column'} gap={0} alignItems={'center'}>
                 <Text>Before</Text>
                 {before}
             </Stack>
-            <Stack direction={'column'} gap={2} alignItems={'center'}>
+            <Stack direction={'column'} gap={0} alignItems={'center'}>
                 <Text>After</Text>
                 {after}
             </Stack>

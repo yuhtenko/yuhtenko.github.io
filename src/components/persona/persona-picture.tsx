@@ -1,17 +1,17 @@
-import { Image } from '../image';
+import { Image, ImageProps } from '../image';
 import React from 'react';
 import { styled } from '../theme';
 
-const PersonaImage = styled(Image)(({ theme }) => ({
+const PersonaImage = styled(Image)<ImageProps>(({ theme }) => ({
     clipPath: 'ellipse(43% 50% at 50% 50%)',
 }));
 
 export interface PersonaPictureProps {
     src: string;
     alt: string;
-    size?: number;
+    maxWidth?: string;
 }
 
-export function PersonaPicture({ src, alt, size }: PersonaPictureProps) {
-    return <PersonaImage src={src} alt={alt} />;
+export function PersonaPicture({ src, alt, maxWidth }: PersonaPictureProps) {
+    return <PersonaImage src={src} alt={alt} maxWidth={maxWidth} />;
 }

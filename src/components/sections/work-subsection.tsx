@@ -61,7 +61,7 @@ export function WorkSubsection({
 }: PropsWithChildren<WorkSubsectionProps>) {
     const justifyContent = position === 'left' ? 'flex-start' : 'flex-end';
     return (
-        <Stack marginBottom={5} gap={3}>
+        <Stack marginBottom={5} gap={2}>
             <Stack
                 direction="row"
                 justifyContent={justifyContent}

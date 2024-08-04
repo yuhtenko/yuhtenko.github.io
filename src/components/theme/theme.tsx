@@ -102,8 +102,8 @@ const theme = createTheme({
     sizes: {
         spacing: {
             title: [5, 3],
-            heading1: [4, 3],
-            heading2: [3, 2],
+            heading1: [1, 1],
+            heading2: [1, 1],
             subheading1: [2, 1],
             subheading2: [1, 1],
             section1: [5, 3],

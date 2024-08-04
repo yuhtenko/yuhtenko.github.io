@@ -1,6 +1,7 @@
 import { styled, Theme } from '../theme';
 import { Text } from '../typography';
 import React, { ReactElement, ReactNode } from 'react';
+import { SxProps } from '@mui/system';
 
 type ListStyler = (props: { theme: Theme } & Omit<ListProps, 'items'>) => any;
 
@@ -31,6 +32,7 @@ const OrderedList = styled('ol')<Omit<ListProps, 'items'>>((input) => ({
 export interface ListProps {
     variant?: 'ordered' | 'unordered' | 'none';
     spacing?: number;
+    sx?: SxProps;
     items: Array<string | ReactElement>;
 }
 

@@ -54,11 +54,17 @@ export function PersonaCard({
                 direction={{ xs: 'row', lg: 'column' }}
             >
                 <Grid key={'picture'} xs={12} sm={6} lg={12}>
-                    <PersonaPicture src={picture} alt={`Picture of ${name}`} />
+                    <PersonaPicture
+                        src={picture}
+                        alt={`Picture of ${name}`}
+                        maxWidth={'360px'}
+                    />
                 </Grid>
                 <Grid key={'info'} xs={12} sm={6} lg={12}>
                     <List
                         variant={'none'}
+                        spacing={0}
+                        sx={{ marginTop: 0 }}
                         items={[
                             `Age: ${persona.age}`,
                             `Education: ${persona.education}`,

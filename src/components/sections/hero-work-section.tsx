@@ -6,6 +6,13 @@ import { useAppData } from '../app/context';
 
 const Container = styled(Stack)(({ theme }) => ({
     minHeight: '88vh',
+
+    [theme.breakpoints.down(1025)]: {
+        minHeight: '82vh',
+    },
+    [theme.breakpoints.down('sm')]: {
+        minHeight: '86vh',
+    },
 }));
 
 const HeroContent = styled(Stack)(({ theme }) => ({

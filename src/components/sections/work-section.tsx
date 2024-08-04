@@ -51,6 +51,7 @@ export function WorkSection({
             justifyContent={'flex-start'}
             paddingTop={paddingTop}
             paddingBottom={paddingBottom}
+            marginTop={'0 !important'}
             sx={sx}
         >
             <Grid xs={12} paddingBottom={0}>
