@@ -23,6 +23,7 @@ import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
 import { useAppData } from '../components/app/context';
 import { StyledLink } from '../components/link';
 import Box from '@mui/system/Box';
+import { List } from '../components/list/list';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -190,14 +191,7 @@ export default function HomePage() {
                         <SuperTriangle transform="translateY(-28%)" />
                     </SuperTriangleWrapper>
                 </Relative>
-                <Grid
-                    container
-                    spacing={{
-                        md: theme.sizes.spacing.heading1[0],
-                        xs: theme.sizes.spacing.heading1[1],
-                    }}
-                    direction={'column'}
-                >
+                <Grid container spacing={3} direction={'column'}>
                     <ElevatedGrid xs={12}>
                         <Paragraph>
                             I love learning psychology, as I think our
