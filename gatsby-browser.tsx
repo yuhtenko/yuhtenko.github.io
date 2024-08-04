@@ -11,6 +11,7 @@ import website from './website.json';
 import GlobalStyle from './src/components/theme/styles';
 import { AppDataProvider } from './src/components/app/context';
 import { AppData } from './src/common/app';
+import { PhotoProvider } from 'react-photo-view';
 
 function buildHeaderLinks(
     loc: WindowLocation,
@@ -44,7 +45,9 @@ export function wrapRootElement({ element }: WrapPageElementBrowserArgs) {
     return (
         <AppDataProvider value={website}>
             <GlobalStyle />
-            <ThemeProvider>{element}</ThemeProvider>
+            <ThemeProvider>
+                <PhotoProvider>{element}</PhotoProvider>
+            </ThemeProvider>
         </AppDataProvider>
     );
 }

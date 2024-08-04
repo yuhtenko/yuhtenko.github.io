@@ -5,6 +5,7 @@ import { BorderSide, toBorder } from './border';
 export interface ImageProps {
     className?: string;
     src: string;
+    alt?: string;
     maxWidth?: string;
     withBorder?: boolean | BorderSide[];
     style?: React.CSSProperties;

@@ -33,6 +33,7 @@ import image4Secure from './assets/image-4-secure.jpg';
 import image4 from './assets/image-4.jpg';
 import image5 from './assets/image-5.jpg';
 import image6 from './assets/image-6.jpg';
+import { ImageView } from '../../../components/image/image-view';
 
 const TerminalImageMask = styled(ImageMask)(({ theme }) => ({
     '& img': {
@@ -163,7 +164,7 @@ export default function FerretProjectPage() {
                 variant={['bold', 'normal']}
             >
                 <ImageList>
-                    <Image src={image2} withBorder />
+                    <ImageView src={image2} withBorder />
                     <LayeredImage
                         src={image4}
                         justifyContent={'flex-end'}
@@ -178,9 +179,9 @@ export default function FerretProjectPage() {
                             </ImageCycle>
                         </ImageLayer>
                     </LayeredImage>
-                    <Image src={image5} withBorder />
-                    <Image src={image6} withBorder />
-                    <Image src={image3} withBorder />
+                    <ImageView src={image5} withBorder />
+                    <ImageView src={image6} withBorder />
+                    <ImageView src={image3} withBorder />
                 </ImageList>
             </WorkSection>
         </>

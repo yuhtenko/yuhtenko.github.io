@@ -15,6 +15,7 @@ import catMobileAdopt from './assets/cat-mobile-adopt.jpg';
 import catMobileLuna from './assets/cat-mobile-luna.jpg';
 import catMobileStore from './assets/cat-mobile-store.jpg';
 import { List } from '../../../components/list/list';
+import { ImageView } from '../../../components/image/image-view';
 
 const CatShelterHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -171,9 +172,9 @@ export default function CatShelterProjectPage() {
                 variant={['bold', 'normal']}
             >
                 <ImageList>
-                    <Image src={catMobileAdopt} withBorder />
-                    <Image src={catMobileLuna} withBorder />
-                    <Image src={catMobileStore} withBorder />
+                    <ImageView src={catMobileAdopt} withBorder />
+                    <ImageView src={catMobileLuna} withBorder />
+                    <ImageView src={catMobileStore} withBorder />
                 </ImageList>
             </WorkSection>
         </>

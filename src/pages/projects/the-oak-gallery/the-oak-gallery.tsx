@@ -53,6 +53,7 @@ import { SubSection } from '../../../components/sections/sub-section';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 import { TestResult } from '../../../components/sections/test-result';
 import { Link, StyledLink } from '../../../components/link';
+import { ImageView } from '../../../components/image/image-view';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({
@@ -403,7 +404,7 @@ export default function TheOakGalleryPage() {
                         </Paragraph>
                     </Stack>
 
-                    <Image src={userFlowImage} />
+                    <ImageView src={userFlowImage} />
                 </WorkSubsection>
                 <WorkSubsection
                     position="right"
@@ -426,8 +427,8 @@ export default function TheOakGalleryPage() {
 
                     <SubSection heading="Paper sketches">
                         <ImageList>
-                            <Image src={wire1Image} withBorder />
-                            <Image src={wire2Image} withBorder />
+                            <ImageView src={wire1Image} withBorder />
+                            <ImageView src={wire2Image} withBorder />
                         </ImageList>
                     </SubSection>
                     <SubSection heading={'Low Fidelity wireframes'}>
@@ -441,19 +442,19 @@ export default function TheOakGalleryPage() {
                         <ColumnarImageList
                             images={[
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Splash Screen"
                                         src={splashScreenImage}
                                         alt="Splash screen"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Login Page 1"
                                         src={loginPage1Image}
                                         alt="Login page 1"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Login Page 2"
                                         src={loginPage2Image}
                                         alt="Login page 2"
@@ -461,7 +462,7 @@ export default function TheOakGalleryPage() {
                                     />,
                                 ],
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Homepage"
                                         src={homepageImage}
                                         alt="Homepage"
@@ -469,13 +470,13 @@ export default function TheOakGalleryPage() {
                                     />,
                                 ],
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Lot Page 1"
                                         src={lotPage1Image}
                                         alt="Lot page"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Auction Page"
                                         src={auctionPageImage}
                                         alt="Auction page"
@@ -483,19 +484,19 @@ export default function TheOakGalleryPage() {
                                     />,
                                 ],
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Placing Bid 1"
                                         src={placingBid1Image}
                                         alt="Placing bid 1"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Placing Bid 2"
                                         src={placingBid2Image}
                                         alt="Placing bid 2"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Placing Bid 3"
                                         src={placingBid3Image}
                                         alt="Placing bid 3"
@@ -509,19 +510,19 @@ export default function TheOakGalleryPage() {
                         <ColumnarImageList
                             images={[
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Splash Screen"
                                         src={hfSplashScreenImage}
                                         alt="High Fidelity Splash Screen"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Onboarding"
                                         src={hfOnboardingImage}
                                         alt="High Fidelity Onboarding"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Login"
                                         src={hfLoginImage}
                                         alt="High Fidelity Login"
@@ -529,25 +530,25 @@ export default function TheOakGalleryPage() {
                                     />,
                                 ],
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Welcome Page"
                                         src={hfWelcomePageImage}
                                         alt="High Fidelity Welcome Page"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Lot Page"
                                         src={hfLotPageImage}
                                         alt="High Fidelity Lot Page"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Placing Bid 1"
                                         src={hfPlacingBid1Image}
                                         alt="High Fidelity Placing Bid 1"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Placing Bid 2"
                                         src={hfPlacingBid2Image}
                                         alt="High Fidelity Placing Bid 2"
@@ -555,7 +556,7 @@ export default function TheOakGalleryPage() {
                                     />,
                                 ],
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Homepage"
                                         src={hfHomepageImage}
                                         alt="High Fidelity Homepage"
@@ -563,13 +564,13 @@ export default function TheOakGalleryPage() {
                                     />,
                                 ],
                                 [
-                                    <Image
+                                    <ImageView
                                         key="Auction Page"
                                         src={hfAuctionPageImage}
                                         alt="High Fidelity Auction Page"
                                         withBorder
                                     />,
-                                    <Image
+                                    <ImageView
                                         key="Bids Page"
                                         src={hfBidsBeforeImage}
                                         alt="High Fidelity Bids Page"
@@ -605,13 +606,13 @@ export default function TheOakGalleryPage() {
                                     }
                                     after={
                                         <Stack gap={2}>
-                                            <Image
+                                            <ImageView
                                                 src={hfMenuAfter1Image}
                                                 alt="Menu After 1"
                                                 maxWidth="300px"
                                                 withBorder
                                             />
-                                            <Image
+                                            <ImageView
                                                 src={hfMenuAfter2Image}
                                                 alt="Menu After 2"
                                                 maxWidth="300px"
@@ -626,7 +627,7 @@ export default function TheOakGalleryPage() {
                                         now easily recognize their own bids and
                                         when their bids have been outbid."
                                     before={
-                                        <Image
+                                        <ImageView
                                             src={hfBidsBeforeImage}
                                             alt="Bids Before"
                                             maxWidth="300px"
@@ -634,7 +635,7 @@ export default function TheOakGalleryPage() {
                                         />
                                     }
                                     after={
-                                        <Image
+                                        <ImageView
                                             src={hfBidsAfterImage}
                                             alt="Bid After"
                                             maxWidth="300px"
@@ -646,7 +647,7 @@ export default function TheOakGalleryPage() {
                                 <TestResult
                                     title="I added the Help button under every lot in case users get questions."
                                     before={
-                                        <Image
+                                        <ImageView
                                             src={hfLotPageBeforeImage}
                                             alt="Lot Page Before"
                                             maxWidth="300px"
@@ -654,7 +655,7 @@ export default function TheOakGalleryPage() {
                                         />
                                     }
                                     after={
-                                        <Image
+                                        <ImageView
                                             src={hfLotPageAfterImage}
                                             alt="Lot Page Before"
                                             maxWidth="300px"
