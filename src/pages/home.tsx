@@ -171,15 +171,16 @@ export default function HomePage() {
                     <span className="normal">{data.title}</span>
                     <span className={'hover'}>Download Resume</span>
                 </ResumeButton>
+                {/*<Quote author="Paul Rand" sx={{ marginTop: '60% !important' }}>*/}
+                {/*    «Design&nbsp;is&nbsp;so&nbsp;simple,&nbsp;that&apos;s&nbsp;why&nbsp;*/}
+                {/*    it&nbsp;is&nbsp;so&nbsp;complicated»*/}
+                {/*</Quote>*/}
             </HeroPageSection>
-            <Quote author="Paul Rand">
-                «Design&nbsp;is&nbsp;so&nbsp;simple,&nbsp;that&apos;s&nbsp;why&nbsp;
-                it&nbsp;is&nbsp;so&nbsp;complicated»
-            </Quote>
             <PageSection
                 id="work"
                 heading={['My', 'Work']}
                 variant={['normal', 'outline']}
+                sx={{ marginTop: '0 !important' }}
             >
                 <WorkList projects={data?.projects ?? []} />
             </PageSection>
