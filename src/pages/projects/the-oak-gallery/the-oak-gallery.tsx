@@ -35,12 +35,10 @@ import hfSplashScreenImage from './assets/high_fidelity/splash_screen.jpg';
 import hfOnboardingImage from './assets/high_fidelity/onboarding.jpg';
 import hfLoginImage from './assets/high_fidelity/login.jpg';
 import hfMenuBeforeImage from './assets/high_fidelity/menu_before.jpg';
-import hfMenuAfter1Image from './assets/high_fidelity/menu_after_1.jpg';
 import hfMenuAfter2Image from './assets/high_fidelity/menu_after_2.jpg';
 import hfBidsBeforeImage from './assets/high_fidelity/bids_before.jpg';
 import hfBidsAfterImage from './assets/high_fidelity/bids_after.jpg';
 import hfLotPageBeforeImage from './assets/high_fidelity/lot_page_before.jpg';
-import hfLotPageAfterImage from './assets/high_fidelity/lot_page_after.jpg';
 import hfWelcomePageImage from './assets/high_fidelity/welcome_page.jpg';
 import hfLotPageImage from './assets/high_fidelity/lot_page.jpg';
 import hfPlacingBid1Image from './assets/high_fidelity/placing_bid_1.jpg';
@@ -52,6 +50,7 @@ import { List } from '../../../components/list/list';
 import { SubSection } from '../../../components/sections/sub-section';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 import { TestResult } from '../../../components/sections/test-result';
+import { Link } from '../../../components/link';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(
     ({ theme }) => ({
@@ -148,17 +147,24 @@ export default function TheOakGalleryPage() {
             <PageSection id={'about'} heading={'About'} variant={'outline'}>
                 <Paragraph>
                     This project is the outcome of my participation in the
-                    Google UX Design Professional Certificate program—a
-                    six-month online curriculum designed to provide individuals
-                    with entry-level UX design skills. As part of the program, I
-                    completed various assignments to build my portfolio, one of
-                    which was designing a UX/UI case study for an app. I chose
-                    to create an auction app for a potential local art gallery,
-                    which I named The Oaks Gallery. This case study explores the
-                    detailed design process involved in creating a flawless user
-                    experience tailored for art enthusiasts. It combines
-                    aesthetics with functionality to reshape the digital
-                    auctioning landscape.
+                    Google UX Design Professional{' '}
+                    <Link
+                        to={
+                            'https://www.coursera.org/account/accomplishments/specialization/PVB29MDQAK8V'
+                        }
+                    >
+                        Certificate
+                    </Link>{' '}
+                    program—a six-month online curriculum designed to provide
+                    individuals with entry-level UX design skills. As part of
+                    the program, I completed various assignments to build my
+                    portfolio, one of which was designing a UX/UI case study for
+                    an app. I chose to create an auction app for a potential
+                    local art gallery, which I named The Oaks Gallery. This case
+                    study explores the detailed design process involved in
+                    creating a flawless user experience tailored for art
+                    enthusiasts. It combines aesthetics with functionality to
+                    reshape the digital auctioning landscape.
                 </Paragraph>
                 <br />
                 <List
