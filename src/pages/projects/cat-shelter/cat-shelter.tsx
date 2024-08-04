@@ -14,6 +14,7 @@ import catDesktop from './assets/cat-desktop.jpg';
 import catMobileAdopt from './assets/cat-mobile-adopt.jpg';
 import catMobileLuna from './assets/cat-mobile-luna.jpg';
 import catMobileStore from './assets/cat-mobile-store.jpg';
+import { List } from '../../../components/list/list';
 
 const CatShelterHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -83,6 +84,8 @@ export default function CatShelterProjectPage() {
                     my main job was to create high-quality content for their
                     website and social media accounts. Once I started studying
                     UX/UI design, I felt an urge to improve their website.
+                </Paragraph>
+                <Paragraph>
                     Unfortunately, as we all know, animal shelters usually lack
                     resources, and allocating them towards website development,
                     user research, and UX design is definitely not their top
@@ -107,31 +110,14 @@ export default function CatShelterProjectPage() {
                     audience. Here are some of the challenges that I had to face
                     in the process of designing the landing page:
                 </Paragraph>
-                <ul className="paragraph cat-challenge-list">
-                    <li>
-                        <Text>
-                            Information architecture: organizing information on
-                            the landing page to be easily navigable and
-                            identifying the most important information and
-                            features.
-                        </Text>
-                    </li>
-                    <li>
-                        <Text>
-                            Emotional content: finding the right balance between
-                            compelling content and a user-friendly design,
-                            without overloading the page with emotional content
-                            that may turn potential visitors away.
-                        </Text>
-                    </li>
-                    <li>
-                        <Text>
-                            Limited attention span: creating a landing page that
-                            quickly captures user attention, with clear
-                            call-to-action buttons.
-                        </Text>
-                    </li>
-                </ul>
+                <List
+                    items={[
+                        'Information architecture: organizing information on the landing page to be easily navigable and identifying the most important information and features.',
+                        'Emotional content: finding the right balance between compelling content and a user-friendly design, without overloading the page with emotional content that may turn potential visitors away.',
+                        'Limited attention span: creating a landing page that quickly captures user attention, with clear call-to-action buttons.',
+                    ]}
+                    variant={'unordered'}
+                />
             </WorkSection>
             <WorkSection
                 id={'process'}

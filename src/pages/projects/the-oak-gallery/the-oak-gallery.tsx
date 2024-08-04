@@ -160,6 +160,7 @@ export default function TheOakGalleryPage() {
                     aesthetics with functionality to reshape the digital
                     auctioning landscape.
                 </Paragraph>
+                <br />
                 <List
                     variant="none"
                     items={[
