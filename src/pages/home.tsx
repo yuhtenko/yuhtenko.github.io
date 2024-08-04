@@ -3,8 +3,6 @@ import * as React from 'react';
 import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
 import { CSSObject } from '@mui/styled-engine';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import data from '../../website.json';
 import { Button } from '../components/buttons';
 import { ContactForm } from '../components/form';
 import {
@@ -13,15 +11,18 @@ import {
     LightroomIcon,
     PhotoshopIcon,
 } from '../components/icons';
-import { List } from '../components/list';
+import { StackList } from '../components/list';
 import { HeroPageSection, PageSection } from '../components/sections';
 import { Square } from '../components/shape';
 import { SuperCircle, SuperTriangle } from '../components/super-shapes';
 import { styled, useTheme } from '../components/theme';
-import { Heading, Paragraph } from '../components/typography';
+import { Heading, Paragraph, Quote } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
-import { WorkItemData, WorkList } from '../components/work-list';
+import { WorkList } from '../components/work-list';
 import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
+import { useAppData } from '../components/app/context';
+import { StyledLink } from '../components/link';
+import Box from '@mui/system/Box';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -124,6 +125,7 @@ interface Message {
 
 export default function HomePage() {
     const theme = useTheme();
+    const data = useAppData();
     const interests = toChunks(data.interests, 3);
     const [message, setMessage] = React.useState<Message | null>(null);
     const handleDownload = () => {
@@ -169,25 +171,18 @@ export default function HomePage() {
                     <span className="normal">{data.title}</span>
                     <span className={'hover'}>Download Resume</span>
                 </ResumeButton>
+                {/*<Quote author="Paul Rand" sx={{ marginTop: '60% !important' }}>*/}
+                {/*    «Design&nbsp;is&nbsp;so&nbsp;simple,&nbsp;that&apos;s&nbsp;why&nbsp;*/}
+                {/*    it&nbsp;is&nbsp;so&nbsp;complicated»*/}
+                {/*</Quote>*/}
             </HeroPageSection>
-            {/*<PageSection*/}
-            {/*    id="quote"*/}
-            {/*    paddingBottom={{ xs: '78px', md: '128px' }}*/}
-            {/*>*/}
-            {/*    <Stack justifyContent={'center'} alignItems={'center'}>*/}
-            {/*        <Quote author="Paul Rand">*/}
-            {/*            «Design&nbsp;is&nbsp;so&nbsp;simple,&nbsp;that&apos;s&nbsp;why&nbsp;*/}
-            {/*            {'\u200b'}*/}
-            {/*            it&nbsp;is&nbsp;so&nbsp;complicated.»*/}
-            {/*        </Quote>*/}
-            {/*    </Stack>*/}
-            {/*</PageSection>*/}
             <PageSection
                 id="work"
                 heading={['My', 'Work']}
                 variant={['normal', 'outline']}
+                sx={{ marginTop: '0 !important' }}
             >
-                <WorkList content={(data?.projects as WorkItemData[]) ?? []} />
+                <WorkList projects={data?.projects ?? []} />
             </PageSection>
             <PageSection id="about" heading={['About', 'Me']} variant="outline">
                 <Relative>
@@ -218,9 +213,9 @@ export default function HomePage() {
                         </Paragraph>
                         <Paragraph>
                             I attended dozens of classes to study art and{' '}
-                            <OutboundLink href={data.photoPortfolioUrl}>
+                            <StyledLink to={data.photoPortfolioUrl}>
                                 photography
-                            </OutboundLink>
+                            </StyledLink>
                             , which helped me develop visual storytelling
                             and&nbsp;creative thinking. An engineering
                             background provides me with valuable skills and
@@ -234,7 +229,7 @@ export default function HomePage() {
                                 <Heading size={'subheading1'} variant={'bold'}>
                                     Languages
                                 </Heading>
-                                <List items={data?.languages ?? []} />
+                                <StackList items={data?.languages ?? []} />
                             </Grid>
 
                             <Grid xs={12} sm={6}>
@@ -243,7 +238,7 @@ export default function HomePage() {
                                 </Heading>
                                 <Stack direction="row" spacing={6}>
                                     {interests.map((items, idx) => (
-                                        <List
+                                        <StackList
                                             key={idx.toString()}
                                             items={items}
                                         />

@@ -17,6 +17,7 @@ import { DesignProcess } from '../../../components/process';
 import {
     HeroWorkSection,
     PageSection,
+    ProjectHeroWorkSection,
     WorkSection,
 } from '../../../components/sections';
 import { HalfCircle, Rectangle, Triangle } from '../../../components/shape';
@@ -31,8 +32,9 @@ import image4_3 from './assets/image-4-3.jpg';
 import image4 from './assets/image-4.jpg';
 import image5 from './assets/image-5.jpg';
 import image6 from './assets/image-6.jpg';
+import { ImageView } from '../../../components/image/image-view';
 
-const LedScreenHeroSection = styled(HeroWorkSection)(({ theme }) => ({
+const LedScreenHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
     [theme.breakpoints.down(476)]: {
         '& .hero-number, .hero-heading': {
             ...theme.typography.variant.h3,
@@ -49,14 +51,13 @@ const LedScreenHeroSection = styled(HeroWorkSection)(({ theme }) => ({
     },
 }));
 
+export const PROJECT_ID = 'led-screen';
+
 export default function LedScreenProjectPage() {
     return (
         <>
             <LedScreenHeroSection
-                id="hero-section"
-                number="02"
-                heading="LedScreen"
-                description="a service for speedy uploading of commercials onto city screens"
+                projectId={PROJECT_ID}
                 shapes={
                     <Stack
                         direction={'column'}
@@ -191,8 +192,8 @@ export default function LedScreenProjectPage() {
                 <Stack direction={'column'} spacing={3}>
                     <Image src={image1} withBorder />
                     <ImageList>
-                        <Image src={image2} withBorder />
-                        <Image src={image3} withBorder />
+                        <ImageView src={image2} withBorder />
+                        <ImageView src={image3} withBorder />
                     </ImageList>
                 </Stack>
             </WorkSection>
@@ -211,8 +212,8 @@ export default function LedScreenProjectPage() {
                             </ImageCycle>
                         </ImageLayer>
                     </LayeredImage>
-                    <Image src={image5} withBorder />
-                    <Image src={image6} withBorder />
+                    <ImageView src={image5} withBorder />
+                    <ImageView src={image6} withBorder />
                 </ImageList>
             </WorkSection>
         </>

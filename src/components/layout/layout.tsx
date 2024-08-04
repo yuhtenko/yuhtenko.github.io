@@ -2,6 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import Container from '@mui/system/Container';
 import Grid from '@mui/system/Unstable_Grid';
 import styled from '@mui/system/styled';
+import 'react-photo-view/dist/react-photo-view.css';
 import { NavItem } from '../link';
 import { Content, ContentSpacing } from './content';
 import { Footer } from './footer';

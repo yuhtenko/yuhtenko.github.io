@@ -1,23 +1,18 @@
 import React from 'react';
 import Stack from '@mui/system/Stack';
-import { WorkItem, WorkItemData } from './work-item';
+import { WorkItem } from './work-item';
+import { Project } from '../../common/project';
 
 export interface WorkListProps {
-    content: WorkItemData[];
+    projects: Project[];
     className?: string;
 }
 
-export function WorkList({ content, className }: WorkListProps) {
+export function WorkList({ projects, className }: WorkListProps) {
     return (
         <Stack className={className} direction="column" spacing={4}>
-            {content?.map((item, idx) => {
-                return (
-                    <WorkItem
-                        key={item.path}
-                        {...item}
-                        number={`0${idx + 1}`}
-                    />
-                );
+            {projects?.map((item, idx) => {
+                return <WorkItem key={item.id} project={item} />;
             })}
         </Stack>
     );

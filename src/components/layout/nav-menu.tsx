@@ -61,6 +61,9 @@ const Menu = styled('div')<MenuProps>(({ theme, open }) => {
             left ${theme.transitions.duration.normal}s ease-in-out,
             margin ${theme.transitions.duration.normal}s ease-in-out
         `,
+        '& a': {
+            pointerEvents: open ? 'auto' : 'none', // fixes a bug when another link gets clicked when the menu is closed and the menu opens
+        },
         [theme.breakpoints.down(700)]: {
             width: !open ? MENU_SIZE_CLOSED : MENU_SIZE_OPEN_SM,
             height: !open ? MENU_SIZE_CLOSED : MENU_SIZE_OPEN_SM,
@@ -87,19 +90,23 @@ const MenuList = styled(Stack)<MenuListProps>(({ theme, open }) => ({
     opacity: !open ? 0 : 1,
     transition: open ? 'opacity 0.5s ease-in-out' : 'none',
     zIndex: 20,
-    marginBottom: theme.spacing(10),
+    marginBottom: theme.spacing(5),
     [theme.breakpoints.down('sm')]: {
-        marginBottom: theme.spacing(7),
+        marginBottom: theme.spacing(3),
     },
     [theme.breakpoints.down(330)]: {
-        marginBottom: theme.spacing(6),
+        marginBottom: theme.spacing(2),
     },
 }));
 
 const MenuNavLink = styled(NavLink)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
-        fontSize: '22px',
-        lineHeight: '28px',
+        fontSize: '18px',
+        lineHeight: '24px',
+    },
+    [theme.breakpoints.down(330)]: {
+        fontSize: '16px',
+        lineHeight: '22px',
     },
 }));
 
@@ -142,7 +149,7 @@ export function NavMenu({ items }: NavGroupProps) {
                     <Menu open={open}>
                         <MenuList
                             open={open}
-                            spacing={{ xs: 3, sm: 4, md: 3 }}
+                            spacing={{ xs: 3, sm: 3, md: 3 }}
                             alignItems={'center'}
                         >
                             {items.map((item) => (

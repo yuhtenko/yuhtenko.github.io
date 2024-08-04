@@ -4,20 +4,10 @@ import { GridProps } from '@mui/system';
 import Box from '@mui/system/Box';
 import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
-import { Color, styled } from '../theme';
+import { styled } from '../theme';
 import { Caption, Heading, HeadingProps } from '../typography';
 import { getWorkItemShape } from './work-item-shape';
-
-export type WorkItemShape = 'rectangle' | 'triangle' | 'half-circle';
-
-export interface WorkItemData {
-    id: string;
-    title: string;
-    description: string;
-    shape: WorkItemShape;
-    color: Color;
-    path: string;
-}
+import { Project, ProjectShape } from '../../common/project';
 
 const CONTENT_HEIGHT = 120;
 const ANIM_DUR = 0.15;
@@ -87,34 +77,34 @@ const RECTANGLE_TRANSITION_GROUPS: TransitionGroups = [
 ];
 
 interface ContentProps extends GridProps {
-    shape: WorkItemShape;
+    shape: ProjectShape;
 }
 
-const HEADER_ANIM_OUT_DUR: Record<WorkItemShape, string> = {
+const HEADER_ANIM_OUT_DUR: Record<ProjectShape, string> = {
     ['rectangle']: '15ms',
     ['triangle']: '20ms',
     ['half-circle']: '20ms',
 };
 
-const HEADER_ANIM_IN_DEL: Record<WorkItemShape, string> = {
+const HEADER_ANIM_IN_DEL: Record<ProjectShape, string> = {
     ['rectangle']: '285ms',
     ['triangle']: '325ms',
     ['half-circle']: '355ms',
 };
 
-const TITLE_ANIM_OUT_DEL: Record<WorkItemShape, string> = {
+const TITLE_ANIM_OUT_DEL: Record<ProjectShape, string> = {
     ['rectangle']: '25ms',
     ['triangle']: '25ms',
     ['half-circle']: '25ms',
 };
 
-const TITLE_ANIM_IN_DEL: Record<WorkItemShape, string> = {
+const TITLE_ANIM_IN_DEL: Record<ProjectShape, string> = {
     ['rectangle']: '260ms',
     ['triangle']: '300ms',
     ['half-circle']: '330ms',
 };
 
-const DESC_ANIM_IN_DEL: Record<WorkItemShape, string> = {
+const DESC_ANIM_IN_DEL: Record<ProjectShape, string> = {
     ['rectangle']: '255ms',
     ['triangle']: '308ms',
     ['half-circle']: '330ms',
@@ -276,6 +266,7 @@ const Title = styled(Heading)(({ theme }) => ({
     cursor: 'pointer',
     color: `${theme.palette.secondary.main} !important`,
     textTransform: 'none',
+    textWrap: 'nowrap',
     [theme.breakpoints.down('sm')]: {
         ...theme.typography.variant.h9,
         textTransform: 'none',
@@ -323,19 +314,12 @@ const ShapeLayer = styled(Box)(({ theme }) => ({
     top: 0,
 }));
 
-export interface WorkItemProps extends WorkItemData {
-    number: string;
+export interface WorkItemProps {
+    readonly project: Project;
 }
 
-export function WorkItem({
-    id,
-    title,
-    description,
-    shape,
-    color,
-    path,
-    number,
-}: WorkItemProps) {
+export function WorkItem({ project }: WorkItemProps) {
+    const { title, type, shape, color, path, number } = project;
     const handleClick = useCallback(() => {
         navigate(path);
     }, [path]);
@@ -384,9 +368,9 @@ export function WorkItem({
                     </Title>
                     <Description
                         className="work-item-description"
-                        aria-valuetext={description}
+                        aria-valuetext={type}
                     >
-                        {description}
+                        {type}
                     </Description>
                 </Stack>
             </Grid>

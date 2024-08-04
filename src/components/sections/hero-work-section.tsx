@@ -1,10 +1,18 @@
 import React from 'react';
 import Stack from '@mui/system/Stack';
-import { styled, useTheme } from '../theme';
+import { styled } from '../theme';
 import { Heading, Subtitle } from '../typography';
+import { useAppData } from '../app/context';
 
 const Container = styled(Stack)(({ theme }) => ({
     minHeight: '88vh',
+
+    [theme.breakpoints.down(1025)]: {
+        minHeight: '82vh',
+    },
+    [theme.breakpoints.down('sm')]: {
+        minHeight: '86vh',
+    },
 }));
 
 const HeroContent = styled(Stack)(({ theme }) => ({
@@ -50,7 +58,6 @@ export function HeroWorkSection({
     shapes,
     className,
 }: WorkMainSectionProps) {
-    const theme = useTheme();
     return (
         <Container
             id={id}
@@ -61,8 +68,8 @@ export function HeroWorkSection({
             <HeroContent
                 direction={'row'}
                 spacing={{ xs: 1, sm: 2, md: 3 }}
-                alignItems={'baseline'}
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
+                alignItems="baseline"
+                justifyContent="flex-start"
             >
                 <Heading
                     size={'title'}
@@ -91,5 +98,34 @@ export function HeroWorkSection({
             </HeroContent>
             <HeroShapes direction={'row'}>{shapes}</HeroShapes>
         </Container>
+    );
+}
+
+export interface ProjectHeroWorkSectionProps
+    extends Pick<WorkMainSectionProps, 'shapes' | 'className'> {
+    readonly projectId: string;
+    readonly heading?: string;
+}
+
+export function ProjectHeroWorkSection({
+    projectId,
+    heading,
+    ...rest
+}: ProjectHeroWorkSectionProps) {
+    const data = useAppData();
+    const project = data.findProject(projectId);
+
+    if (!project) {
+        throw new Error(`Project with id ${projectId} not found`);
+    }
+
+    return (
+        <HeroWorkSection
+            {...rest}
+            id="hero-section"
+            number={project.number}
+            description={project.description}
+            heading={heading ?? project.title}
+        />
     );
 }

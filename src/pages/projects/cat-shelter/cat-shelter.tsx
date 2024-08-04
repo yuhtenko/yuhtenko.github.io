@@ -2,8 +2,8 @@ import React from 'react';
 import Stack from '@mui/system/Stack';
 import { Image, ImageList } from '../../../components/image';
 import {
-    HeroWorkSection,
     PageSection,
+    ProjectHeroWorkSection,
     WorkSection,
 } from '../../../components/sections';
 import { SubSection } from '../../../components/sections/sub-section';
@@ -14,8 +14,10 @@ import catDesktop from './assets/cat-desktop.jpg';
 import catMobileAdopt from './assets/cat-mobile-adopt.jpg';
 import catMobileLuna from './assets/cat-mobile-luna.jpg';
 import catMobileStore from './assets/cat-mobile-store.jpg';
+import { List } from '../../../components/list/list';
+import { ImageView } from '../../../components/image/image-view';
 
-const CatShelterHeroSection = styled(HeroWorkSection)(({ theme }) => ({
+const CatShelterHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
         '& .hero-number, .hero-heading': {
             ...theme.typography.variant.h3,
@@ -46,15 +48,15 @@ const CatShelterHeroSection = styled(HeroWorkSection)(({ theme }) => ({
     },
 }));
 
+export const PROJECT_ID = 'cat-shelter';
+
 // &nbps; as a space code in HTML - https://www.w3schools.com/html/html_entities.asp
 export default function CatShelterProjectPage() {
     return (
         <>
             <CatShelterHeroSection
-                id="hero-section"
+                projectId={PROJECT_ID}
                 heading={'Cat\u00A0Angels Pet\u00A0Adoptions'}
-                number="03"
-                description="a place where every cat's meow matters"
                 shapes={
                     <Stack
                         direction={'column'}
@@ -83,6 +85,8 @@ export default function CatShelterProjectPage() {
                     my main job was to create high-quality content for their
                     website and social media accounts. Once I started studying
                     UX/UI design, I felt an urge to improve their website.
+                </Paragraph>
+                <Paragraph>
                     Unfortunately, as we all know, animal shelters usually lack
                     resources, and allocating them towards website development,
                     user research, and UX design is definitely not their top
@@ -107,31 +111,14 @@ export default function CatShelterProjectPage() {
                     audience. Here are some of the challenges that I had to face
                     in the process of designing the landing page:
                 </Paragraph>
-                <ul className="paragraph cat-challenge-list">
-                    <li>
-                        <Text>
-                            Information architecture: organizing information on
-                            the landing page to be easily navigable and
-                            identifying the most important information and
-                            features.
-                        </Text>
-                    </li>
-                    <li>
-                        <Text>
-                            Emotional content: finding the right balance between
-                            compelling content and a user-friendly design,
-                            without overloading the page with emotional content
-                            that may turn potential visitors away.
-                        </Text>
-                    </li>
-                    <li>
-                        <Text>
-                            Limited attention span: creating a landing page that
-                            quickly captures user attention, with clear
-                            call-to-action buttons.
-                        </Text>
-                    </li>
-                </ul>
+                <List
+                    items={[
+                        'Information architecture: organizing information on the landing page to be easily navigable and identifying the most important information and features.',
+                        'Emotional content: finding the right balance between compelling content and a user-friendly design, without overloading the page with emotional content that may turn potential visitors away.',
+                        'Limited attention span: creating a landing page that quickly captures user attention, with clear call-to-action buttons.',
+                    ]}
+                    variant={'unordered'}
+                />
             </WorkSection>
             <WorkSection
                 id={'process'}
@@ -185,9 +172,9 @@ export default function CatShelterProjectPage() {
                 variant={['bold', 'normal']}
             >
                 <ImageList>
-                    <Image src={catMobileAdopt} withBorder />
-                    <Image src={catMobileLuna} withBorder />
-                    <Image src={catMobileStore} withBorder />
+                    <ImageView src={catMobileAdopt} withBorder />
+                    <ImageView src={catMobileLuna} withBorder />
+                    <ImageView src={catMobileStore} withBorder />
                 </ImageList>
             </WorkSection>
         </>

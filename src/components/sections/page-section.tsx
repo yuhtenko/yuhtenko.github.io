@@ -43,7 +43,11 @@ export function PageSection({
         >
             <Grid xs={12} paddingBottom={0}>
                 {headingArray.length > 0 && (
-                    <Heading noMargin={noMargin} variant={variant}>
+                    <Heading
+                        noMargin={noMargin}
+                        variant={variant}
+                        size="heading1"
+                    >
                         {heading}
                     </Heading>
                 )}
