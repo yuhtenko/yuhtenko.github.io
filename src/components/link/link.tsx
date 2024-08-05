@@ -16,6 +16,14 @@ export function Link({
     to,
     children,
 }: PropsWithChildren<LinkProps>) {
+    if (to.includes('static')) {
+        return (
+            <a className={className} href={to}>
+                {children}
+            </a>
+        );
+    }
+
     return (
         <LinkImpl className={className} to={to}>
             {children}

@@ -92,14 +92,15 @@ const MenuList = styled(Stack)<MenuListProps>(({ theme, open }) => ({
     zIndex: 20,
     marginBottom: theme.spacing(5),
     [theme.breakpoints.down('sm')]: {
-        marginBottom: theme.spacing(3),
+        marginBottom: theme.spacing(4),
     },
     [theme.breakpoints.down(330)]: {
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(3),
     },
 }));
 
 const MenuNavLink = styled(NavLink)(({ theme }) => ({
+    userSelect: 'none',
     [theme.breakpoints.down('sm')]: {
         fontSize: '18px',
         lineHeight: '24px',
@@ -115,7 +116,7 @@ interface ButtonWrapperProps {
 }
 
 const ButtonWrapper = styled('div')<ButtonWrapperProps>(({ theme }) => ({
-    width: '30px',
+    width: 'auto',
     zIndex: 20,
     [theme.breakpoints.down('sm')]: {
         position: 'relative',
@@ -149,7 +150,7 @@ export function NavMenu({ items }: NavGroupProps) {
                     <Menu open={open}>
                         <MenuList
                             open={open}
-                            spacing={{ xs: 3, sm: 3, md: 3 }}
+                            spacing={{ xs: 2, sm: 3, md: 3 }}
                             alignItems={'center'}
                         >
                             {items.map((item) => (

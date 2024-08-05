@@ -8,16 +8,17 @@
     "gaTrackingId": "G-LLBZ8T4E9H",
     "sections": [
         {
-            "id": "work",
-            "title": "Work"
-        },
-        {
             "id": "about",
             "title": "About"
         },
         {
             "id": "contact",
             "title": "Contact"
+        },
+        {
+            "id": "resume",
+            "title": "Resume",
+            "url": "file://yulia_yukhtenko_resume.pdf"
         }
     ],
     "projects": [
