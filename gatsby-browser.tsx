@@ -2,6 +2,8 @@
 import { WindowLocation } from '@reach/router';
 import { WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
+import { PhotoProvider } from 'react-photo-view';
+import resumePdf from './src/pages/assets/yulia_yukhtenko_resume.pdf';
 import { Layout } from './src/components/layout';
 import { NavItem } from './src/components/link';
 import { ThemeProvider } from './src/components/theme';
@@ -11,7 +13,10 @@ import website from './website.json';
 import GlobalStyle from './src/components/theme/styles';
 import { AppDataProvider } from './src/components/app/context';
 import { AppData } from './src/common/app';
-import { PhotoProvider } from 'react-photo-view';
+
+const FILES: Record<string, string> = {
+    'file://yulia_yukhtenko_resume.pdf': resumePdf,
+};
 
 function buildHeaderLinks(
     loc: WindowLocation,
@@ -22,9 +27,11 @@ function buildHeaderLinks(
 
     if (arePathsEqual(loc.pathname, '/')) {
         data.sections?.forEach((i) => {
+            const filePath = FILES[i.url || ''];
+
             top.push({
                 label: i.title,
-                to: `/${i.path}`,
+                to: filePath || `/${i.path}`,
                 isActive: arePathsEqual(i.path, loc.pathname),
             });
         });

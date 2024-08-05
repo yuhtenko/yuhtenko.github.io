@@ -597,7 +597,7 @@ export default function TheOakGalleryPage() {
                                     title="I highlighted the section of the app
                                         where the user is currently located."
                                     before={
-                                        <Image
+                                        <ImageView
                                             src={hfMenuBeforeImage}
                                             alt="Menu Before"
                                             maxWidth="300px"

@@ -16,14 +16,12 @@ import { HeroPageSection, PageSection } from '../components/sections';
 import { Square } from '../components/shape';
 import { SuperCircle, SuperTriangle } from '../components/super-shapes';
 import { styled, useTheme } from '../components/theme';
-import { Heading, Paragraph, Quote } from '../components/typography';
+import { Heading, Paragraph } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkList } from '../components/work-list';
 import resumePdf from './assets/yulia_yukhtenko_resume.pdf';
 import { useAppData } from '../components/app/context';
 import { StyledLink } from '../components/link';
-import Box from '@mui/system/Box';
-import { List } from '../components/list/list';
 
 const MainHeading = styled(Heading)(({ theme }) => ({
     marginRight: '0 !important',
@@ -125,7 +123,6 @@ interface Message {
 }
 
 export default function HomePage() {
-    const theme = useTheme();
     const data = useAppData();
     const interests = toChunks(data.interests, 3);
     const [message, setMessage] = React.useState<Message | null>(null);
