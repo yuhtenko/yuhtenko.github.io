@@ -31,28 +31,36 @@
             "color": "blue"
         },
         {
+            "id": "bubbleup",
+            "title": "BubbleUp",
+            "type": "Case study",
+            "description": "your dream boba, made to order, delivered fast!",
+            "shape": "triangle",
+            "color": "red"
+        },
+        {
             "id": "ferret",
             "title": "Ferret",
             "type": "Redesign UX/UI",
             "description": "a software tool for data scientists",
-            "shape": "triangle",
-            "color": "red"
+            "shape": "half-circle",
+            "color": "yellow"
         },
         {
             "id": "led-screen",
             "title": "LedScreen",
             "type": "Case study",
             "description": "a service for speedy uploading of commercials onto city screens",
-            "shape": "half-circle",
-            "color": "yellow"
+            "shape": "rectangle",
+            "color": "blue"
         },
         {
             "id": "cat-shelter",
             "title": "Cat Angels",
             "type": "Redesign UX/UI",
             "description": "a place where every cat's meow matters",
-            "shape": "rectangle",
-            "color": "blue"
+            "shape": "triangle",
+            "color": "red"
         }
     ],
     "languages": [

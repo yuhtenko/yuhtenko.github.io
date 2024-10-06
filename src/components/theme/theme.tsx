@@ -132,6 +132,7 @@ const theme = createTheme({
         },
         black: {
             main: '#3A3537',
+            light: '#3A3537',
         },
         grey: {
             main: '#8F8F8F',
