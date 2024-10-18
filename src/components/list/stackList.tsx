@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { CSSObject } from '@mui/styled-engine';
 import Stack, { StackProps } from '@mui/system/Stack';
 import { Text } from '../typography';
+import { Color } from '../theme';
 
 function toTextAlignment(
     align?: StackProps['justifyContent']
@@ -20,10 +21,15 @@ function toTextAlignment(
 
 export interface StackListProps {
     align?: StackProps['justifyContent'];
+    color?: Color;
     items: Array<string | ReactElement>;
 }
 
-export function StackList({ items, align }: StackListProps): ReactElement {
+export function StackList({
+    items,
+    align,
+    color,
+}: StackListProps): ReactElement {
     return (
         <>
             <Stack
@@ -42,7 +48,9 @@ export function StackList({ items, align }: StackListProps): ReactElement {
                     return React.isValidElement(item) ? (
                         item
                     ) : (
-                        <Text key={key}>{item}</Text>
+                        <Text key={key} color={color}>
+                            {item}
+                        </Text>
                     );
                 })}
             </Stack>

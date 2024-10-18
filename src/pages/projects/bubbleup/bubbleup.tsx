@@ -10,12 +10,15 @@ import { Paragraph, Subtitle, Text } from '../../../components/typography';
 import { StyledLink } from '../../../components/link';
 import { List } from '../../../components/list/list';
 import { WorkSubsection } from '../../../components/sections/work-subsection';
-import { Table } from '../../../components/table';
 import { VerticalTable } from '../../../components/table/vertical';
+import { Tile } from '../../../components/tile';
+import { useTheme } from '../../../components/theme';
+import Grid from '@mui/system/Unstable_Grid';
 
 export const PROJECT_ID = 'bubbleup';
 
 export default function BubbleupProjectPage() {
+    const theme = useTheme();
     return (
         <>
             <ProjectHeroWorkSection
@@ -48,7 +51,7 @@ export default function BubbleupProjectPage() {
                     This project is a capstone project from the UI/UX Design{' '}
                     <StyledLink
                         to={
-                            'https://www.coursera.org/account/accomplishments/specialization/PVB29MDQAK8V'
+                            'https://www.coursera.org/account/accomplishments/specialization/LWPR2WFMLPYM'
                         }
                     >
                         Specialization
@@ -182,6 +185,72 @@ export default function BubbleupProjectPage() {
                             ]}
                         />
                     </Stack>
+                </WorkSubsection>
+                <WorkSubsection title="Strategy" color="red" position="right">
+                    <Grid container gap={1} direction={'row'}>
+                        <Grid xs={12}>
+                            <Subtitle>Target audience</Subtitle>
+                        </Grid>
+
+                        <Grid xs={6}>
+                            <Tile color="blue" title="Role" fullHeight>
+                                <List
+                                    color={'secondary'}
+                                    items={[
+                                        'College students',
+                                        'Young professionals',
+                                        'Bubble tea enthusiasts',
+                                        'Those who have never tried Boba before',
+                                    ]}
+                                />
+                            </Tile>
+                        </Grid>
+
+                        <Grid xs={6}>
+                            <Tile color="red" title="Demographics" fullHeight>
+                                <List
+                                    color={'secondary'}
+                                    items={[
+                                        'Gender - Any',
+                                        'Education - College or higher',
+                                        'Occupations - College students, office managers/secretaries, administrators, nearby business owners',
+                                        'Age - 16-40',
+                                        'Location - Chapel Hill, NC (UNC Campus)',
+                                    ]}
+                                />
+                            </Tile>
+                        </Grid>
+                        <Grid xs={6}>
+                            <Tile
+                                color="yellow"
+                                title="Psychographics"
+                                fullHeight
+                            >
+                                <List
+                                    color={'secondary'}
+                                    items={[
+                                        'Personality & Attitudes - Open-minded, Sassy',
+                                        'Trendy Values - Liberal',
+                                        'Lifestyles: On-the-go, Social',
+                                        'Spontaneous, Academic',
+                                    ]}
+                                />
+                            </Tile>
+                        </Grid>
+                        <Grid xs={6}>
+                            <Tile color="primary" title="Behavioral" fullHeight>
+                                <List
+                                    color={'secondary'}
+                                    items={[
+                                        'Usage Frequency - Frequent (students, office workers), Occasional (social users, boba lovers)',
+                                        'Purchasing Behavior - Customization enthusiasts, Convenience seekers',
+                                        'Decision-Making - On-the-go deciders',
+                                        'Flavor explorers Brand Loyalty - Loyalty-driven repeaters, Social sharers',
+                                    ]}
+                                />
+                            </Tile>
+                        </Grid>
+                    </Grid>
                 </WorkSubsection>
             </WorkSection>
         </>

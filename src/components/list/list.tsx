@@ -1,4 +1,4 @@
-import { styled, Theme } from '../theme';
+import { Color, styled, Theme } from '../theme';
 import { Text } from '../typography';
 import React, { ReactElement, ReactNode } from 'react';
 import { SxProps } from '@mui/system';
@@ -33,10 +33,11 @@ export interface ListProps {
     variant?: 'ordered' | 'unordered' | 'none';
     spacing?: number;
     sx?: SxProps;
+    color?: Color;
     items: Array<string | ReactElement>;
 }
 
-export function List({ items, ...other }: ListProps) {
+export function List({ items, color, ...other }: ListProps) {
     const Component = other.variant === 'ordered' ? OrderedList : UnorderedList;
 
     return (
@@ -53,7 +54,7 @@ export function List({ items, ...other }: ListProps) {
                         {React.isValidElement(item) ? (
                             item
                         ) : (
-                            <Text>{item}</Text>
+                            <Text color={color}>{item}</Text>
                         )}
                     </li>
                 );
