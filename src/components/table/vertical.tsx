@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, TableCell, TableRow } from './index';
+import { Table, TableCell, TableRow } from './table';
 
 export type VerticalTableItem = [TableCell, Array<TableCell>];
 

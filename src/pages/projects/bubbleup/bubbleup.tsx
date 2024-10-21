@@ -12,8 +12,9 @@ import { List } from '../../../components/list/list';
 import { WorkSubsection } from '../../../components/sections/work-subsection';
 import { VerticalTable } from '../../../components/table/vertical';
 import { Tile } from '../../../components/tile';
-import { useTheme } from '../../../components/theme';
+import { Theme, toColor, useTheme } from '../../../components/theme';
 import Grid from '@mui/system/Unstable_Grid';
+import { XYTable } from '../../../components/table/xy';
 
 export const PROJECT_ID = 'bubbleup';
 
@@ -186,13 +187,13 @@ export default function BubbleupProjectPage() {
                         />
                     </Stack>
                 </WorkSubsection>
-                <WorkSubsection title="Strategy" color="red" position="right">
-                    <Grid container gap={1} direction={'row'}>
+                <WorkSubsection title="Strategy" color="blue" position="right">
+                    <Grid container spacing={3} direction={'row'}>
                         <Grid xs={12}>
                             <Subtitle>Target audience</Subtitle>
                         </Grid>
 
-                        <Grid xs={6}>
+                        <Grid xs={12} sm={6}>
                             <Tile color="blue" title="Role" fullHeight>
                                 <List
                                     color={'secondary'}
@@ -206,7 +207,7 @@ export default function BubbleupProjectPage() {
                             </Tile>
                         </Grid>
 
-                        <Grid xs={6}>
+                        <Grid xs={12} sm={6}>
                             <Tile color="red" title="Demographics" fullHeight>
                                 <List
                                     color={'secondary'}
@@ -220,7 +221,7 @@ export default function BubbleupProjectPage() {
                                 />
                             </Tile>
                         </Grid>
-                        <Grid xs={6}>
+                        <Grid xs={12} sm={6}>
                             <Tile
                                 color="yellow"
                                 title="Psychographics"
@@ -237,7 +238,7 @@ export default function BubbleupProjectPage() {
                                 />
                             </Tile>
                         </Grid>
-                        <Grid xs={6}>
+                        <Grid xs={12} sm={6}>
                             <Tile color="primary" title="Behavioral" fullHeight>
                                 <List
                                     color={'secondary'}
@@ -251,6 +252,249 @@ export default function BubbleupProjectPage() {
                             </Tile>
                         </Grid>
                     </Grid>
+                    <br />
+                    <Grid container spacing={3} direction={'row'}>
+                        <Grid xs={12} sm={6}>
+                            <Subtitle color={'blue'}>User Needs</Subtitle>
+                            <Paragraph>
+                                The website needs to enable the user to:
+                            </Paragraph>
+                            <List
+                                items={[
+                                    'College students',
+                                    'Young professionals',
+                                    'Bubble tea enthusiasts',
+                                    'Those who have never tried Boba before',
+                                ]}
+                            />
+                        </Grid>
+
+                        <Grid xs={12} sm={6}>
+                            <Subtitle color={'blue'}>Client Needs</Subtitle>
+                            <Paragraph>
+                                The website needs to enable the client to:
+                            </Paragraph>
+                            <List
+                                items={[
+                                    'Gender - Any',
+                                    'Education - College or higher',
+                                    'Occupations - College students, office managers/secretaries, administrators, nearby business owners',
+                                    'Age - 16-40',
+                                    'Location - Chapel Hill, NC (UNC Campus)',
+                                ]}
+                            />
+                        </Grid>
+                        <Grid xs={12} sm={6}>
+                            <Subtitle color={'blue'}>
+                                Content Requirements
+                            </Subtitle>
+                            <List
+                                items={[
+                                    'Personality & Attitudes - Open-minded, Sassy',
+                                    'Trendy Values - Liberal',
+                                    'Lifestyles: On-the-go, Social',
+                                    'Spontaneous, Academic',
+                                ]}
+                            />
+                        </Grid>
+                        <Grid xs={12} sm={6}>
+                            <Subtitle color={'blue'}>
+                                Functionality Requirements
+                            </Subtitle>
+                            <List
+                                items={[
+                                    'Usage Frequency - Frequent (students, office workers), Occasional (social users, boba lovers)',
+                                    'Purchasing Behavior - Customization enthusiasts, Convenience seekers',
+                                    'Decision-Making - On-the-go deciders',
+                                    'Flavor explorers Brand Loyalty - Loyalty-driven repeaters, Social sharers',
+                                ]}
+                            />
+                        </Grid>
+                    </Grid>
+                </WorkSubsection>
+            </WorkSection>
+            <WorkSection
+                id={'design'}
+                heading={['DESIGN', 'PROCESS']}
+                variant={['bold', 'normal']}
+            >
+                <WorkSubsection
+                    title={'Empathize'}
+                    color="yellow"
+                    position="left"
+                >
+                    <Paragraph>
+                        In the Empathize stage of the BubbleUp project, I
+                        focused on deeply understanding the target users and
+                        their needs by conducting user research. This included
+                        identifying key user groups such as college students,
+                        office workers, and boba lovers, as outlined in the
+                        provided user personas below. I created empathy maps to
+                        better visualize the emotions, frustrations, and
+                        motivations of users like Emma, Tyler, and Ravi, all of
+                        whom have different lifestyles but share a common need
+                        for a convenient, customizable boba tea ordering
+                        experience.
+                    </Paragraph>
+                    <XYTable
+                        xColor="blue"
+                        yColor={'red'}
+                        items={[
+                            [
+                                'Says',
+                                [
+                                    [
+                                        'Busy Students',
+                                        [
+                                            'My day’s a balancing act, anything that saves me time is a win.',
+                                            'I need something fast and easy, especially during late-night study sessions.',
+                                        ],
+                                    ],
+                                    [
+                                        'On-the-Go Professionals',
+                                        [
+                                            'I’m always juggling work and fun—I need things that keep up with my pace.',
+                                            'I don’t want to waste time waiting in line for drinks during my breaks.',
+                                        ],
+                                    ],
+                                    [
+                                        'First-Time Users',
+                                        [
+                                            'I love discovering new flavors and unique combinations in my food.',
+                                            'I enjoy the experience of trying something different each time I order.',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            [
+                                'Thinks',
+                                [
+                                    [
+                                        'Busy Students',
+                                        [
+                                            'I have too much to do and too little time.',
+                                            'I need a quick, convenient option that fits my tight schedule.',
+                                            'Customizing my drink is great, but it shouldn’t take too long.',
+                                        ],
+                                    ],
+                                    [
+                                        'On-the-Go Professionals',
+                                        [
+                                            'I need quick, on-the-go options to fit between work meetings.',
+                                            'I want my drinks to be ready when I am, and customization should be fast.',
+                                            'Is there something new or fun I can try while being efficient with my time?',
+                                        ],
+                                    ],
+                                    [
+                                        'First-Time Users',
+                                        [
+                                            'I want to explore this area’s unique food scene and try what’s popular here.',
+                                            'Customization options should help me create something new, not overwhelm me.',
+                                            'I hope the app introduces me to things I haven’t tasted before.',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            [
+                                'Feels',
+                                [
+                                    [
+                                        'Busy Students',
+                                        [
+                                            'Overwhelmed by her busy schedule and academic workload.',
+                                            'Grateful for quick, reliable delivery options.',
+                                            'Relieved when something is easy and convenient to use.',
+                                        ],
+                                    ],
+                                    [
+                                        'On-the-Go Professionals',
+                                        [
+                                            'Frustrated when things slow him down, especially at work.',
+                                            'Excited about discovering new drinks and customization options.',
+                                            'Appreciative of services that match his fast-paced lifestyle.',
+                                        ],
+                                    ],
+                                    [
+                                        'First-Time Users',
+                                        [
+                                            'Excited by the opportunity to explore a variety of flavors.',
+                                            'Adventurous when trying new food.',
+                                            'Appreciates detailed descriptions and recommendations that make him feel confident in his choices.',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            [
+                                'Does',
+                                [
+                                    [
+                                        'Busy Students',
+                                        [
+                                            'Frequently orders food and drinks online, especially at night.',
+                                            'Prefers apps that save her time and allow easy customizations.',
+                                            'Looks for delivery options that fit into her study routine without much hassle.',
+                                        ],
+                                    ],
+                                    [
+                                        'On-the-Go Professionals',
+                                        [
+                                            'Uses delivery services to grab drinks between meetings or before social events.',
+                                            'Often tries new customization options but only when it’s quick and easy.',
+                                            'Looks for platforms that are intuitive and allow for fast navigation.',
+                                        ],
+                                    ],
+                                    [
+                                        'First-Time Users',
+                                        [
+                                            'Regularly orders delivery with co-workers, making it a fun, shared experience.',
+                                            'Actively experiments with customizations, new menu items and recommendations to expand his culinary experiences.',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ]}
+                    />
+                    <br />
+                    <Stack>
+                        <Subtitle>Pain Points</Subtitle>
+                        <List
+                            variant="ordered"
+                            sx={(theme: Theme) => ({
+                                '& li:first-of-type::marker': {
+                                    color: toColor(theme, 'blue'),
+                                },
+                                '& li:nth-of-type(2)::marker': {
+                                    color: toColor(theme, 'yellow'),
+                                },
+                            })}
+                            items={[
+                                <>
+                                    <Text color="blue">Time Sensitivity</Text>
+                                    <Paragraph>
+                                        Users like Emma and Tyler need quick and
+                                        convenient options that fit their busy
+                                        schedules. They get frustrated by any
+                                        delays in the ordering process, such as
+                                        waiting in line or slow navigation
+                                        through the app.
+                                    </Paragraph>
+                                </>,
+                                <>
+                                    <Text color="yellow">
+                                        Overwhelming Customization
+                                    </Text>
+                                    <Paragraph>
+                                        While users enjoy the ability to
+                                        customize their drinks, too many options
+                                        without clear guidance can become
+                                        overwhelming, especially for those
+                                        seeking something quick and easy, like
+                                        Ravi.
+                                    </Paragraph>
+                                </>,
+                            ]}
+                        />
+                    </Stack>
                 </WorkSubsection>
             </WorkSection>
         </>

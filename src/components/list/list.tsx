@@ -27,12 +27,19 @@ const UnorderedList = styled('ul')<Omit<ListProps, 'items'>>((input) => ({
 const OrderedList = styled('ol')<Omit<ListProps, 'items'>>((input) => ({
     ...listStyler(input),
     listStyle: input.variant === 'none' ? 'none' : 'decimal',
+    '& li::marker': {
+        fontSize: input.theme.typography.variant.body1.fontSize,
+
+        [input.theme.breakpoints.down('sm')]: {
+            fontSize: input.theme.typography.variant.body2.fontSize,
+        },
+    },
 }));
 
 export interface ListProps {
     variant?: 'ordered' | 'unordered' | 'none';
     spacing?: number;
-    sx?: SxProps;
+    sx?: SxProps<Theme>;
     color?: Color;
     items: Array<string | ReactElement>;
 }
