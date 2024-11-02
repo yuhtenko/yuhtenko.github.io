@@ -4,14 +4,28 @@ import { styled } from '../theme';
 
 const PersonaImage = styled(Image)<ImageProps>(({ theme }) => ({
     clipPath: 'ellipse(43% 50% at 50% 50%)',
+    objectFit: 'cover',
 }));
 
 export interface PersonaPictureProps {
     src: string;
     alt: string;
     maxWidth?: string;
+    maxHeight?: string;
 }
 
-export function PersonaPicture({ src, alt, maxWidth }: PersonaPictureProps) {
-    return <PersonaImage src={src} alt={alt} maxWidth={maxWidth} />;
+export function PersonaPicture({
+    src,
+    alt,
+    maxWidth,
+    maxHeight,
+}: PersonaPictureProps) {
+    return (
+        <PersonaImage
+            src={src}
+            alt={alt}
+            maxWidth={maxWidth}
+            maxHeight={maxHeight}
+        />
+    );
 }

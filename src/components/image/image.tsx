@@ -7,14 +7,16 @@ export interface ImageProps {
     src: string;
     alt?: string;
     maxWidth?: string;
+    maxHeight?: string;
     withBorder?: boolean | BorderSide[];
     style?: React.CSSProperties;
 }
 
 export const Image = styled('img')<ImageProps>(
-    ({ theme, withBorder, maxWidth }) => ({
+    ({ theme, withBorder, maxWidth, maxHeight }) => ({
         objectFit: 'contain',
         maxWidth: maxWidth || '100%',
+        maxHeight: maxHeight || '100%',
         height: 'auto',
         display: 'block',
         verticalAlign: 'middle',

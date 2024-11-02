@@ -10,13 +10,86 @@ import { Paragraph, Subtitle, Text } from '../../../components/typography';
 import { StyledLink } from '../../../components/link';
 import { List } from '../../../components/list/list';
 import { WorkSubsection } from '../../../components/sections/work-subsection';
-import { VerticalTable } from '../../../components/table/vertical';
+import { VerticalTable, XYTable } from '../../../components/table';
 import { Tile } from '../../../components/tile';
 import { Theme, toColor, useTheme } from '../../../components/theme';
 import Grid from '@mui/system/Unstable_Grid';
-import { XYTable } from '../../../components/table/xy';
+import { Persona, CompactPersonaCard } from '../../../components/persona';
+import emmaPicture from './assets/emma.jpg';
+import tylerPicture from './assets/tyler.png';
+import raviPicture from './assets/ravi.png';
+import userJourneyPicture from './assets/user-journey.jpg';
+import sitemapPicture from './assets/sitemap.jpg';
+import { SubSection } from '../../../components/sections/sub-section';
+import { TestResult } from '../../../components/sections/test-result';
+import { ImageView } from '../../../components/image/image-view';
+import lfImage1 from './assets/low-fidelity-1.jpg';
+import lfImage2 from './assets/low-fidelity-2.jpg';
+import lfImage3 from './assets/low-fidelity-3.jpg';
+import lfImage4 from './assets/low-fidelity-4.jpg';
+import lfImage5 from './assets/low-fidelity-5.jpg';
+import lfImage6 from './assets/low-fidelity-6.jpg';
+import lfImage7 from './assets/low-fidelity-7.jpg';
+import lfImage8 from './assets/low-fidelity-8.jpg';
+import lfImage9 from './assets/low-fidelity-9.jpg';
+import lfImage10 from './assets/low-fidelity-10.jpg';
+import lfImage11 from './assets/low-fidelity-11.jpg';
+import lfImage12 from './assets/low-fidelity-12.jpg';
+import hfImage1 from './assets/high-fidelity-1.jpg';
+import hfImage2 from './assets/high-fidelity-2.jpg';
+import hfImage3 from './assets/high-fidelity-3.jpg';
+import hfImage4 from './assets/high-fidelity-4.jpg';
+import hfImage5 from './assets/high-fidelity-5.jpg';
+import hfImage6 from './assets/high-fidelity-6.jpg';
+import hfImage7 from './assets/high-fidelity-7.jpg';
+import hfImage8 from './assets/high-fidelity-8.jpg';
+import hfImage9 from './assets/high-fidelity-9.jpg';
+import hfImage10 from './assets/high-fidelity-10.jpg';
+import hfImage11 from './assets/high-fidelity-11.jpg';
+import logoCreationImage from './assets/logo-creation.jpg';
+import test1Before1Image from './assets/test-1-before-1.jpg';
+import test1Before2Image from './assets/test-1-before-2.jpg';
+import test1After1Image from './assets/test-1-after-1.jpg';
+import test1After2Image from './assets/test-1-after-2.jpg';
+import test2After1Image from './assets/test-2-1.jpg';
+import test2After2Image from './assets/test-2-2.jpg';
+import test2After3Image from './assets/test-2-3.jpg';
+import test2After4Image from './assets/test-2-4.jpg';
+import test2After5Image from './assets/test-2-5.jpg';
+import { ImageList } from '../../../components/image';
+import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 
 export const PROJECT_ID = 'bubbleup';
+
+const PERSONAS: { emma: Persona; tyler: Persona; ravi: Persona } = {
+    emma: {
+        picture: emmaPicture,
+        name: 'Emma',
+        age: 21,
+        education: 'BS',
+        location: 'Chapel Hill, NC',
+        occupation: 'Student',
+        quote: "My day's a balancing act—anything that saves me time is a win.",
+    },
+    tyler: {
+        picture: tylerPicture,
+        name: 'Tyler',
+        age: 25,
+        education: 'BBA',
+        location: 'Chapel Hill, NC',
+        occupation: 'Marketing Coordinator',
+        quote: "I'm always juggling work and fun—I need things that keep up with my pace.",
+    },
+    ravi: {
+        name: 'Ravi',
+        picture: raviPicture,
+        age: 32,
+        education: 'MS',
+        location: 'Chapel Hill, NC',
+        occupation: 'Software Engineer',
+        quote: "I'm here to experience everything this place has to offer, one new flavor at a time.",
+    },
+};
 
 export default function BubbleupProjectPage() {
     const theme = useTheme();
@@ -495,6 +568,404 @@ export default function BubbleupProjectPage() {
                             ]}
                         />
                     </Stack>
+                </WorkSubsection>
+                <WorkSubsection title="Define" color="blue" position="right">
+                    <Paragraph>
+                        I created user personas to represent the target audience
+                        for the BubbleUp project. These personas capture the
+                        unique needs, behaviors, and goals of users to ensure
+                        the design addresses real user challenges and delivers
+                        an intuitive, enjoyable experience.
+                    </Paragraph>
+                    <Stack spacing={3}>
+                        <CompactPersonaCard
+                            key={PERSONAS.emma.name}
+                            persona={PERSONAS.emma}
+                        >
+                            A dedicated student at UNC Chapel Hill majoring in
+                            Biology, Emma has a full schedule of labs, study
+                            sessions, and volunteer work. Disciplined,
+                            determined, always chasing the next academic
+                            milestone. Often too busy to cook, Emma relies on
+                            quick delivery options to keep her fueled during her
+                            study marathons. Prefers to customize her order to
+                            fit her exact tastes.
+                        </CompactPersonaCard>
+                        <CompactPersonaCard
+                            key={PERSONAS.tyler.name}
+                            persona={PERSONAS.tyler}
+                            imagePosition="right"
+                        >
+                            Recently graduated and now balancing his first
+                            full-time job while maintaining an active social
+                            life. Outgoing, energetic, and loves to network both
+                            at work and outside. Tyler spends his weekdays
+                            working hard and his weekends catching up with
+                            friends. Always on the lookout for new spots to grab
+                            a quick, fun drink between meetings or before
+                            heading out.
+                        </CompactPersonaCard>
+                        <CompactPersonaCard
+                            key={PERSONAS.ravi.name}
+                            persona={PERSONAS.ravi}
+                        >
+                            Originally from Mumbai, Ravi loves trying new
+                            things, especially foods he’s never had before.
+                            Open-minded, adventurous, and enjoys learning about
+                            new cultures through their cuisines. Ravi and his
+                            coworkers often order in while working on late
+                            projects. He’s excited about discovering local
+                            favorites and likes to explore new tastes whenever
+                            possible.
+                        </CompactPersonaCard>
+                    </Stack>
+                    <Paragraph>
+                        After that I created a user journey map of my personas’
+                        experience to help identify possible problems and
+                        improvement opportunities.
+                    </Paragraph>
+                    <ImageView src={userJourneyPicture} alt={'User Journey'} />
+                    <Paragraph>
+                        Following all the frustrations I defined one main
+                        problem statement.
+                    </Paragraph>
+                    <Paragraph>
+                        <Text weight="medium">
+                            Customization experience for busy users
+                        </Text>
+                        <br />
+                        Emma, a busy student at UNC, needs an intuitive and
+                        reliable way to customize her boba tea orders through a
+                        mobile app. However, current solutions lack a
+                        streamlined, easy-to-use customization interface,
+                        leading to incorrect orders and frustration, especially
+                        when she is short on time during study sessions.
+                    </Paragraph>
+                </WorkSubsection>
+                <WorkSubsection title="Ideate" color="red" position="left">
+                    <Paragraph>
+                        In the Ideate stage, I can use{' '}
+                        <Text weight="medium">How Might We (HMW)</Text>
+                        questions to open up creative thinking and
+                        problem-solving for the issues identified in my problem
+                        statements. These questions help brainstorm potential
+                        solutions in a broad and imaginative way.
+                    </Paragraph>
+                    <List
+                        items={[
+                            'How might we streamline the customization process to save time for busy users like Emma?',
+                            'How might we create an interface that minimizes errors and ensures accurate orders, even during rushed moments?',
+                            'How might we offer a one-click customization option for frequent orders to make the process faster?',
+                            'How might we reduce decision fatigue for users by simplifying the number of steps required to customize their drink?',
+                            'How might we provide smart recommendations or pre-set options that Emma can easily select to fit her tastes?',
+                            'How might we speed up the ordering and delivery process during peak hours for users like Tyler and Ravi?',
+                            'How might we offer special menu items or flavor combinations that keep Tyler and Ravi’s experience fresh and exciting?',
+                            'How might we improve delivery tracking to keep socially active users informed and engaged while they wait?',
+                        ]}
+                    />
+                    <Paragraph>
+                        The next step I took was outlining the basic flow of the
+                        BubbleUp app by creating a detailed sitemap, mapping out
+                        each step users would take throughout the ordering
+                        process. Since navigating customization options was a
+                        significant pain point, I used that knowledge to design
+                        the sitemap. My goal was to ensure a logical,
+                        easy-to-follow structure that would enhance the overall
+                        user experience and make navigation simple and intuitive
+                        for busy and socially active users alike.
+                    </Paragraph>
+                    <ImageView src={sitemapPicture} alt={'Sitemap'} />
+                </WorkSubsection>
+                <WorkSubsection
+                    title="Prototype"
+                    color="yellow"
+                    position="right"
+                >
+                    <Stack>
+                        <Subtitle spacing={[1, 1]}>Wireframing</Subtitle>
+                        <Paragraph>
+                            After gathering research and insights, I moved into
+                            the wire-framing and prototyping stage. I began by
+                            creating initial paper sketches to outline the app's
+                            structure, followed by low-fidelity prototypes to
+                            establish the basic layout and flow.
+                        </Paragraph>
+                    </Stack>
+
+                    <SubSection heading="Low Fidelity Wireframes">
+                        <ColumnarImageList
+                            images={[
+                                [
+                                    <ImageView
+                                        src={lfImage1}
+                                        alt={'Low Fidelity 1'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage5}
+                                        alt={'Low Fidelity 5'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage9}
+                                        alt={'Low Fidelity 9'}
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <ImageView
+                                        src={lfImage2}
+                                        alt={'Low Fidelity 2'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage6}
+                                        alt={'Low Fidelity 6'}
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <ImageView
+                                        src={lfImage3}
+                                        alt={'Low Fidelity 3'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage7}
+                                        alt={'Low Fidelity 7'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage10}
+                                        alt={'Low Fidelity 10'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage12}
+                                        alt={'Low Fidelity 12'}
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <ImageView
+                                        src={lfImage4}
+                                        alt={'Low Fidelity 4'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage8}
+                                        alt={'Low Fidelity 8'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage11}
+                                        alt={'Low Fidelity 11'}
+                                        withBorder
+                                    />,
+                                ],
+                            ]}
+                        />
+                    </SubSection>
+                    <SubSection heading="Logo creation">
+                        <ImageView
+                            src={logoCreationImage}
+                            alt={'Logo Creation'}
+                        />
+                    </SubSection>
+                    <Paragraph>
+                        From there, I developed high-fidelity prototypes that
+                        incorporated detailed design elements, including
+                        typography, color palettes, and interactions. During
+                        this stage, I also focused on creating a logo that
+                        aligned with the app's brand identity and user
+                        experience.
+                    </Paragraph>
+                    <SubSection heading="High Fidelity Wireframes">
+                        <ColumnarImageList
+                            images={[
+                                [
+                                    <ImageView
+                                        src={hfImage1}
+                                        alt={'High Fidelity 1'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={hfImage5}
+                                        alt={'High Fidelity 5'}
+                                        withBorder
+                                    />,
+
+                                    <ImageView
+                                        src={hfImage9}
+                                        alt={'High Fidelity 9'}
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <ImageView
+                                        src={hfImage2}
+                                        alt={'High Fidelity 2'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={hfImage6}
+                                        alt={'High Fidelity 6'}
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <ImageView
+                                        src={hfImage3}
+                                        alt={'High Fidelity 3'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={hfImage7}
+                                        alt={'High Fidelity 7'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={hfImage10}
+                                        alt={'High Fidelity 10'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={lfImage12}
+                                        alt={'Low Fidelity 12'}
+                                        withBorder
+                                    />,
+                                ],
+                                [
+                                    <ImageView
+                                        src={hfImage4}
+                                        alt={'High Fidelity 4'}
+                                        withBorder
+                                    />,
+                                    <ImageView
+                                        src={hfImage8}
+                                        alt={'High Fidelity 8'}
+                                        withBorder
+                                    />,
+
+                                    <ImageView
+                                        src={hfImage11}
+                                        alt={'High Fidelity 11'}
+                                        withBorder
+                                    />,
+                                ],
+                            ]}
+                        />
+                    </SubSection>
+                </WorkSubsection>
+                <WorkSubsection title="Test" color="red" position="left">
+                    <Paragraph>
+                        In the test stage, I conducted user testing by sharing
+                        the clickable prototype with potential users to gather
+                        feedback on the design and functionality. Their input
+                        provided valuable insights into how the app could be
+                        improved, leading to further refinements. This process
+                        helped ensure the final design aligned with user
+                        expectations and needs.
+                    </Paragraph>
+                    <SubSection heading="User-Driven Insights">
+                        <List
+                            items={[
+                                <TestResult
+                                    title="I made visual adjustments to ensure the design was more cohesive and consistent throughout the user experience."
+                                    before={
+                                        <Stack gap={2}>
+                                            <ImageView
+                                                src={test1Before1Image}
+                                                alt="Visual Before 1"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <ImageView
+                                                src={test1Before2Image}
+                                                alt="Visual Before 2"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                    }
+                                    after={
+                                        <Stack gap={2}>
+                                            <ImageView
+                                                src={test1After1Image}
+                                                alt="Visual After 1"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <ImageView
+                                                src={test1After2Image}
+                                                alt="Visual After 2"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                        </Stack>
+                                    }
+                                />,
+                                <TestResult
+                                    title="I integrated AI-generated suggestions to elevate the customization experience to a whole new level by offering smarter, more personalized options for users"
+                                    after={
+                                        <ImageList maxColumns={3}>
+                                            <ImageView
+                                                src={test2After1Image}
+                                                alt="AI-generated suggestions 1"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <ImageView
+                                                src={test2After2Image}
+                                                alt="AI-generated suggestions 2"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <ImageView
+                                                src={test2After3Image}
+                                                alt="AI-generated suggestions 3"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <ImageView
+                                                src={test2After4Image}
+                                                alt="AI-generated suggestions 4"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                            <ImageView
+                                                src={test2After5Image}
+                                                alt="AI-generated suggestions 5"
+                                                maxWidth="300px"
+                                                withBorder
+                                            />
+                                        </ImageList>
+                                    }
+                                />,
+                            ]}
+                        />
+                        <Paragraph>
+                            Once a user selects their base drink (e.g., tea
+                            type), the AI suggests suitable flavors, toppings,
+                            and sweetness levels. Over time, the system learns
+                            the user's preferences and begins offering
+                            personalized recommendations based on their past
+                            selections.
+                        </Paragraph>
+                    </SubSection>
+                    <SubSection heading="Next Steps">
+                        <Paragraph>
+                            Moving forward, I plan to continue testing the app
+                            to validate the effectiveness of the solutions
+                            implemented for user pain points. Additionally, I
+                            will conduct further user research to uncover any
+                            new insights or areas for improvement. Based on
+                            these findings, I aim to iterate on the design and
+                            introduce updates that enhance the overall user
+                            experience, ensuring the app remains aligned with
+                            user needs.
+                        </Paragraph>
+                    </SubSection>
                 </WorkSubsection>
             </WorkSection>
         </>
