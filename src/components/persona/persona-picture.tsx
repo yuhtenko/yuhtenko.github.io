@@ -12,6 +12,7 @@ export interface PersonaPictureProps {
     alt: string;
     maxWidth?: string;
     maxHeight?: string;
+    maxSizes?: ImageProps['maxSizes'];
 }
 
 export function PersonaPicture({
@@ -19,6 +20,7 @@ export function PersonaPicture({
     alt,
     maxWidth,
     maxHeight,
+    maxSizes,
 }: PersonaPictureProps) {
     return (
         <PersonaImage
@@ -26,6 +28,7 @@ export function PersonaPicture({
             alt={alt}
             maxWidth={maxWidth}
             maxHeight={maxHeight}
+            maxSizes={maxSizes}
         />
     );
 }

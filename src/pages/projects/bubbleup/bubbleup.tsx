@@ -15,7 +15,7 @@ import { Tile } from '../../../components/tile';
 import { Theme, toColor, useTheme } from '../../../components/theme';
 import Grid from '@mui/system/Unstable_Grid';
 import { Persona, CompactPersonaCard } from '../../../components/persona';
-import emmaPicture from './assets/emma.jpg';
+import emmaPicture from './assets/emma.png';
 import tylerPicture from './assets/tyler.png';
 import raviPicture from './assets/ravi.png';
 import userJourneyPicture from './assets/user-journey.jpg';
@@ -58,6 +58,7 @@ import test2After4Image from './assets/test-2-4.jpg';
 import test2After5Image from './assets/test-2-5.jpg';
 import { ImageList } from '../../../components/image';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
+import { PersonaPictureProps } from '../../../components/persona/persona-picture';
 
 export const PROJECT_ID = 'bubbleup';
 
@@ -91,8 +92,15 @@ const PERSONAS: { emma: Persona; tyler: Persona; ravi: Persona } = {
     },
 };
 
+const profilePicMaxSizes: PersonaPictureProps['maxSizes'] = {
+    xs: [240, 240],
+    sm: [240, 360],
+    md: [240, 360],
+    lg: [360, 480],
+    xl: [360, 480],
+};
+
 export default function BubbleupProjectPage() {
-    const theme = useTheme();
     return (
         <>
             <ProjectHeroWorkSection

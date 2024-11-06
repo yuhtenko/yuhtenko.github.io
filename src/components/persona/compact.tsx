@@ -2,19 +2,37 @@ import React, { PropsWithChildren } from 'react';
 import Grid from '@mui/system/Unstable_Grid';
 import { Paragraph, Subtitle, Text } from '../typography';
 import { PersonaQuote } from './persona-quote';
-import { PersonaPicture } from './persona-picture';
+import { PersonaPicture, PersonaPictureProps } from './persona-picture';
 import { List } from '../list/list';
 import { Persona } from './persona';
 import Stack from '@mui/system/Stack';
+import { styled } from '../theme';
+import { ImageSize } from '../image';
+
+const InfoColumn = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        order: 2,
+    },
+}));
+
+const PictureColumn = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        order: 1,
+    },
+}));
 
 export interface CompactPersonaCardProps {
     persona: Persona;
     imagePosition?: 'left' | 'right';
+    size?: ImageSize;
+    maxSizes?: PersonaPictureProps['maxSizes'];
 }
 
 export function CompactPersonaCard({
     persona,
     imagePosition = 'left',
+    size = [360, 360],
+    maxSizes,
     children,
 }: PropsWithChildren<CompactPersonaCardProps>) {
     const { picture, name, quote } = persona;
@@ -41,7 +59,7 @@ export function CompactPersonaCard({
     }
 
     const infoCol = (
-        <Grid xs={12} md={8}>
+        <InfoColumn xs={12} sm={12} md={8}>
             <Stack spacing={3}>
                 <Subtitle color="red">{name}</Subtitle>
                 <PersonaQuote>{quote}</PersonaQuote>
@@ -53,17 +71,18 @@ export function CompactPersonaCard({
                 />
                 <Paragraph>{children}</Paragraph>
             </Stack>
-        </Grid>
+        </InfoColumn>
     );
     const imageCol = (
-        <Grid xs={8} md={4}>
+        <PictureColumn xs={12} sm={12} md={4} justifyItems="center">
             <PersonaPicture
                 src={picture}
                 alt={`Picture of ${name}`}
-                maxWidth={'360px'}
-                maxHeight={'480px'}
+                maxWidth={`${size[0]}px`}
+                maxHeight={`${size[1]}px`}
+                maxSizes={maxSizes}
             />
-        </Grid>
+        </PictureColumn>
     );
 
     const gridItems = [];

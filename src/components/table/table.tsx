@@ -7,6 +7,7 @@ import { color } from '@mui/system';
 const Wrapper = styled('div')(({ theme }) => ({
     border: `1px solid ${theme.palette.black.light}`,
     borderRadius: theme.shape.borderRadius,
+    overflow: 'auto',
 }));
 
 const StyledTable = styled('table')(({ theme }) => ({
