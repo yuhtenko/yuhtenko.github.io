@@ -34,7 +34,6 @@ import lfImage8 from './assets/low-fidelity-8.jpg';
 import lfImage9 from './assets/low-fidelity-9.jpg';
 import lfImage10 from './assets/low-fidelity-10.jpg';
 import lfImage11 from './assets/low-fidelity-11.jpg';
-import lfImage12 from './assets/low-fidelity-12.jpg';
 import hfImage1 from './assets/high-fidelity-1.jpg';
 import hfImage2 from './assets/high-fidelity-2.jpg';
 import hfImage3 from './assets/high-fidelity-3.jpg';
@@ -58,6 +57,7 @@ import test2After4Image from './assets/test-2-4.jpg';
 import test2After5Image from './assets/test-2-5.jpg';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 import { PersonaPictureProps } from '../../../components/persona/persona-picture';
+import { ImageList } from '../../../components/image';
 
 export const PROJECT_ID = 'bubbleup';
 
@@ -733,68 +733,52 @@ export default function BubbleupProjectPage() {
                                     <ImageView
                                         src={lfImage1}
                                         alt={'Low Fidelity 1'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage5}
                                         alt={'Low Fidelity 5'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage9}
                                         alt={'Low Fidelity 9'}
-                                        withBorder
                                     />,
                                 ],
                                 [
                                     <ImageView
                                         src={lfImage2}
                                         alt={'Low Fidelity 2'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage6}
                                         alt={'Low Fidelity 6'}
-                                        withBorder
                                     />,
                                 ],
                                 [
                                     <ImageView
                                         src={lfImage3}
                                         alt={'Low Fidelity 3'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage7}
                                         alt={'Low Fidelity 7'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage10}
                                         alt={'Low Fidelity 10'}
-                                        withBorder
-                                    />,
-                                    <ImageView
-                                        src={lfImage12}
-                                        alt={'Low Fidelity 12'}
-                                        withBorder
                                     />,
                                 ],
                                 [
                                     <ImageView
                                         src={lfImage4}
                                         alt={'Low Fidelity 4'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage8}
                                         alt={'Low Fidelity 8'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={lfImage11}
                                         alt={'Low Fidelity 11'}
-                                        withBorder
                                     />,
                                 ],
                             ]}
@@ -821,70 +805,54 @@ export default function BubbleupProjectPage() {
                                     <ImageView
                                         src={hfImage1}
                                         alt={'High Fidelity 1'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={hfImage5}
                                         alt={'High Fidelity 5'}
-                                        withBorder
                                     />,
 
                                     <ImageView
                                         src={hfImage9}
                                         alt={'High Fidelity 9'}
-                                        withBorder
                                     />,
                                 ],
                                 [
                                     <ImageView
                                         src={hfImage2}
                                         alt={'High Fidelity 2'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={hfImage6}
                                         alt={'High Fidelity 6'}
-                                        withBorder
                                     />,
                                 ],
                                 [
                                     <ImageView
                                         src={hfImage3}
                                         alt={'High Fidelity 3'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={hfImage7}
                                         alt={'High Fidelity 7'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={hfImage10}
                                         alt={'High Fidelity 10'}
-                                        withBorder
-                                    />,
-                                    <ImageView
-                                        src={lfImage12}
-                                        alt={'Low Fidelity 12'}
-                                        withBorder
                                     />,
                                 ],
                                 [
                                     <ImageView
                                         src={hfImage4}
                                         alt={'High Fidelity 4'}
-                                        withBorder
                                     />,
                                     <ImageView
                                         src={hfImage8}
                                         alt={'High Fidelity 8'}
-                                        withBorder
                                     />,
 
                                     <ImageView
                                         src={hfImage11}
                                         alt={'High Fidelity 11'}
-                                        withBorder
                                     />,
                                 ],
                             ]}
@@ -912,13 +880,11 @@ export default function BubbleupProjectPage() {
                                                 src={test1Before1Image}
                                                 alt="Visual Before 1"
                                                 maxWidth="300px"
-                                                withBorder
                                             />
                                             <ImageView
                                                 src={test1Before2Image}
                                                 alt="Visual Before 2"
                                                 maxWidth="300px"
-                                                withBorder
                                             />
                                         </Stack>
                                     }
@@ -928,13 +894,11 @@ export default function BubbleupProjectPage() {
                                                 src={test1After1Image}
                                                 alt="Visual After 1"
                                                 maxWidth="300px"
-                                                withBorder
                                             />
                                             <ImageView
                                                 src={test1After2Image}
                                                 alt="Visual After 2"
                                                 maxWidth="300px"
-                                                withBorder
                                             />
                                         </Stack>
                                     }
@@ -942,46 +906,33 @@ export default function BubbleupProjectPage() {
                                 <TestResult
                                     title="I integrated AI-generated suggestions to elevate the customization experience to a whole new level by offering smarter, more personalized options for users"
                                     after={
-                                        <ColumnarImageList
-                                            images={[
-                                                [
-                                                    <ImageView
-                                                        src={test2After1Image}
-                                                        alt="AI-generated suggestions 1"
-                                                        maxWidth="300px"
-                                                        withBorder
-                                                    />,
-                                                    <ImageView
-                                                        src={test2After4Image}
-                                                        alt="AI-generated suggestions 4"
-                                                        maxWidth="300px"
-                                                        withBorder
-                                                    />,
-                                                ],
-                                                [
-                                                    <ImageView
-                                                        src={test2After2Image}
-                                                        alt="AI-generated suggestions 2"
-                                                        maxWidth="300px"
-                                                        withBorder
-                                                    />,
-                                                    <ImageView
-                                                        src={test2After5Image}
-                                                        alt="AI-generated suggestions 5"
-                                                        maxWidth="300px"
-                                                        withBorder
-                                                    />,
-                                                ],
-                                                [
-                                                    <ImageView
-                                                        src={test2After3Image}
-                                                        alt="AI-generated suggestions 3"
-                                                        maxWidth="300px"
-                                                        withBorder
-                                                    />,
-                                                ],
-                                            ]}
-                                        />
+                                        <ImageList>
+                                            <ImageView
+                                                src={test2After1Image}
+                                                alt="AI-generated suggestions 1"
+                                                maxWidth="300px"
+                                            />
+                                            <ImageView
+                                                src={test2After4Image}
+                                                alt="AI-generated suggestions 4"
+                                                maxWidth="300px"
+                                            />
+                                            <ImageView
+                                                src={test2After2Image}
+                                                alt="AI-generated suggestions 2"
+                                                maxWidth="300px"
+                                            />
+                                            <ImageView
+                                                src={test2After5Image}
+                                                alt="AI-generated suggestions 5"
+                                                maxWidth="300px"
+                                            />
+                                            <ImageView
+                                                src={test2After3Image}
+                                                alt="AI-generated suggestions 3"
+                                                maxWidth="300px"
+                                            />
+                                        </ImageList>
                                     }
                                 />,
                             ]}

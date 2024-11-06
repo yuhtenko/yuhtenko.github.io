@@ -72,6 +72,8 @@ export function CompactPersonaCard({
     const infoCol = (
         <InfoColumn xs={12} sm={12} md={8}>
             <Stack spacing={3}>
+                <Subtitle color="red">{name}</Subtitle>
+                <PersonaQuote>{quote}</PersonaQuote>
                 <List
                     variant={'none'}
                     spacing={0}
@@ -106,12 +108,6 @@ export function CompactPersonaCard({
 
     return (
         <Grid container spacing={2}>
-            <ResponsiveColumn xs={12}>
-                <Subtitle color="red">{name}</Subtitle>
-            </ResponsiveColumn>
-            <ResponsiveColumn xs={12}>
-                <PersonaQuote>{quote}</PersonaQuote>
-            </ResponsiveColumn>
             {gridItems}
         </Grid>
     );
