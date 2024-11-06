@@ -916,38 +916,46 @@ export default function BubbleupProjectPage() {
                                 <TestResult
                                     title="I integrated AI-generated suggestions to elevate the customization experience to a whole new level by offering smarter, more personalized options for users"
                                     after={
-                                        <ImageList maxColumns={3}>
-                                            <ImageView
-                                                src={test2After1Image}
-                                                alt="AI-generated suggestions 1"
-                                                maxWidth="300px"
-                                                withBorder
-                                            />
-                                            <ImageView
-                                                src={test2After2Image}
-                                                alt="AI-generated suggestions 2"
-                                                maxWidth="300px"
-                                                withBorder
-                                            />
-                                            <ImageView
-                                                src={test2After3Image}
-                                                alt="AI-generated suggestions 3"
-                                                maxWidth="300px"
-                                                withBorder
-                                            />
-                                            <ImageView
-                                                src={test2After4Image}
-                                                alt="AI-generated suggestions 4"
-                                                maxWidth="300px"
-                                                withBorder
-                                            />
-                                            <ImageView
-                                                src={test2After5Image}
-                                                alt="AI-generated suggestions 5"
-                                                maxWidth="300px"
-                                                withBorder
-                                            />
-                                        </ImageList>
+                                        <ColumnarImageList
+                                            images={[
+                                                [
+                                                    <ImageView
+                                                        src={test2After1Image}
+                                                        alt="AI-generated suggestions 1"
+                                                        maxWidth="300px"
+                                                        withBorder
+                                                    />,
+                                                    <ImageView
+                                                        src={test2After4Image}
+                                                        alt="AI-generated suggestions 4"
+                                                        maxWidth="300px"
+                                                        withBorder
+                                                    />,
+                                                ],
+                                                [
+                                                    <ImageView
+                                                        src={test2After2Image}
+                                                        alt="AI-generated suggestions 2"
+                                                        maxWidth="300px"
+                                                        withBorder
+                                                    />,
+                                                    <ImageView
+                                                        src={test2After5Image}
+                                                        alt="AI-generated suggestions 5"
+                                                        maxWidth="300px"
+                                                        withBorder
+                                                    />,
+                                                ],
+                                                [
+                                                    <ImageView
+                                                        src={test2After3Image}
+                                                        alt="AI-generated suggestions 3"
+                                                        maxWidth="300px"
+                                                        withBorder
+                                                    />,
+                                                ],
+                                            ]}
+                                        />
                                     }
                                 />,
                             ]}

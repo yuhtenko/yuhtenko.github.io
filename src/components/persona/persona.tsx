@@ -6,6 +6,13 @@ import { PersonaPicture } from './persona-picture';
 import { List } from '../list/list';
 import { PersonaQuote } from './persona-quote';
 
+const ResponsiveColumn = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        paddingRight: '0px',
+        paddingLeft: '0px',
+    },
+}));
+
 const PersonaDescription = styled(Paragraph)(({ theme }) => ({
     display: 'inline-block',
     [theme.breakpoints.up('lg')]: {
@@ -59,13 +66,13 @@ export function PersonaCard({
 
     return (
         <Grid container spacing={2}>
-            <Grid xs={12}>
+            <ResponsiveColumn xs={12}>
                 <Subtitle color="red">{name}</Subtitle>
-            </Grid>
-            <Grid xs={12}>
+            </ResponsiveColumn>
+            <ResponsiveColumn xs={12}>
                 <PersonaQuote>{quote}</PersonaQuote>
-            </Grid>
-            <Grid
+            </ResponsiveColumn>
+            <ResponsiveColumn
                 key="basic-info"
                 container
                 xs={12}
@@ -89,8 +96,8 @@ export function PersonaCard({
                         items={info}
                     />
                 </Grid>
-            </Grid>
-            <Grid key="details" container xs={12} lg={7} xl={8}>
+            </ResponsiveColumn>
+            <ResponsiveColumn key="details" container xs={12} lg={7} xl={8}>
                 <Grid key="goals" xs={12} sm={6}>
                     <Text>Goals</Text>
                     <List items={persona.goals || []} />
@@ -102,7 +109,7 @@ export function PersonaCard({
                 <Grid key="description" xs={12}>
                     <PersonaDescription>{children}</PersonaDescription>
                 </Grid>
-            </Grid>
+            </ResponsiveColumn>
         </Grid>
     );
 }
