@@ -1,4 +1,4 @@
-import { styled, Theme } from '../theme';
+import { Color, styled, Theme } from '../theme';
 import { Text } from '../typography';
 import React, { ReactElement, ReactNode } from 'react';
 import { SxProps } from '@mui/system';
@@ -27,16 +27,24 @@ const UnorderedList = styled('ul')<Omit<ListProps, 'items'>>((input) => ({
 const OrderedList = styled('ol')<Omit<ListProps, 'items'>>((input) => ({
     ...listStyler(input),
     listStyle: input.variant === 'none' ? 'none' : 'decimal',
+    '& li::marker': {
+        fontSize: input.theme.typography.variant.body1.fontSize,
+
+        [input.theme.breakpoints.down('sm')]: {
+            fontSize: input.theme.typography.variant.body2.fontSize,
+        },
+    },
 }));
 
 export interface ListProps {
     variant?: 'ordered' | 'unordered' | 'none';
     spacing?: number;
-    sx?: SxProps;
+    sx?: SxProps<Theme>;
+    color?: Color;
     items: Array<string | ReactElement>;
 }
 
-export function List({ items, ...other }: ListProps) {
+export function List({ items, color, ...other }: ListProps) {
     const Component = other.variant === 'ordered' ? OrderedList : UnorderedList;
 
     return (
@@ -53,7 +61,7 @@ export function List({ items, ...other }: ListProps) {
                         {React.isValidElement(item) ? (
                             item
                         ) : (
-                            <Text>{item}</Text>
+                            <Text color={color}>{item}</Text>
                         )}
                     </li>
                 );

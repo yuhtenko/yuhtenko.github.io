@@ -9,22 +9,31 @@ export type ColumnBreakpoints = {
 export interface ImageListProps {
     className?: string;
     columnsCountBreakPoints?: ColumnBreakpoints;
+    maxColumns?: number;
 }
 
 export function ImageList({
     className,
     columnsCountBreakPoints,
+    maxColumns,
     children,
 }: PropsWithChildren<ImageListProps>): ReactElement {
     const theme = useTheme();
     const count = React.Children.count(children);
-    const maxColumns = count > 3 ? 4 : count === 3 ? 3 : count;
+    const finalMaxColumns =
+        typeof maxColumns === 'number'
+            ? maxColumns
+            : count > 3
+              ? 4
+              : count === 3
+                ? 3
+                : count;
 
     return (
         <ResponsiveMasonry
             className={className}
             columnsCountBreakPoints={
-                columnsCountBreakPoints || { 425: 2, 600: maxColumns }
+                columnsCountBreakPoints || { 425: 2, 600: finalMaxColumns }
             }
         >
             <Masonry gutter={theme.spacing(2)}>{children}</Masonry>
