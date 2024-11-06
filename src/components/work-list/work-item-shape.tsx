@@ -9,7 +9,7 @@ import {
     ShapeSize,
     ShapeType,
 } from '../shape';
-import { Theme, mapSize, styled, toColor } from '../theme';
+import { mapSize, styled, Theme, toColor } from '../theme';
 
 const toTriangleContainerMeasure = (
     theme: Theme,

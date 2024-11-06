@@ -1,10 +1,9 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
 import { CSSObject } from '@mui/styled-engine';
 import {
+    createTheme,
     Theme as MuiTheme,
     ThemeProvider as MuiThemeProvider,
-    color,
-    createTheme,
 } from '@mui/system';
 
 export interface PaletteColor {

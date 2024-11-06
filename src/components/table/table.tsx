@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import { Text } from '../typography';
 import { Color, styled, Theme, toColor } from '../theme';
 import { SxProps } from '@mui/system/styleFunctionSx';
-import { color } from '@mui/system';
 
 const Wrapper = styled('div')(({ theme }) => ({
     border: `1px solid ${theme.palette.black.light}`,

@@ -1,4 +1,4 @@
-import { HeadFC, Link, PageProps } from 'gatsby';
+import { Link, PageProps } from 'gatsby';
 import * as React from 'react';
 import { SEO } from '../components/layout/seo';
 import data from '../../website.json';

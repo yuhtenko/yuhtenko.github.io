@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Table, TableCell, TableRow } from './table';
-import { ReactElement } from 'react';
 import { List } from '../list/list';
 import { Color, Theme, toColor } from '../theme';
 

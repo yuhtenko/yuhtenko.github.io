@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { Theme, styled } from '../theme';
+import { styled, Theme } from '../theme';
 import { SxProps } from '@mui/system';
 
 const QuoteParagraph = styled('p')(({ theme }) => {

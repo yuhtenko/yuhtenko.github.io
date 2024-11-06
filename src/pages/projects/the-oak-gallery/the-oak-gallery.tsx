@@ -11,7 +11,7 @@ import {
     Subtitle,
     Text,
 } from '../../../components/typography';
-import { Image, ImageList } from '../../../components/image';
+import { ImageList } from '../../../components/image';
 import React from 'react';
 import { styled } from '../../../components/theme';
 import { WorkSubsection } from '../../../components/sections/work-subsection';
@@ -52,7 +52,7 @@ import { List } from '../../../components/list/list';
 import { SubSection } from '../../../components/sections/sub-section';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 import { TestResult } from '../../../components/sections/test-result';
-import { Link, StyledLink } from '../../../components/link';
+import { StyledLink } from '../../../components/link';
 import { ImageView } from '../../../components/image/image-view';
 
 const TheOakGalleryHeroSection = styled(ProjectHeroWorkSection)(

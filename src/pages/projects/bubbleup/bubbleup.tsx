@@ -12,9 +12,9 @@ import { List } from '../../../components/list/list';
 import { WorkSubsection } from '../../../components/sections/work-subsection';
 import { VerticalTable, XYTable } from '../../../components/table';
 import { Tile } from '../../../components/tile';
-import { Theme, toColor, useTheme } from '../../../components/theme';
+import { styled, Theme, toColor } from '../../../components/theme';
 import Grid from '@mui/system/Unstable_Grid';
-import { Persona, CompactPersonaCard } from '../../../components/persona';
+import { CompactPersonaCard, Persona } from '../../../components/persona';
 import emmaPicture from './assets/emma.png';
 import tylerPicture from './assets/tyler.png';
 import raviPicture from './assets/ravi.png';
@@ -56,7 +56,6 @@ import test2After2Image from './assets/test-2-2.jpg';
 import test2After3Image from './assets/test-2-3.jpg';
 import test2After4Image from './assets/test-2-4.jpg';
 import test2After5Image from './assets/test-2-5.jpg';
-import { ImageList } from '../../../components/image';
 import { ColumnarImageList } from '../../../components/image/columnar-image-list';
 import { PersonaPictureProps } from '../../../components/persona/persona-picture';
 
@@ -92,18 +91,27 @@ const PERSONAS: { emma: Persona; tyler: Persona; ravi: Persona } = {
     },
 };
 
-const profilePicMaxSizes: PersonaPictureProps['maxSizes'] = {
-    xs: [240, 240],
-    sm: [240, 360],
-    md: [240, 360],
-    lg: [360, 480],
-    xl: [360, 480],
-};
+const BubbleupHeroSection = styled(ProjectHeroWorkSection)(({ theme }) => ({
+    [theme.breakpoints.down(476)]: {
+        '& .hero-number, .hero-heading': {
+            ...theme.typography.variant.h3,
+            textTransform: 'none',
+            fontWeight: theme.typography.fontWeight.bold,
+        },
+    },
+    [theme.breakpoints.down(371)]: {
+        '& .hero-number, .hero-heading': {
+            ...theme.typography.variant.h4,
+            textTransform: 'none',
+            fontWeight: theme.typography.fontWeight.bold,
+        },
+    },
+}));
 
 export default function BubbleupProjectPage() {
     return (
         <>
-            <ProjectHeroWorkSection
+            <BubbleupHeroSection
                 projectId={PROJECT_ID}
                 shapes={
                     <Stack
@@ -152,7 +160,7 @@ export default function BubbleupProjectPage() {
                     items={[
                         <>
                             <Text weight="semi-bold">Project Duration: </Text>
-                            <Text>July - September 2024.</Text>
+                            <Text>July - September 2024</Text>
                         </>,
                         <>
                             <Text weight="semi-bold">My Role: </Text>
@@ -200,7 +208,7 @@ export default function BubbleupProjectPage() {
                     </Paragraph>
 
                     <Stack>
-                        <Subtitle>Elevator pitch</Subtitle>
+                        <Subtitle spacing={[1, 1]}>Elevator pitch</Subtitle>
                         <Paragraph fontStyle="italic">
                             “Say hey to BubbleUp, the ultimate boba hookup that
                             delivers your fave bubble tea straight to your door.
@@ -216,7 +224,9 @@ export default function BubbleupProjectPage() {
                     </Stack>
 
                     <Stack>
-                        <Subtitle>Customization options</Subtitle>
+                        <Subtitle spacing={[1, 1]}>
+                            Customization options
+                        </Subtitle>
                         <VerticalTable
                             items={[
                                 [
@@ -271,7 +281,9 @@ export default function BubbleupProjectPage() {
                 <WorkSubsection title="Strategy" color="blue" position="right">
                     <Grid container spacing={3} direction={'row'}>
                         <Grid xs={12}>
-                            <Subtitle>Target audience</Subtitle>
+                            <Subtitle spacing={[1, 1]}>
+                                Target audience
+                            </Subtitle>
                         </Grid>
 
                         <Grid xs={12} sm={6}>
@@ -336,58 +348,72 @@ export default function BubbleupProjectPage() {
                     <br />
                     <Grid container spacing={3} direction={'row'}>
                         <Grid xs={12} sm={6}>
-                            <Subtitle color={'blue'}>User Needs</Subtitle>
+                            <Subtitle spacing={[1, 1]} color={'blue'}>
+                                User Needs
+                            </Subtitle>
                             <Paragraph>
                                 The website needs to enable the user to:
                             </Paragraph>
                             <List
                                 items={[
-                                    'College students',
-                                    'Young professionals',
-                                    'Bubble tea enthusiasts',
-                                    'Those who have never tried Boba before',
+                                    'Find out if the restaurant delivers to their area',
+                                    'Seamless online ordering',
+                                    'Real business hours',
+                                    'Customize the order or pick from a list of most popular drinks',
+                                    'Place an order',
+                                    'Track order status',
+                                    'Optimized mobile experience',
+                                    'See order history',
+                                    'Promotions and rewards integration',
                                 ]}
                             />
                         </Grid>
 
                         <Grid xs={12} sm={6}>
-                            <Subtitle color={'blue'}>Client Needs</Subtitle>
+                            <Subtitle spacing={[1, 1]} color={'blue'}>
+                                Client Needs
+                            </Subtitle>
                             <Paragraph>
                                 The website needs to enable the client to:
                             </Paragraph>
                             <List
                                 items={[
-                                    'Gender - Any',
-                                    'Education - College or higher',
-                                    'Occupations - College students, office managers/secretaries, administrators, nearby business owners',
-                                    'Age - 16-40',
-                                    'Location - Chapel Hill, NC (UNC Campus)',
+                                    'Sell boba tea online that will be delivered',
+                                    'Provide a system for order customization',
+                                    'Fast and reliable delivery',
+                                    'Promote quality and natural ingredients',
+                                    'Educate new customers about Boba',
+                                    'Showcase popular drinks',
+                                    'Ensure secure payment and data protection',
+                                    'Provide a system for order tracking',
                                 ]}
                             />
                         </Grid>
                         <Grid xs={12} sm={6}>
-                            <Subtitle color={'blue'}>
+                            <Subtitle spacing={[1, 1]} color={'blue'}>
                                 Content Requirements
                             </Subtitle>
                             <List
                                 items={[
-                                    'Personality & Attitudes - Open-minded, Sassy',
-                                    'Trendy Values - Liberal',
-                                    'Lifestyles: On-the-go, Social',
-                                    'Spontaneous, Academic',
+                                    'Menu descriptions and customization guides',
+                                    'High-quality drink images and visuals',
+                                    'Info about delivery radius and working hours',
+                                    'Educational content for new users',
+                                    'Promotional and loyalty program info',
                                 ]}
                             />
                         </Grid>
                         <Grid xs={12} sm={6}>
-                            <Subtitle color={'blue'}>
+                            <Subtitle spacing={[1, 1]} color={'blue'}>
                                 Functionality Requirements
                             </Subtitle>
                             <List
                                 items={[
-                                    'Usage Frequency - Frequent (students, office workers), Occasional (social users, boba lovers)',
-                                    'Purchasing Behavior - Customization enthusiasts, Convenience seekers',
-                                    'Decision-Making - On-the-go deciders',
-                                    'Flavor explorers Brand Loyalty - Loyalty-driven repeaters, Social sharers',
+                                    'Location checker tool',
+                                    'Interactive drink customization system',
+                                    'Online ordering and check out system',
+                                    'Order tracking and real time updates',
+                                    'Mobile optimization',
                                 ]}
                             />
                         </Grid>
@@ -537,7 +563,7 @@ export default function BubbleupProjectPage() {
                     />
                     <br />
                     <Stack>
-                        <Subtitle>Pain Points</Subtitle>
+                        <Subtitle spacing={[1, 1]}>Pain Points</Subtitle>
                         <List
                             variant="ordered"
                             sx={(theme: Theme) => ({

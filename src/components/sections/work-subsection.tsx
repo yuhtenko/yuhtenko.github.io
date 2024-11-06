@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Color, styled } from '../theme';
-import { Heading, HeadingProps, Subtitle, SubtitleProps } from '../typography';
+import { Subtitle, SubtitleProps } from '../typography';
 import Stack from '@mui/system/Stack';
 
 export type Position = 'left' | 'right';

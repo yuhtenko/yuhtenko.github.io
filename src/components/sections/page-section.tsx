@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { SxProps } from '@mui/system';
 import Grid, { GridProps } from '@mui/system/Unstable_Grid';
-import { Link } from '../link';
 import { Heading, HeadingVariant, HeadingVariantTuple } from '../typography';
 
 export interface PageSectionProps

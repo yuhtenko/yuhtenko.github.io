@@ -1,4 +1,4 @@
-import { Theme, mapSize, mergeCss, styled, toColor } from '../theme';
+import { mapSize, mergeCss, styled, Theme, toColor } from '../theme';
 import {
     DEFAULT_COLOR,
     DEFAULT_DIRECTION,

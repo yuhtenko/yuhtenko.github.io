@@ -15,7 +15,6 @@ import {
 } from '../../../components/image';
 import { DesignProcess } from '../../../components/process';
 import {
-    HeroWorkSection,
     PageSection,
     ProjectHeroWorkSection,
     WorkSection,

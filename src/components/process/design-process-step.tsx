@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import Stack, { StackProps } from '@mui/system/Stack';
 import { StackList } from '../list';
-import { Subtitle, Text } from '../typography';
+import { Subtitle } from '../typography';
 
 export interface DesignProcessStepShapesProps {
     className?: string;

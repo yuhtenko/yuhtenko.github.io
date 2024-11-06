@@ -9,7 +9,7 @@ import {
 import { SubSection } from '../../../components/sections/sub-section';
 import { HalfCircle, Rectangle, Triangle } from '../../../components/shape';
 import { styled } from '../../../components/theme';
-import { Paragraph, Text } from '../../../components/typography';
+import { Paragraph } from '../../../components/typography';
 import catDesktop from './assets/cat-desktop.jpg';
 import catMobileAdopt from './assets/cat-mobile-adopt.jpg';
 import catMobileLuna from './assets/cat-mobile-luna.jpg';

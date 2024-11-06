@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import { styled, useTheme } from '../theme';
 import { useMediaQuery } from '@mui/system';
-import { Text } from '../typography';
 import { NavLink } from './nav-link';
 
 export type NavMenuButtonVariant = 'open' | 'close';

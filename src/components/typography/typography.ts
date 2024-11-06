@@ -1,6 +1,5 @@
 import { CSSObject } from '@mui/styled-engine';
 import { Color, FontWeight, Theme, toColor, toFontWeight } from '../theme';
-import exp from 'node:constants';
 
 export type Align = 'left' | 'center' | 'right';
 
