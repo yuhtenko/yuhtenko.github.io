@@ -17,9 +17,7 @@ const FooterRoot = styled(Stack)(({ theme }) => {
     };
 });
 
-const Copyright = styled('span')(({ theme }) => ({
-    height: '40px',
-}));
+const Copyright = styled('span')(({ theme }) => ({}));
 
 export function Footer(): ReactElement {
     const theme = useTheme();
@@ -47,13 +45,21 @@ export function Footer(): ReactElement {
                         color="black"
                     />
                 </Stack>
+            </Stack>
+            <Stack
+                direction={'row'}
+                alignItems={'center'}
+                justifyContent={'space-between'}
+                marginTop="0px !important"
+                height={84}
+            >
+                <Copyright id="footer-copyright">
+                    {new Date().getFullYear()} All rights reserved
+                </Copyright>
                 <ScrollAnchor to="page-root">
                     <ArrowUpIcon />
                 </ScrollAnchor>
             </Stack>
-            <Copyright id="footer-copyright">
-                {new Date().getFullYear()} All rights reserved
-            </Copyright>
         </FooterRoot>
     );
 }
