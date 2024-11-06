@@ -1,6 +1,6 @@
 import { Color, styled, Theme } from '../theme';
 import { Text } from '../typography';
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import { SxProps } from '@mui/system';
 
 type ListStyler = (props: { theme: Theme } & Omit<ListProps, 'items'>) => any;

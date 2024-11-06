@@ -1,6 +1,6 @@
 import React, { CSSProperties, PropsWithChildren, ReactElement } from 'react';
 import { CSSObject } from '@mui/styled-engine';
-import { Color, Theme, styled, toColor } from '../theme';
+import { Color, styled, Theme, toColor } from '../theme';
 
 type TextTransform =
     | 'none'

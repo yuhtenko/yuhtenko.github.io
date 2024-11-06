@@ -3,7 +3,7 @@ import Stack from '@mui/system/Stack';
 import Grid from '@mui/system/Unstable_Grid';
 import { Button } from '../buttons';
 import { styled } from '../theme';
-import { TextInput, Textarea } from './inputs';
+import { Textarea, TextInput } from './inputs';
 
 const Form = styled('form')(({ theme }) => ({
     display: 'flex',

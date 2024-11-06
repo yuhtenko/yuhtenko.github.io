@@ -99,15 +99,25 @@ const MenuList = styled(Stack)<MenuListProps>(({ theme, open }) => ({
     },
 }));
 
-const MenuNavLink = styled(NavLink)(({ theme }) => ({
+const MenuNavLink = styled(NavLink)(({ theme, isActive }) => ({
     userSelect: 'none',
+    fontWeight: isActive
+        ? `${theme.typography.fontWeight.bold} !important`
+        : 'normal',
+    '&:hover': {
+        fontWeight: theme.typography.fontWeight.medium,
+    },
+    [theme.breakpoints.up('sm')]: {
+        fontSize: '20px',
+        lineHeight: '30px',
+    },
     [theme.breakpoints.down('sm')]: {
-        fontSize: '18px',
-        lineHeight: '24px',
+        fontSize: '16px',
+        lineHeight: '26px',
     },
     [theme.breakpoints.down(330)]: {
-        fontSize: '16px',
-        lineHeight: '22px',
+        fontSize: '14px',
+        lineHeight: '20px',
     },
 }));
 
@@ -150,7 +160,7 @@ export function NavMenu({ items }: NavGroupProps) {
                     <Menu open={open}>
                         <MenuList
                             open={open}
-                            spacing={{ xs: 1 }}
+                            spacing={{ xs: 1, md: 2 }}
                             alignItems={'center'}
                         >
                             {items.map((item) => (
@@ -158,6 +168,7 @@ export function NavMenu({ items }: NavGroupProps) {
                                     <MenuNavLink
                                         color={'secondary'}
                                         to={item.to}
+                                        isActive={item.isActive}
                                     >
                                         {item.label}
                                     </MenuNavLink>

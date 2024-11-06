@@ -15,7 +15,7 @@ import { StackList } from '../components/list';
 import { HeroPageSection, PageSection } from '../components/sections';
 import { Square } from '../components/shape';
 import { SuperCircle, SuperTriangle } from '../components/super-shapes';
-import { styled, useTheme } from '../components/theme';
+import { styled } from '../components/theme';
 import { Heading, Paragraph } from '../components/typography';
 import { ClickAwayListener } from '../components/utils';
 import { WorkList } from '../components/work-list';

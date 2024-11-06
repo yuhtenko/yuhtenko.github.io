@@ -1,4 +1,4 @@
-import { Color, Theme, mapSize, styled, toColor } from '../theme';
+import { Color, mapSize, styled, Theme, toColor } from '../theme';
 import {
     DEFAULT_COLOR,
     DEFAULT_DIRECTION,

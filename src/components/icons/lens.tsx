@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 export const LensIcon = () => (
     <svg width="58" height="66" viewBox="2 22 50 20" fill="none">

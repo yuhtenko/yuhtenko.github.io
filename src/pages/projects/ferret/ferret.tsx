@@ -15,7 +15,7 @@ import {
 } from '../../../components/sections';
 import { SubSection } from '../../../components/sections/sub-section';
 import { HalfCircle, Rectangle, Triangle } from '../../../components/shape';
-import { styled, useTheme } from '../../../components/theme';
+import { styled } from '../../../components/theme';
 import { Paragraph } from '../../../components/typography';
 import image1EcosystemBase from './assets/image-1-ecosystem-base.jpg';
 import image1EcosystemCli from './assets/image-1-ecosystem-cli.jpg';

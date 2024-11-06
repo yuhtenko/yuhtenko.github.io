@@ -1,6 +1,6 @@
 // src/components/GlobalStyle.js
 import React from 'react';
-import { Global, css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import latin300NormalWoff from '../../fonts/montserrat-latin-300-normal.woff';
 import latin300ItalicWoff from '../../fonts/montserrat-latin-300-italic.woff';
 import latin400NormalWoff from '../../fonts/montserrat-latin-400-normal.woff';

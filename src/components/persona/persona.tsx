@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Paragraph, Subtitle, Text } from '../typography';
-import { styled, useTheme } from '../theme';
+import { styled } from '../theme';
 import Grid from '@mui/system/Unstable_Grid';
 import { PersonaPicture } from './persona-picture';
 import { List } from '../list/list';

@@ -1,5 +1,4 @@
 import React, { PropsWithChildren, ReactElement } from 'react';
-import Box, { BoxProps } from '@mui/system/Box';
 import { Heading } from '../typography';
 import Stack, { StackProps } from '@mui/system/Stack';
 

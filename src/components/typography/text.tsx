@@ -1,5 +1,5 @@
 import { styled } from '../theme';
-import { Typography, toTypographyCss, toSpacing } from './typography';
+import { toSpacing, toTypographyCss, Typography } from './typography';
 
 export interface TextProps extends Typography {}
 
