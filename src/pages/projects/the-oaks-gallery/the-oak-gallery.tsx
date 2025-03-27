@@ -119,7 +119,7 @@ const PERSONAS: { laura: Persona; eric: Persona } = {
     },
 };
 
-export const PROJECT_ID = 'the-oak-gallery';
+export const PROJECT_ID = 'the-oaks-gallery';
 
 export default function TheOakGalleryPage() {
     return (

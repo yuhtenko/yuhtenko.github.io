@@ -23,8 +23,8 @@
     ],
     "projects": [
         {
-            "id": "the-oak-gallery",
-            "title": "The Oak Gallery",
+            "id": "the-oaks-gallery",
+            "title": "The Oaks Gallery",
             "type": "Case study",
             "description": "where art finds its auction",
             "shape": "rectangle",
